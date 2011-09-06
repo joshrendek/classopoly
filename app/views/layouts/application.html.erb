@@ -8,7 +8,34 @@
 </head>
 <body>
 
-<%= yield %>
+<!-- Topbar
+    ================================================== --> 
+    <div class="topbar"> 
+      <div class="topbar-inner"> 
+        <div class="container"> 
+          <h3><a href="#">Classly</a></h3> 
+          <ul class="nav"> 
+            <li class="active"><a href="#masthead">Home</a></li> 
+            <li><a href="#about">Friends</a></li> 
+            <li><a href="#">My Schedule</a></li>
+            <li><a href="#">Class List</a></li>
+            <li><a href="#">Settings</a></li>
+            <form action=""> 
+              <input type="text" placeholder="Search for a class..." /> 
+            </form> 
 
-</body>
+          </ul> 
+
+          <ul class="nav secondary-nav"> 
+            <li><a href="#"><img src="/assets/fb-login-button.png" id="facebook" /></a></li>
+          </ul> 
+
+        </div> 
+      </div> 
+    </div> 
+
+
+    <%= yield %>
+
+  </body>
 </html>

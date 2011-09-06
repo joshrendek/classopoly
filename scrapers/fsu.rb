@@ -4,6 +4,7 @@ require 'active_record'
 require 'hpricot'
 require 'net/http'
 require 'timeout'
+require 'rainbow'
 
 # set debug flag
 !ARGV[0].nil? && ARGV[0].downcase == "debug" ? DEBUG = true : DEBUG = false
@@ -95,6 +96,7 @@ i = 0
       end
     end while not response.body.include?('Course Sections Offered For')
     classes = []
+    print response.body
     @web_doc= Hpricot(response.body)
     url = ""
     is_class_row = false
@@ -123,7 +125,7 @@ i = 0
 
 
   rescue Exception => e
-    print "\t\t -> [ ** Timeout parsing: #{d} ( #{e.to_s} ) ** ] \n"
+    print "\t\t -> [ ** Timeout parsing: #{d} ( #{e.to_s} ) ** ] \n".color(:red)
   end
   i += 1
 
