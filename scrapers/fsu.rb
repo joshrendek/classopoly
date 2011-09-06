@@ -48,11 +48,18 @@ end
 
 p "[ Found #{@departments.size} departments ]"
 
+@pretty_departments = []
+@departments.each do |d|
+  p d.gsub(/[0-9]{0,}/, '')
+end
+
 if DEBUG
   @departments.each do |d|
     print "\t #{d} \n"
   end
 end
+
+Kernel.exit
 
 cookie = response.header["set-cookie"]
 p "Cookie => " + cookie.to_s
@@ -96,7 +103,11 @@ i = 0
       end
     end while not response.body.include?('Course Sections Offered For')
     classes = []
-    print response.body
+    
+    if DEBUG
+      print response.body
+    end
+
     @web_doc= Hpricot(response.body)
     url = ""
     is_class_row = false
