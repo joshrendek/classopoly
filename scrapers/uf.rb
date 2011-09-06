@@ -11,16 +11,15 @@ require 'rainbow'
 
 
 # pretend we're a real browser
-HDRS = {"User-Agent"=>"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3", "Accept-Charset"=>"utf-8", "Accept"=>"text/html", 
-   "Host" => "apps.oti.fsu.edu", "Referer" => "http://apps.oti.fsu.edu/RegistrarCourseLookup/SearchResults",
+HDRS = {"User-Agent"=>"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3", "Accept-Charset"=>"utf-8", "Accept"=>"text/html"
  }
   
-TABLE_HEADERS = %w{ course_number section course_ref_num title instructor seats seats_left building room days begin end  }
+TABLE_HEADERS = %w{ course course_fee emp_edu_prog write_math general_ed section credits days period building room exam course_title instructor  }
 
 # page timeout when loading
 TIMEOUT = 2
 
-uri = URI.parse("http://apps.oti.fsu.edu/RegistrarCourseLookup/SearchResults")
+uri = URI.parse("http://registrar.ufl.edu/soc/201108/all/")
 
 # Get Cookie first
 http = Net::HTTP.new(uri.host, uri.port)
@@ -28,39 +27,14 @@ response = http.request(Net::HTTP::Get.new(uri.request_uri))
 @webdoc = Hpricot(response.body)
 @departments = []
 
-# Find all departments and store them
-javascript = @webdoc.search('script').first.to_s.split(/\n/)
-javascript.each do |l|
-  if l =~ /departments\[[0-9]{0,}\]/
-    begin
-      x = l.split('=')[1].split('",')[0].gsub('["', '').gsub('"', '').strip
-      @departments << x unless x.size == 0
-
-      if DEBUG
-        print "\n Department -> #{x} \n"
-      end
-
-    rescue Exception => e
-      p "Eception occured while parsing classes: #{e.to_s}"
-    end
-  end
-end
-
-p "[ Found #{@departments.size} departments ]"
-
-@pretty_departments = []
-@departments.each do |d|
-  p d.gsub(/[0-9]{0,}/, '')
-end
-
-if DEBUG
-  @departments.each do |d|
-    print "\t #{d} \n"
-  end
+@webdoc.search('.soc_menu select option').each do |o|
+  tmp = {:url => o.attributes['value'], :department => o.inner_html}
+  @departments << tmp unless o.attributes['value'].size == 0
 end
 
 
 cookie = response.header["set-cookie"]
+
 if DEBUG
   p "Cookie => " + cookie.to_s
 end
@@ -75,39 +49,30 @@ i = 0
 
 
 @departments.each do |d|
+  p d
 
-  print "\n\t [ Parsing #{d} ]\n"
-  tmp = "requestType=PUBLIC&courseNumber=&term=20119&department=#{d}&level=&location=0100FSU+Main+Campus&specialProgram=-9999&beginningTime=&endingTime=&searchCriteria=-9999&criteriaDesc="
-  tmp_hash = {}
-  tmp.split('&').each do |s|
-    tmp_x = s.split('=')
-    tmp_hash[tmp_x[0]] = tmp_x[1]
-  end
+  print "\n\t [ Parsing #{d['department']} ]\n"
+    Kernel.exit
 
   # Request needs to kept being made until you get the keyword Course Sections....
   # for some reason (even when using a regular browser) it will sometimes fail to 
   # load the class display list
   # Solution: loop till it does
   begin
-    scrape_count = 0
-    begin
-      http = Net::HTTP.new(uri.host, uri.port)
-      request = Net::HTTP::Post.new(uri.request_uri)
-      request.set_form_data(tmp_hash)
-      HDRS.each do |k,v|
-        request.add_field(k, v)
-      end
-      response = http.request(request)
-      scrape_count += 1
-      if scrape_count > 3
-        raise "ClassParserTimeout"
-      end
-    end while not response.body.include?('Course Sections Offered For')
+    uri = URI.parse("http://registrar.ufl.edu/soc/201108/all/#{d['url']}")      
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data(tmp_hash)
+    HDRS.each do |k,v|
+      request.add_field(k, v)
+    end
+    response = http.request(request)
     classes = []
-    
+
     if DEBUG
       print response.body
     end
+
 
     @web_doc= Hpricot(response.body)
     url = ""
