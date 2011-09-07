@@ -3,7 +3,6 @@ require 'rubygems'
 require 'active_record'
 require 'hpricot'
 require 'net/http'
-require 'timeout'
 require 'rainbow'
 
 # set debug flag
@@ -50,7 +49,7 @@ p "[ Found #{@departments.size} departments ]"
 
 @pretty_departments = []
 @departments.each do |d|
-  p d.gsub(/[0-9]{0,}/, '')
+  #p d.gsub(/[0-9]{0,}/, '')
 end
 
 if DEBUG
@@ -76,7 +75,7 @@ i = 0
 
 @departments.each do |d|
 
-  print "\n\t [ Parsing #{d} ]\n"
+  print "\n[ Parsing #{d} ]\n".color(:yellow)
   tmp = "requestType=PUBLIC&courseNumber=&term=20119&department=#{d}&level=&location=0100FSU+Main+Campus&specialProgram=-9999&beginningTime=&endingTime=&searchCriteria=-9999&criteriaDesc="
   tmp_hash = {}
   tmp.split('&').each do |s|
@@ -137,7 +136,7 @@ i = 0
 
 
   rescue Exception => e
-    print "\t\t -> [ ** Timeout parsing: #{d} ( #{e.to_s} ) ** ] \n".color(:red)
+    print "\t -> [ ** Timeout parsing: #{d} ( #{e.to_s} ) ** ] \n".color(:red)
   end
   i += 1
 
@@ -146,7 +145,7 @@ i = 0
     #break
   end
 
-  print "\t\t\t[ Found and parsed #{@classes.size} so far... ]\n"
+  print "\t[ Found and parsed #{@classes.size} so far... ]\n".color(:green)
   #print classes.to_yaml
 end
 p "[ Found and parsed #{@classes.size} classes ]"
