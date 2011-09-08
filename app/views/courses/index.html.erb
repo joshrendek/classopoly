@@ -1,0 +1,39 @@
+<h1>Listing courses</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Course number</th>
+    <th>Section</th>
+    <th>Title</th>
+    <th>Instructor</th>
+    <th>Seats Left</th>
+    <th>Seats</th>
+    <th>Building</th>
+    <th>Room</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Days</th>
+    <th>College</th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.course_number %></td>
+    <td><%= course.section %></td>
+    <td><%= course.title %></td>
+    <td><%= course.instructor.name unless course.instructor.nil? %></td>
+    <td><%= course.seats_left%> </td>
+    <td><%= course.seats %></td>
+    <td><%= course.building %></td>
+    <td><%= course.room %></td>
+    <td><%= course.begin_time.strftime("%I:%M %p") %></td>
+    <td><%= course.end_time.strftime("%I:%M %p") %></td>
+    <td><%= course.days %></td>
+    <td><%= course.college.college_tag.upcase %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Course', new_course_path %>

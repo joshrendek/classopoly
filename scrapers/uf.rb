@@ -80,7 +80,7 @@ i = 0
           # the gsub to strip out html will break on invalid html, but since its just hyperlinks not worried
           xhash[TABLE_HEADERS[i]] = xx.inner_html.gsub(%r{</?[^>]+?>}, '').gsub('&nbsp;', '').strip
         end
-        if i >= 11 
+        if i >= 13 
           is_class_row = false
         end
       end
@@ -103,4 +103,9 @@ i = 0
   print "\t[ Found and parsed #{@classes.size} so far... ]\n".color(:green)
   #print classes.to_yaml
 end
+
+@college = College.find_by_college_tag('uf')
+Instructor.load_instructors(@college, @classes)
+
+
 print "\n\n[ Found and parsed #{@classes.size} classes ]\n\n".color(:green)

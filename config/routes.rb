@@ -1,4 +1,6 @@
 Classly::Application.routes.draw do
+  resources :courses
+
   root :to => "homepage#index"
 
   # The priority is based upon order of creation:

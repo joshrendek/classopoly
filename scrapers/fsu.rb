@@ -137,22 +137,14 @@ i = 0
     print "\t -> [ ** Timeout parsing: #{d} ( #{e.to_s} ) ** ] \n".color(:red)
   end
   i += 1
-
-  sleep 2
-  if i == 25
-    break
-
-<<<<<<< HEAD
-  end
-  
-  print "\t\t\t[ Found and parsed #{@classes.size} so far... ]\n"
-=======
+  sleep 1
   print "\t[ Found and parsed #{@classes.size} so far... ]\n".color(:green)
->>>>>>> e67fa10d83b8d5cdd94610589e6c513f864a246c
   #print classes.to_yaml
 end
 
 @college = College.find_by_college_tag('fsu')
 Instructor.load_instructors(@college, @classes)
+
+Course.load_courses(@college, @classes)
 
 p "[ Found and parsed #{@classes.size} classes ]"

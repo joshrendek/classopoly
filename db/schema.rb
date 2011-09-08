@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908134616) do
+ActiveRecord::Schema.define(:version => 20110908163959) do
 
   create_table "colleges", :force => true do |t|
     t.string   "name"
@@ -37,13 +37,20 @@ ActiveRecord::Schema.define(:version => 20110908134616) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "college_id"
+    t.string   "course_college_instructor_hash", :null => false
   end
+
+  add_index "courses", ["course_college_instructor_hash"], :name => "index_courses_on_course_college_instructor_hash", :unique => true
 
   create_table "instructors", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_name"
+    t.string   "college_name_hash", :null => false
   end
+
+  add_index "instructors", ["college_name_hash"], :name => "index_instructors_on_college_name_hash", :unique => true
 
 end
