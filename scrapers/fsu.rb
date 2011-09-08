@@ -1,6 +1,4 @@
 #!/usr/bin/ruby
-require 'rubygems'
-require 'active_record'
 require 'hpricot'
 require 'net/http'
 require 'timeout'
@@ -142,11 +140,16 @@ i = 0
   i += 1
 
   sleep 2
-  if i == 10
-    #break
-  end
+  if i == 25
+    break
 
+  end
+  
   print "\t\t\t[ Found and parsed #{@classes.size} so far... ]\n"
   #print classes.to_yaml
 end
+
+@college = College.find_by_college_tag('fsu')
+Instructor.load_instructors(@college, @classes)
+
 p "[ Found and parsed #{@classes.size} classes ]"

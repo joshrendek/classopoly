@@ -45,6 +45,7 @@ GEM
     execjs (1.2.4)
       multi_json (~> 1.0)
     hike (1.2.1)
+    hpricot (0.8.4)
     i18n (0.6.0)
     jquery-rails (1.0.13)
       railties (~> 3.0)
@@ -81,6 +82,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
+    rainbow (1.1.1)
     rake (0.9.2)
     rdoc (3.9.4)
     sass (3.1.7)
@@ -109,9 +111,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
+  hpricot
   jquery-rails
   mysql2
   rails (= 3.1.0)
+  rainbow
   sass-rails (~> 3.1.0)
   turn
   uglifier
