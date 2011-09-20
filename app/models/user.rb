@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :friends
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id
 
   def get_friends
     auth = authorizations.find_by_provider('facebook')
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     user.fetch.friends.each do |f|
       #p f.identifier
       begin
-        friends.create(:facebook_user_id => auth.uid, :facebook_friend_id => f.identifier)
+        friends.create(:facebook_user_id => auth.uid, :facebook_friend_id => f.identifier, :picture => f.picture)
       rescue ActiveRecord::RecordNotUnique
         p "Friend assosciation already exists between #{auth.uid} -> #{f.identifier}"
       end
@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(data["email"])
       user
     else # Create a user with a stub password. 
-      User.create(:email => data["email"], :password => Devise.friendly_token[0,20]) 
+      logger.info access_token.to_yaml
+      User.create(:email => data["email"], :password => Devise.friendly_token[0,20], 
+                  :facebook_user_id => access_token['extra']['user_hash']['id'].to_i) 
     end
   end
 
