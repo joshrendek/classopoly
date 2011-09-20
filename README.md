@@ -28,4 +28,11 @@ Classopoly
 
 ## Installation
 
+### Setup development facebook app
+- https://developers.facebook.com/apps
+- point to http://127.0.0.1:3000/
+
+### Install gems
+- bundle install 
+
 
