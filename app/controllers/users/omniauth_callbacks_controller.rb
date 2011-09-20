@@ -2,11 +2,20 @@ class Users::OmniauthCallbacksController < ApplicationController
  def facebook
    @user = User.find_for_facebook_oauth(env["omniauth.auth"], current_user)
    hash = env["omniauth.auth"]
-   auth = Authorization.create!(:user_id => @user,
+
+   begin
+     auth = Authorization.create!(:user_id => @user,
                                 :uid =>      hash['uid'],
                                 :provider => hash['provider'],
                                 :token =>    hash['credentials']['token'])
 
+   rescue ActiveRecord::RecordInvalid
+     auth = Authorization.find_by_user_id(@user)
+     auth.uid = hash['uid']
+     auth.provider = hash['provider']
+     auth.token = hash['credentials']['token']
+     auth.save!
+   end
 
    if @user.persisted?
      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"

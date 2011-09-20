@@ -5,9 +5,24 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :authorizations
+  has_many :friends
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def get_friends
+    auth = authorizations.find_by_provider('facebook')
+    user = FbGraph::User.me(auth.token)
+    user.fetch.friends.each do |f|
+      #p f.identifier
+      begin
+        friends.create(:facebook_user_id => auth.uid, :facebook_friend_id => f.identifier)
+      rescue ActiveRecord::RecordNotUnique
+        p "Friend assosciation already exists between #{auth.uid} -> #{f.identifier}"
+      end
+    end
+    nil
+  end
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token['extra']['user_hash']
