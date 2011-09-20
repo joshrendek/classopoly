@@ -36,6 +36,6 @@ Classopoly
 - bundle install 
 
 ## fb_graph
-- [[https://github.com/nov/fb_graph]]
+- https://github.com/nov/fb_graph
 
 
