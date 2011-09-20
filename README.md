@@ -35,7 +35,7 @@ Classopoly
 ### Install gems
 - bundle install 
 
-## fb_graph
+### fb_graph docs
 - https://github.com/nov/fb_graph
 
 
