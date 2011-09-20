@@ -6,4 +6,7 @@
  *= require_tree . 
 */
 
-#facebook { }
+#auth { 
+  float: right; 
+  margin-top: 8px; 
+}
