@@ -2,19 +2,23 @@ class Users::OmniauthCallbacksController < ApplicationController
  def facebook
    @user = User.find_for_facebook_oauth(env["omniauth.auth"], current_user)
    hash = env["omniauth.auth"]
+   auth = Authorization.where(:user_id => @user.id).first
+   logger.info "=== #{@user.to_yaml} ==="
+   logger.info "=== #{auth.to_yaml} ==="
 
-   begin
-     auth = Authorization.create!(:user_id => @user,
-                                :uid =>      hash['uid'],
-                                :provider => hash['provider'],
-                                :token =>    hash['credentials']['token'])
+   if auth.nil?
+     auth = Authorization.create!(:user_id => @user.id,
+                                  :uid =>      hash['uid'],
+                                  :provider => hash['provider'],
+                                  :token =>    hash['credentials']['token'])
 
-   rescue ActiveRecord::RecordInvalid
-     auth = Authorization.find_by_user_id(@user)
+   else
+     auth = Authorization.where(:user_id => @user.id).first
      auth.uid = hash['uid']
      auth.provider = hash['provider']
      auth.token = hash['credentials']['token']
      auth.save!
+   
    end
 
    if @user.persisted?

@@ -29,9 +29,11 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(data["email"])
       user
     else # Create a user with a stub password. 
-      logger.info access_token.to_yaml
-      User.create(:email => data["email"], :password => Devise.friendly_token[0,20], 
+      #logger.info access_token.to_yaml
+      user = User.create(:email => data["email"], :password => Devise.friendly_token[0,20], 
                   :facebook_user_id => access_token['extra']['user_hash']['id'].to_i) 
+
+      return user
     end
   end
 

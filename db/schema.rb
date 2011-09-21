@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20110920185304) do
 
   create_table "authorizations", :force => true do |t|
-    t.integer  "user_id",    :limit => 8
+    t.integer  "user_id"
     t.integer  "uid"
     t.string   "provider"
     t.string   "token"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20110920185304) do
 
   create_table "friends", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "facebook_user_id",   :limit => 8
-    t.integer  "facebook_friend_id", :limit => 8
+    t.integer  "facebook_user_id"
+    t.integer  "facebook_friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20110920185304) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "facebook_user_id",       :limit => 8
+    t.integer  "facebook_user_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
