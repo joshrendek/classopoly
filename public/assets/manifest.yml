@@ -6,3 +6,7 @@ jquery-ui.min.js: jquery-ui-7e33882a28fc84ad0e0e47e46cbf901c.min.js
 jquery.min.js: jquery-8a50feed8d29566738ad005e19fe1c2d.min.js
 application.js: application-ccd09ac1eb48a32a35519b402e54dc3b.js
 application.css: application-bae7fb0d20dffc067022f76f12eb8054.css
+courses.css: courses-ccb8034635849c44627859332fda6a01.css
+homepage.css: homepage-ccb8034635849c44627859332fda6a01.css
+scaffolds.css: scaffolds-ccb8034635849c44627859332fda6a01.css
+users/omniauth_callbacks.css: users/omniauth_callbacks-ccb8034635849c44627859332fda6a01.css
