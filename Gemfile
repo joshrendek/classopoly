@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'hpricot'
 gem 'rainbow'
 gem 'devise'
+gem 'activerecord-postgresql-adapter'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph" # DONT CONFUSE THIS WITH fbgraph
 
