@@ -12,5 +12,24 @@
 }
 body { padding-top: 50px !important; padding-left: 25px !important; padding-right: 25px !important; }
 
-table.preferences { width: 520px; }
-table.preferences td { border-bottom: 0 !important;  text-align: center; }
+table.preferences { 
+  width: 520px; 
+  td {
+    border-bottom: 0 !important;  text-align: center;
+   }
+}
+
+table.time_preferences {
+  width: 75%;
+  td, th {
+    text-align: center; 
+}
+select { 
+  font-size: 14px; 
+  width: 50px; 
+}
+}
+
+#save_preferences { 
+  font-size: 20px; 
+}

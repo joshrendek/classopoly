@@ -7,3 +7,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+
+function preference_click(obj){
+  //$(obj).css('background-color', '#FFFDEB');
+  $('td').each(function(index) {
+  //  alert($(this).parent().html());
+    
+  //$(this).css('background-color', '#fff');
+  });
+
+
+}
+
+function show_worktime(obj){
+  $('#hidden_' + obj).slideDown();
+  $('#td_time_' + obj + ' a').slideUp();
+}
+
+$(document).ready(function(){
+  $('.hidden').hide();
+});

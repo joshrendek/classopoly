@@ -4,16 +4,16 @@
   <p>Are you a morning, afternoon, or evening person?</p>
   <table class="preferences">
     <tr>
-      <td>
+      <td id="choose" onclick="javascript:preference_click(this);">
         <%= image_tag "weather_fog.png", :height => "96" %>
         <%= link_to "Morning", "", :class => "btn" %>
       </td>
-      <td>
+      <td id="choose" onclick="javascript:preference_click(this);">
         <%= image_tag "weather_clear.png", :height => "96"  %>
         <%= link_to "Afternoon", "", :class => "btn primary" %>
         
       </td>
-      <td>
+      <td id="choose" onclick="javascript:preference_click(this);">
         <%= image_tag "moon.png", :height => "96"  %>
         <%= link_to "Evening", "", :class => "btn success" %>
         
@@ -21,5 +21,46 @@
     </tr>
   </table>
 
+  <h1>When do you want to eat lunch?</h1>
+  <p>We'll pick a time with your friends to eat lunch</p>
+  <%= time_select("lunch", "time") %>
 
-  </center>
+
+  <br />
+  <br />
+
+  <h1>When do you work?</h1>
+  <p>We'll plan around your work schedule, just click "Yes" on the days you work to fill in the time</p>
+
+  <table class="time_preferences">
+    <thead>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% %w{monday tuesday wednesday thursday friday}.each do |d| %>
+          <td id="td_time_<%=d%>">
+            <%= link_to "Yes", "#", :class => "btn primary", :onclick => "show_worktime('#{d}')"  %>
+            <div class="hidden" id="hidden_<%=d%>">
+              <b>Start Time:</b><br />
+              <%= time_select("work_time", d) %>
+              <br /><br />
+              <b>End Time:</b><br />
+              <%= time_select("work_time", d) %>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= link_to "Save Preferences", "#", :class => "btn success", :id => "save_preferences" %>
+
+
+
+</center>
