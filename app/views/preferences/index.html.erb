@@ -1,34 +1,38 @@
 <center>
-  
-  <h1>When do you like to take your classes?</h1>
-  <p>Are you a morning, afternoon, or evening person?</p>
-  <table class="preferences">
-    <tr>
-      <td id="choose" onclick="javascript:preference_click(this);">
-        <%= image_tag "weather_fog.png", :height => "96" %>
-        <%= link_to "Morning", "", :class => "btn" %>
-      </td>
-      <td id="choose" onclick="javascript:preference_click(this);">
-        <%= image_tag "weather_clear.png", :height => "96"  %>
-        <%= link_to "Afternoon", "", :class => "btn primary" %>
-        
-      </td>
-      <td id="choose" onclick="javascript:preference_click(this);">
-        <%= image_tag "moon.png", :height => "96"  %>
-        <%= link_to "Evening", "", :class => "btn success" %>
-        
-      </td>
-    </tr>
-  </table>
+  <div id="step1"> 
+    <h1>When do you like to take your classes?</h1>
+    <p>Are you a morning, afternoon, or evening person?</p>
+    <table class="preferences">
+      <tr>
+        <td id="choose" onclick="javascript:preference_click(this);">
+          <%= image_tag "weather_fog.png", :height => "96" %>
+          <%= link_to "Morning", "", :class => "btn" %>
+        </td>
+        <td id="choose" onclick="javascript:preference_click(this);">
+          <%= image_tag "weather_clear.png", :height => "96"  %>
+          <%= link_to "Afternoon", "", :class => "btn primary" %>
 
-  <h1>When do you want to eat lunch?</h1>
-  <p>We'll pick a time with your friends to eat lunch</p>
-  <%= time_select("lunch", "time") %>
+        </td>
+        <td id="choose" onclick="javascript:preference_click(this);">
+          <%= image_tag "moon.png", :height => "96"  %>
+          <%= link_to "Evening", "", :class => "btn success" %>
 
+        </td>
+      </tr>
+    </table>
+    <%= link_to "Next >", "#", :class => "btn success", :id => "btn_step1" %>
 
-  <br />
-  <br />
+  </div>
+  <div id="step2">
+    <h1>When do you want to eat lunch?</h1>
+    <p>We'll pick a time with your friends to eat lunch</p>
+    <%= time_select("lunch", "time") %><br /><br />
+    <%= link_to "< Back", "#", :class => "btn error", :id => "btn_step2_bk" %>
+    <%= link_to "Next >", "#", :class => "btn success", :id => "btn_step2" %>    
+  </div>
 
+</div>
+<div id="step3">
   <h1>When do you work?</h1>
   <p>We'll plan around your work schedule, just click "Yes" on the days you work to fill in the time</p>
 
@@ -60,7 +64,7 @@
   </table>
 
   <%= link_to "Save Preferences", "#", :class => "btn success", :id => "save_preferences" %>
-
+</div>
 
 
 </center>
