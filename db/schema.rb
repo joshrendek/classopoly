@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20110927162556) do
 
   create_table "authorizations", :force => true do |t|
-    t.integer  "user_id",    :limit => 8
-    t.integer  "uid"
+    t.integer  "user_id"
+    t.integer  "uid",        :limit => 8
     t.string   "provider"
     t.string   "token"
     t.datetime "created_at"
