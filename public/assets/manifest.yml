@@ -1,12 +1,16 @@
 --- 
 fb-login-button.png: fb-login-button-719277d96f6a11026ab4ed0b7be235c0.png
+moon.png: moon-b21f91449408de8f11df13fa0a1fe185.png
 rails.png: rails-bd9ad5a560b5a3a7be0808c5cd76a798.png
+weather_clear.png: weather_clear-f7f3bab82f0aa4b57626e0aebf942fcf.png
+weather_fog.png: weather_fog-e8573f627ab377739eed33f7372ca08a.png
 jquery-ui.min.js: jquery-ui-7e33882a28fc84ad0e0e47e46cbf901c.min.js
 jquery.min.js: jquery-8a50feed8d29566738ad005e19fe1c2d.min.js
-application.js: application-ccd09ac1eb48a32a35519b402e54dc3b.js
-application.css: application-bae7fb0d20dffc067022f76f12eb8054.css
+application.js: application-4c77aac15a30e21857e70ca8a9ce886b.js
+application.css: application-78f1de13698dfc851f46780a8f69a036.css
 boot.css: boot-5c73dd633a9b3aca3a1cbec051c1485f.css
 courses.css: courses-ccb8034635849c44627859332fda6a01.css
 homepage.css: homepage-ccb8034635849c44627859332fda6a01.css
+preferences.css: preferences-ccb8034635849c44627859332fda6a01.css
 scaffolds.css: scaffolds-ccb8034635849c44627859332fda6a01.css
 users/omniauth_callbacks.css: users/omniauth_callbacks-ccb8034635849c44627859332fda6a01.css
