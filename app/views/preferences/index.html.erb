@@ -4,29 +4,30 @@
     <p>Are you a morning, afternoon, or evening person?</p>
     <table class="preferences">
       <tr>
-        <td id="choose" onclick="javascript:preference_click(this);">
+        <td id="choose_morning">
           <%= image_tag "weather_fog.png", :height => "96" %>
-          <%= link_to "Morning", "", :class => "btn" %>
+          <%= link_to "Morning", "#", :class => "btn", :id => "t_morning" %>
         </td>
-        <td id="choose" onclick="javascript:preference_click(this);">
+        <td id="choose_afternoon">
           <%= image_tag "weather_clear.png", :height => "96"  %>
-          <%= link_to "Afternoon", "", :class => "btn primary" %>
+          <%= link_to "Afternoon", "#", :class => "btn primary", :id => "t_afternoon" %>
 
         </td>
-        <td id="choose" onclick="javascript:preference_click(this);">
+        <td id="choose_evening">
           <%= image_tag "moon.png", :height => "96"  %>
-          <%= link_to "Evening", "", :class => "btn success" %>
+          <%= link_to "Evening", "#", :class => "btn success", :id => "t_evening" %>
 
         </td>
       </tr>
     </table>
+    <div id="time_choice"></div><br>
     <%= link_to "Next >", "#", :class => "btn success", :id => "btn_step1" %>
 
   </div>
   <div id="step2">
     <h1>When do you want to eat lunch?</h1>
     <p>We'll pick a time with your friends to eat lunch</p>
-    <%= time_select("lunch", "time") %><br /><br />
+    <%= time_select("lunch", "time", {}, {}) %><br /><br />
     <%= link_to "< Back", "#", :class => "btn error", :id => "btn_step2_bk" %>
     <%= link_to "Next >", "#", :class => "btn success", :id => "btn_step2" %>    
   </div>
@@ -49,22 +50,23 @@
       <tr>
         <% %w{monday tuesday wednesday thursday friday}.each do |d| %>
           <td id="td_time_<%=d%>">
-            <%= link_to "Yes", "#", :class => "btn primary", :onclick => "show_worktime('#{d}')"  %>
+            <%= link_to "Yes", "#", :class => "btn primary", :id => "yes_#{d}", :onclick => "show_worktime('#{d}')"  %>
             <div class="hidden" id="hidden_<%=d%>">
               <b>Start Time:</b><br />
               <%= time_select("work_time", d) %>
               <br /><br />
               <b>End Time:</b><br />
-              <%= time_select("work_time", d) %>
+              <%= time_select("work_time", d) %><br />
+              <%= link_to "Cancel", "#", :class => "btn error", :id => "no_#{d}"  %>
             </div>
+
           </td>
         <% end %>
       </tr>
     </tbody>
   </table>
   <br />
-    <%= link_to "< Back", "#", :class => "btn error", :id => "btn_step3_bk" %>
-
+  <%= link_to "< Back", "#", :class => "btn error", :id => "btn_step3_bk" %>
   <%= link_to "Save Preferences", "#", :class => "btn success", :id => "save_preferences" %>
 </div>
 

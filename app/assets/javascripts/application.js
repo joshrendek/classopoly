@@ -24,7 +24,7 @@ function preference_click(obj){
 
 function show_worktime(obj){
   $('#hidden_' + obj).slideDown();
-  $('#td_time_' + obj + ' a').slideUp();
+  $('#yes_' + obj).slideUp();
 }
 
 $(document).ready(function(){
