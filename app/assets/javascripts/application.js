@@ -23,8 +23,8 @@ function preference_click(obj){
 
 
 function show_worktime(obj){
-  $('#hidden_' + obj).slideDown();
-  $('#yes_' + obj).slideUp();
+  $('#yes_' + obj).hide();  
+  $('#hidden_' + obj).fadeIn();
 }
 
 $(document).ready(function(){
