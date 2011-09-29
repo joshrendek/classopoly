@@ -21,6 +21,9 @@ table.preferences {
 
 table.time_preferences {
   width: 75%;
+  th { 
+    width: 20%; 
+  }
   td, th {
     text-align: center; 
 }
