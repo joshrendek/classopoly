@@ -26,11 +26,16 @@ table.time_preferences {
   }
   td, th {
     text-align: center; 
-}
-select { 
-  font-size: 14px; 
-  width: 50px; 
-}
+  }
+  select { 
+    font-size: 14px; 
+    width: 50px; 
+  }
+  td { 
+    a { 
+      width: 40%; 
+    }
+  }
 }
 
 #save_preferences { 
