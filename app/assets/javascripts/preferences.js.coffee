@@ -8,19 +8,31 @@ Array::remove = (v) -> $.grep @,(e)->e!=v
 class Preferences
   class_time: ''
   lunch_time: ''
+  work_days: []
   work_times: []
+  tmp: []
   setClassTime: (time) ->
     @class_time = time
   setLunchTime: (time) ->
     @lunch_time = time
   printTimes: () ->
     alert @class_time + '\n' + @lunch_time
-  printWorkTimes: () ->
-    alert @work_times.toString()
+  printWorkDays: () ->
+    alert @work_days.toString()
   appendWork: (day) ->
-    Array::push.apply @work_times, [day]
+    Array::push.apply @work_days, [day]
   removeWork: (day) ->
-    @work_times = @work_times.remove(day)
+    @work_days = @work_days.remove(day)
+  getWorkTimes: () ->
+    @work_times = new Array()
+    for day in @work_days
+      tmp = new Array()
+      tmp[0] = day
+      tmp[1] = $('#work_time_'+day+'_start_4i').val()
+      tmp[2] = $('#work_time_'+day+'_end_4i').val()
+      Array::push.apply @work_times, [tmp.toString()]
+    alert @work_times.join('|').toString()
+
 
 
 
@@ -79,13 +91,13 @@ jQuery ($) ->
     $('#step3').fadeIn()
 
   $('#save_preferences').click =>
+    pref.printWorkDays()
     pref.printTimes()
-    pref.printWorkTimes()
+    pref.getWorkTimes()
 
 
   $('#yes_monday').click =>
     pref.appendWork('monday')
-    
   $('#yes_tuesday').click =>
     pref.appendWork('tuesday')
   $('#yes_wednesday').click =>

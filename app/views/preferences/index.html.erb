@@ -53,10 +53,10 @@
             <%= link_to "Yes", "#", :class => "btn primary", :id => "yes_#{d}", :onclick => "show_worktime('#{d}')"  %>
             <div class="hidden" id="hidden_<%=d%>">
               <b>Start Time:</b><br />
-              <%= time_select("work_time", d) %>
+              <%= time_select("work_time", "#{d}_start") %>
               <br /><br />
               <b>End Time:</b><br />
-              <%= time_select("work_time", d) %><br /><br />
+              <%= time_select("work_time", "#{d}_end") %><br /><br />
               <%= link_to "Cancel", "#", :class => "btn error", :id => "no_#{d}"  %>
             </div>
 
