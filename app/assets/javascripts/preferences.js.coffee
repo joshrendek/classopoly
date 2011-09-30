@@ -56,19 +56,13 @@ jQuery ($) ->
   pref = new Preferences
   $('#t_morning').click =>
     pref.setClassTime('morning')
+    $('#time_choice').html("Thanks! We'll remember that you're a <b>morning</b> person in mind when we plan your schedule.")
   $('#t_afternoon').click =>
     pref.setClassTime('afternoon')
-  $('#t_evening').click =>
-    pref.setClassTime('evening')
-
-  $('#choose_morning').click =>
-    $('#time_choice').html("Thanks! We'll remember that you're a <b>morning</b> person in mind when we plan your schedule.")
-
-  $('#choose_afternoon').click =>
     $('#time_choice').html("Thanks! We'll remember that you're a <b>afternoon</b> person in mind when we plan your schedule.")
-
-  $('#choose_evening').click =>
+  $('#t_evening').click =>
     $('#time_choice').html("Thanks! We'll remember that you're a <b>evening</b> person in mind when we plan your schedule.")
+    pref.setClassTime('evening')
 
   state = 1
   change_state(state)
