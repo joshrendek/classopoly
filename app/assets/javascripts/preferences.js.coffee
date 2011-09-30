@@ -85,9 +85,15 @@ jQuery ($) ->
     $('#step3').fadeIn()
 
   $('#save_preferences').click =>
-    pref.printWorkDays()
-    pref.printTimes()
-    pref.getWorkTimes()
+    $.post(
+      "/preferences/update"
+      new_title: 'test_title'
+      id: 'test'
+      -> alert('finished')
+    )
+    #pref.printWorkDays()
+    #pref.printTimes()
+    #pref.getWorkTimes()
 
 
   $('#yes_monday').click =>

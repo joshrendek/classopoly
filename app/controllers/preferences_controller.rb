@@ -5,7 +5,9 @@ class PreferencesController < ApplicationController
   end
   
   def update
-    @pref = current_user.preferences.find_or_create_by_user_id(current_user)
+    logger.info '====' + current_user.id.to_s + '======'
+    @pref = Preferences.find_or_create_by_user_id(current_user.id)
+    render :text => 'test'
   end
 
 end
