@@ -21,6 +21,12 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development do 
+  gem 'railroady'
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
 gem 'jquery-rails'
 
 # Use unicorn as the web server
