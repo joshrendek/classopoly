@@ -11,6 +11,10 @@ class Preferences
   work_days: []
   work_times: []
   tmp: []
+  getClassTime: () ->
+    @class_time
+  getLunchTime: () ->
+    @lunch_time
   setClassTime: (time) ->
     @class_time = time
   setLunchTime: (time) ->
@@ -31,7 +35,7 @@ class Preferences
       tmp[1] = $('#work_time_'+day+'_start_4i').val()
       tmp[2] = $('#work_time_'+day+'_end_4i').val()
       Array::push.apply @work_times, [tmp.toString()]
-    alert @work_times.join('|').toString()
+    return @work_times.join('|').toString()
 
 
 
@@ -87,9 +91,10 @@ jQuery ($) ->
   $('#save_preferences').click =>
     $.post(
       "/preferences/update"
-      new_title: 'test_title'
-      id: 'test'
-      -> alert('finished')
+      lunch_time: pref.getLunchTime()
+      work_times: pref.getWorkTimes()
+      class_time: pref.getClassTime()
+      -> window.location = '/'
     )
     #pref.printWorkDays()
     #pref.printTimes()
