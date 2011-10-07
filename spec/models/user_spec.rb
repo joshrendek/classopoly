@@ -9,7 +9,7 @@ end
 p Course.all.size
 
 class Schedule
-  DEBUG = true
+  DEBUG = false
   require 'set'
   require 'digest/md5'  
   attr_accessor :datetime_hash, :course_tags, :available_classes, :courses
@@ -52,47 +52,39 @@ class Schedule
 
     # find all courses that include the course tags they're enrolled in
     @courses = Course.where(:course_number => @course_tags)
-    
+
     @courses.each do |c|
       # turn the time of the class into a time set  
-      time_slice = (c.begin_time.to_i...c.end_time.to_i).to_a.to_set
+      time_slice = (c.begin_time.localtime.to_i...c.end_time.localtime.to_i).to_a.to_set
       # loop through each time slice from when they work
       @time_hash.each do |k,t|
         # might be a conflict if the class is on the same day they work, time to check times
-        #if c.days_array.include?(k) 
-          
-          # create two time sets for class and work 
-          class_time_range = (time_to_seconds(c.begin_time)..time_to_seconds(c.end_time)).to_a.to_set
-          work_time_range = (time_to_seconds(t[0].utc)..time_to_seconds(t[1].utc)).to_a.to_set
-          p "_"*60
-          if t[0].day != t[1].day
-            t[1].advance(:days => -1)
-          end
-          p "#{t[0]} #{t[1]}" if DEBUG
-          p "#{work_time_range.to_a[0]} #{work_time_range.to_a[-1]}" if DEBUG
-          p "#{time_to_seconds(t[0].utc)} #{time_to_seconds(t[1].utc)}" if DEBUG
-          p "_"*60
-         
-          # if the class time isnt a subset of the work time, we can add it to the available courses hash
-          if class_time_range.subset?(work_time_range) == false
-            # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
-            available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
-            p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
-          else
-            p "Couldn't add course: #{c.id}" if DEBUG
-            print "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
-            
-          end
-        #else # no conflict with the day they work
-        #  available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
-        #  p k + " -> " + c.days_array.join(',') + " [#{c.id}]" if DEBUG       
-        #end
+
+        # create two time sets for class and work 
+        class_time_range = (time_to_seconds(c.begin_time)..time_to_seconds(c.end_time)).to_a.to_set
+        work_time_range = (time_to_seconds(t[0].localtime)..time_to_seconds(t[1].localtime)).to_a.to_set
+        p "_"*60 if DEBUG
+        p "#{t[0].localtime} #{t[1].localtime}" if DEBUG
+        p "#{work_time_range.to_a[0]} #{work_time_range.to_a[-1]}" if DEBUG
+        p "#{time_to_seconds(t[0].localtime)} #{time_to_seconds(t[1].localtime)}" if DEBUG
+        p "_"*60 if DEBUG
+
+        # if the class time isnt a subset of the work time, we can add it to the available courses hash
+        if class_time_range.subset?(work_time_range) == false
+          # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
+          available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
+          p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
+        else
+          p "Couldn't add course: #{c.id}" if DEBUG
+          print "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
+
+        end
       end 
       #p time_slice
     end
-    p "#{available_courses.size}/#{@courses.size} courses have been found to fit your schedule "
-    @available_courses = available_courses
-    p "="*60
+    p "#{available_courses.size}/#{@courses.size} courses have been found to fit your schedule " if DEBUG
+    @available_courses = available_courses 
+    p "="*60 if DEBUG
   end
 
   def to_s
@@ -118,7 +110,7 @@ describe User do
     it "should find 3 courses given I work on monday and friday" do
       user_schedule = Schedule.new(user2["work_times"], user2["course_tags"])
       user_schedule.find_courses_in_slices
-      user_schedule.available_courses.size.should == 3
+      user_schedule.available_courses.size.should == 4
       user_schedule.courses.size.should == 9
     end
 
