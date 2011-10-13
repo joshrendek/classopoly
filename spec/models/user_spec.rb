@@ -12,7 +12,7 @@ class Schedule
   DEBUG = false
   require 'set'
   require 'digest/md5'  
-  attr_accessor :datetime_hash, :course_tags, :available_classes, :courses
+  attr_accessor :time_hash, :course_tags, :available_classes, :courses
 
   def initialize(str, tag)
     @time_hash = {}
@@ -98,7 +98,6 @@ end
 describe User do
 
   user1 = {"work_times" => "wednesday,8:30,14:30|friday,6:30,18:45", :lunch_time => "1:30", "course_tags" => ['ACG3341', 'CLT3370']}
-  days = Date::DAYNAMES
   describe "Parsing the work_times" do
     it "should find 5 courses given I work on wednesday and friday" do
       user_schedule = Schedule.new(user1["work_times"], user1["course_tags"])
@@ -122,6 +121,22 @@ describe User do
       user_schedule.courses.size.should == 9
 
     end
+
+    it "should convert a time to seconds" do
+      user_schedule = Schedule.new(user3["work_times"], user3["course_tags"])
+      user_schedule.time_to_seconds(Time.local(2011, "jan", 1, 20, 15)).should == 72900
+    end
+
+    it "should parse to time slices" do 
+      user_schedule = Schedule.new(user3["work_times"], user3["course_tags"])
+      user_schedule.time_hash.size.should == 5
+      user_schedule.time_hash.each do |t|
+        t.size.should == 2
+      end
+
+    end
+
+
 
 
 
