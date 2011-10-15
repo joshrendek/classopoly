@@ -2,7 +2,7 @@ class Scheduler
   DEBUG = false
   require 'set'
   require 'digest/md5'  
-  attr_accessor :time_hash, :course_tags, :available_classes, :courses
+  attr_accessor :time_hash, :course_tags, :available_courses, :courses
 
   def initialize(str, tag)
     @time_hash = {}
@@ -13,14 +13,6 @@ class Scheduler
       day = tmp[0]
       parse_to_time_slices(day,tmp[1..-1])
     end
-  end
-
-  def available_courses
-    @available_courses
-  end
-
-  def courses
-    @courses
   end
 
   def time_to_seconds(time)
