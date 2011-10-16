@@ -21,8 +21,17 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development do 
+group :development, :test do 
+  gem "database_cleaner"
+  gem "turn"
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'guard-cucumber'
   gem 'railroady'
+  gem 'cucumber'
+  gem 'cucumber-rails'
   gem 'rspec'
   gem 'rspec-rails'
 end
@@ -38,7 +47,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-end
+
