@@ -3,20 +3,7 @@ Feature: Manage homepages
   [stakeholder]
   wants [behaviour]
   
-  Scenario: Register new homepage
+  Scenario: Visiting the homepage
     Given I am on the new homepage page
-    And I press "Create"
+    Then I should see "Homepage#index"
 
-  Scenario: Delete homepage
-    Given the following homepages:
-      ||
-      ||
-      ||
-      ||
-      ||
-    When I delete the 3rd homepage
-    Then I should see the following homepages:
-      ||
-      ||
-      ||
-      ||

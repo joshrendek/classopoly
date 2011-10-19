@@ -26,9 +26,6 @@ group :development, :test do
   gem "turn"
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'guard-rspec'
-  gem 'guard-livereload'
-  gem 'guard-cucumber'
   gem 'railroady'
   gem 'cucumber'
   gem 'cucumber-rails'
