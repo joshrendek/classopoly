@@ -4,6 +4,6 @@ Feature: Manage homepages
   wants [behaviour]
   
   Scenario: Visiting the homepage
-    Given I am on the new homepage page
+    Given I am on the homepage 
     Then I should see "Homepage#index"
 
