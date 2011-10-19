@@ -28,7 +28,7 @@ test: &test
   database: classly_test
   pool: 5
   username: root
-  password:
+  password: test
   host: 127.0.0.1
 
 production:
