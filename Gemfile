@@ -28,13 +28,12 @@ group :development, :test do
   gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'railroady'
   gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'rspec'
   gem 'rspec-rails'
 end
 
 gem 'jquery-rails'
-
+gem 'cucumber-rails', :group => :test
 # Use unicorn as the web server
 # gem 'unicorn'
 
