@@ -21,12 +21,12 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'cucumber-rails', :group => :test
-gem 'cucumber', :group => :test
 
-group :development, :test do 
+group :test do 
   gem "database_cleaner"
   gem "turn"
+  gem 'cucumber-rails', :group => :test
+  gem 'cucumber', :group => :test
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'railroady'
