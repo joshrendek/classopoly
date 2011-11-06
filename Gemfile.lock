@@ -97,6 +97,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
+    minitest (2.7.0)
     multi_json (1.0.3)
     multi_xml (0.4.1)
     multipart-post (1.1.3)
@@ -215,6 +216,7 @@ DEPENDENCIES
   growl_notify
   hpricot
   jquery-rails
+  minitest
   mysql2
   oa-oauth
   pg

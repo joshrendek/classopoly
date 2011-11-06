@@ -25,6 +25,7 @@ end
 group :test do 
   gem "database_cleaner"
   gem "turn"
+  gem "minitest"
   gem 'cucumber-rails', :group => :test
   gem 'cucumber', :group => :test
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
