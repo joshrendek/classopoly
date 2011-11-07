@@ -27,7 +27,7 @@ group :test do
   gem "turn"
   gem "minitest"
   gem 'cucumber'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'railroady'
