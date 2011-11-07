@@ -24,10 +24,8 @@ end
 
 group :test do 
   gem "database_cleaner"
-  gem "turn"
-  gem "minitest"
   gem 'cucumber'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'railroady'
