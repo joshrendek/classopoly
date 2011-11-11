@@ -29,6 +29,24 @@ class Scheduler
     @time_hash.store(day, time_hash[day.capitalize])
   end
 
+  def parse_to_time_slices_optimized(day, times)
+    date = Date.parse(day)
+    date_at_beginning_of_month = first_weekday_at_beginning_of_month(date)
+    times_at_beginning_of_month = times.map do |time_string|
+      add_time_to_date(date_at_beginning_of_month, time_string)
+    end
+    @time_hash.store(day, times_at_beginning_of_month)
+  end
+
+  def add_time_to_date(date, time)
+    hour_count, minute_count = time.split(':')
+    date.to_time + hour_count.to_i.hours + minute_count.to_i.minutes
+  end
+
+  def first_weekday_at_beginning_of_month(date)
+    (Date.today.beginning_of_month + (date.wday - Date.today.beginning_of_month.wday) % 7)
+  end
+
   def find_courses_in_slices
     available_courses = {}
 
