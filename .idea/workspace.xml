@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34d26ad6-a7f5-4e53-8dae-6b24c2d1be19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/tasks/scraper.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/classopoly.iml" afterPath="$PROJECT_DIR$/.idea/classopoly.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/college_importer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapers/fsu.rb" afterPath="$PROJECT_DIR$/scrapers/fsu.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/scraper.rake" afterPath="$PROJECT_DIR$/lib/tasks/scraper.rake" />
     </list>
     <ignored path="classopoly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +30,25 @@
       <file leaf-file-name="scraper.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/scraper.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.033898305">
+            <state line="11" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.18644068">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="college.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/college.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="38" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="college_importer.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/college_importer.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/views/user_courses/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/user_courses/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_courses/index.html.haml" />
@@ -120,6 +136,7 @@
         <option value="$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/scrapers/fsu.rb" />
+        <option value="$PROJECT_DIR$/app/models/college_importer.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/scraper.rake" />
       </list>
     </option>
@@ -234,6 +251,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Shared partials" />
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.SharedPartialsFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classopoly" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classopoly" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -636,20 +667,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="103" selection-start="1280" selection-end="1280" vertical-scroll-proportion="-22.23077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="21" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="196" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
@@ -741,9 +758,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/college.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="38" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/college_importer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/scraper.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.033898305">
+        <state line="11" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.18644068">
           <folding />
         </state>
       </provider>
