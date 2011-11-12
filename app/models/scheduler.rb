@@ -1,5 +1,5 @@
 class Scheduler
-  DEBUG = false
+  DEBUG = true
   require 'set'
   require 'digest/md5'  
   attr_accessor :time_hash, :course_tags, :available_courses, :courses
@@ -17,6 +17,10 @@ class Scheduler
 
   def time_to_seconds(time)
     time.hour * 60 * 60 + time.min * 60 
+  end
+
+  def get_courses
+    @available_courses.collect {|k,v| v }
   end
 
   def parse_to_time_slices(day, times)
@@ -52,7 +56,6 @@ class Scheduler
 
     # find all courses that include the course tags they're enrolled in
     @courses = Course.where(:course_number => @course_tags)
-
     @courses.each do |c|
       # turn the time of the class into a time set  
       time_slice = (c.begin_time.localtime.to_i...c.end_time.localtime.to_i).to_a.to_set
@@ -64,15 +67,21 @@ class Scheduler
         class_time_range = (time_to_seconds(c.begin_time)..time_to_seconds(c.end_time)).to_a.to_set
         work_time_range = (time_to_seconds(t[0].localtime)..time_to_seconds(t[1].localtime)).to_a.to_set
         p "_"*60 if DEBUG
-        p "#{t[0].localtime} #{t[1].localtime}" if DEBUG
-        p "#{work_time_range.to_a[0]} #{work_time_range.to_a[-1]}" if DEBUG
-        p "#{time_to_seconds(t[0].localtime)} #{time_to_seconds(t[1].localtime)}" if DEBUG
+        
+        p "Class time: #{class_time_range.first} -> #{class_time_range.to_a.last}"
+        p "Work time: #{work_time_range.first} -> #{work_time_range.to_a.last}"
+
+        #p "Local time: #{t[0].localtime} #{t[1].localtime}" if DEBUG
+        #p "Work time: #{work_time_range.to_a[0]} #{work_time_range.to_a[-1]}" if DEBUG
+        #p "Time hash time: #{time_to_seconds(t[0].localtime)} #{time_to_seconds(t[1].localtime)}" if DEBUG
         p "_"*60 if DEBUG
 
         # if the class time isnt a subset of the work time, we can add it to the available courses hash
         if class_time_range.subset?(work_time_range) == false
           # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
           available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
+          
+          p "Added course: #{c.id}" if DEBUG
           p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
         else
           p "Couldn't add course: #{c.id}" if DEBUG

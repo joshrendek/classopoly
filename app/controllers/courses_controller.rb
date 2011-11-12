@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
     @courses = Course.limit(200)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @courses }
     end
   end

@@ -1,0 +1,30 @@
+%h1 Listing Courses
+
+%table{:class => "zebra-striped"}
+  %tr
+    %th Course Number
+    %th Section
+    %th Title
+    %th Instructor
+    %th Seats Left
+    %th Seats
+    %th Building
+    %th Room
+    %th Start Time
+    %th End Time
+    %th Days
+    %th College
+  - @courses.each do |course|
+    %tr
+      %td= course.course_number
+      %td= course.section
+      %td= course.title
+      %td= course.try(:instructor).try(:name)
+      %td= course.seats_left
+      %td= course.seats
+      %td= course.building
+      %td= course.room
+      %td= course.begin_time.strftime("%I:%M %p")
+      %td= course.end_time.strftime("%I:%M %p")
+      %td= course.days
+      %td= course.college.college_tag.upcase

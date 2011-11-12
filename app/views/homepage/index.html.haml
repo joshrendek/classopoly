@@ -1,0 +1,10 @@
+%center
+  - if current_user
+    - if current_user.user_courses.size > 0
+      %h3
+        =link_to "Find courses that I can take", generate_course_list_user_courses_path
+    - else
+      %h3
+        =link_to "You need to add some courses to take", user_courses_path
+  - else
+    %h3 Welcome to Classopoly! You can begin by logging in and adding some courses.

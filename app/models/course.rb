@@ -1,9 +1,6 @@
 class Course < ActiveRecord::Base
   belongs_to :instructor
   belongs_to :college
- # Course(id: integer, course_number: string, section: string, title: string, reference_number: string, instructor_id: integer, seats: integer, seats_left: integer, building: string, room: string, begin_time: time, end_time: time, days: string, created_at: datetime, updated_at: datetime, college_id: integer, course_college_instructor_hash: string) 
-  # 
-  #
   
   def days_array
     arr = []

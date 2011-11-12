@@ -6,7 +6,11 @@ Classly::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :user_courses
+  resources :user_courses do
+    collection do
+      get 'generate_course_list'
+    end
+  end
 
   resources :courses
 

@@ -12,6 +12,8 @@ gem 'devise'
 gem 'pg'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph" # DONT CONFUSE THIS WITH fbgraph
+gem 'formtastic'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
