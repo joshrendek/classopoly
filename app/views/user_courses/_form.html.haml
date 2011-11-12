@@ -4,5 +4,5 @@
     %ul
       - @user.course.errors.full_messages.each do |msg|
         %li=msg
-  =select(:user_course, :tag, Course.group(:course_number).collect {|c| c.course_number })
+  =select(:user_course, :tag, Course.select('id,course_number').group(:course_number).collect {|c| c.course_number })
   =f.submit "Add Course", :class => "btn primary"
