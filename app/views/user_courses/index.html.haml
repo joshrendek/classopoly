@@ -1,0 +1,10 @@
+%h1 Listing Courses You Want to Take
+= link_to "Add Course", new_user_course_path, :class => "btn success right"
+%table
+  %tr
+    %th Tag
+    %th
+  - @user_courses.each do |uc|
+    %tr
+      %td= uc.tag
+      %td= link_to 'Destroy', uc, confirm: 'Are you sure?', method: :delete

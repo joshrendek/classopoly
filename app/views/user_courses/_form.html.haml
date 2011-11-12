@@ -1,0 +1,8 @@
+=form_for @user_course do |f|
+  -if @user_course.errors.any?
+    %div{:id => "error_explanation"}= pluralize(@user_course.errors.count, "error") + "prohibited this course from being saved:"
+    %ul
+      - @user.course.errors.full_messages.each do |msg|
+        %li=msg
+  =select(:user_course, :tag, Course.group(:course_number).collect {|c| c.course_number })
+  =f.submit "Add Course", :class => "btn primary"
