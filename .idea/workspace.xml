@@ -100,7 +100,7 @@
       <file leaf-file-name="_form.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/user_courses/_form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="61" selection-start="331" selection-end="331" vertical-scroll-proportion="0.10376399">
+            <state line="6" column="67" selection-start="337" selection-end="337" vertical-scroll-proportion="0.10376399">
               <folding />
             </state>
           </provider>
@@ -849,7 +849,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_courses/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="61" selection-start="331" selection-end="331" vertical-scroll-proportion="0.10376399">
+        <state line="6" column="67" selection-start="337" selection-end="337" vertical-scroll-proportion="0.10376399">
           <folding />
         </state>
       </provider>
