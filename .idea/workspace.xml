@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34d26ad6-a7f5-4e53-8dae-6b24c2d1be19" name="Default" comment="" />
+    <list default="true" id="34d26ad6-a7f5-4e53-8dae-6b24c2d1be19" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+    </list>
     <ignored path="classopoly.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,10 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generate_course_list.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="generate_course_list.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="192" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="2" selection-start="604" selection-end="604" vertical-scroll-proportion="0.5188199">
               <folding />
             </state>
           </provider>
@@ -72,15 +83,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/courses/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="17" selection-start="0" selection-end="25" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="course.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/course.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="21" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,7 +131,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/views/user_courses/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/views/user_courses/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/views/user_courses/index.html.erb" />
@@ -143,6 +144,7 @@
         <option value="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
         <option value="$PROJECT_DIR$/app/views/courses/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -654,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/course.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="21" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
@@ -734,6 +729,13 @@
     <entry file="file://$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="192" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="2" selection-start="604" selection-end="604" vertical-scroll-proportion="0.5188199">
           <folding />
         </state>
       </provider>

@@ -28,8 +28,6 @@ group :test do
   gem "database_cleaner"
   gem 'cucumber'
   gem 'cucumber-rails'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'growl_notify', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'railroady'
   gem 'rspec'
   gem 'rspec-rails'
