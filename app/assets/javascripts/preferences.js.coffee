@@ -90,9 +90,6 @@ jQuery ($) ->
     $('#step3').fadeIn()
 
   $('#save_preferences').click =>
-    pref.printWorkDays()
-    pref.printTimes()
-    alert pref.getWorkTimes()
     $.post(
       "/preferences/update"
       lunch_time: pref.getLunchTime()
