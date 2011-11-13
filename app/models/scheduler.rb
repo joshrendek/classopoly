@@ -2,7 +2,7 @@ class Scheduler
   DEBUG = true
   require 'set'
   require 'digest/md5'  
-  attr_accessor :time_hash, :course_tags, :available_courses, :courses
+  attr_accessor :time_hash, :course_tags, :available_courses, :courses, :unavailable_courses
 
   def initialize(str, tag)
     @time_hash = {}
@@ -21,6 +21,10 @@ class Scheduler
 
   def get_courses
     @available_courses.collect {|k,v| v }
+  end
+
+  def get_unavailable_courses
+    @unavailable_courses.collect {|k,v| v }
   end
 
   def parse_to_time_slices(day, times)
@@ -43,6 +47,7 @@ class Scheduler
 
   def find_courses_in_slices
     available_courses = {}
+    unavailable_courses = {}
 
     # find all courses that include the course tags they're enrolled in
     @courses = Course.where(:course_number => @course_tags)
@@ -74,6 +79,7 @@ class Scheduler
           p "Added course: #{c.id}" if DEBUG
           p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
         else
+          unavailable_courses.store(Digest::MD5.hexdigest(c.to_s), c)
           p "Couldn't add course: #{c.id}" if DEBUG
           print "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
 
@@ -82,7 +88,8 @@ class Scheduler
       #p time_slice
     end
     p "#{available_courses.size}/#{@courses.size} courses have been found to fit your schedule " if DEBUG
-    @available_courses = available_courses 
+    @available_courses = available_courses
+    @unavailable_courses = unavailable_courses
     p "="*60 if DEBUG
   end
 

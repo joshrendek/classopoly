@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34d26ad6-a7f5-4e53-8dae-6b24c2d1be19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/classopoly.iml" afterPath="$PROJECT_DIR$/.idea/classopoly.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/scheduler.rb" afterPath="$PROJECT_DIR$/app/models/scheduler.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_courses.html.haml" afterPath="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
     </list>
     <ignored path="classopoly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,24 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="preferences_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/preferences_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cucumber.rake" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/tasks/cucumber.rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/courses/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,34 +57,34 @@
       <file leaf-file-name="user_courses_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_courses_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+            <state line="2" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user_courses/new.html.erb">
+      <file leaf-file-name="generate_course_list.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="17" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+            <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user_courses/_form.html.haml">
+      <file leaf-file-name="_courses.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_courses.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="67" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+            <state line="35" column="60" selection-start="815" selection-end="815" vertical-scroll-proportion="0.50548357">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scheduler.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="scheduler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="26" selection-start="562" selection-end="562" vertical-scroll-proportion="0.4069176">
+            <state line="10" column="216" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,10 +116,8 @@
         <option value="$PROJECT_DIR$/app/views/user_courses/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
         <option value="$PROJECT_DIR$/app/models/course.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/homepage/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
         <option value="$PROJECT_DIR$/app/views/courses/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -147,7 +126,9 @@
         <option value="$PROJECT_DIR$/lib/tasks/scraper.rake" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/preferences.js.coffee" />
         <option value="$PROJECT_DIR$/app/views/user_courses/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/scheduler.rb" />
+        <option value="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
       </list>
     </option>
   </component>
@@ -709,16 +690,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/college_importer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/scraper.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="23" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/preferences/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="35" selection-start="1494" selection-end="1494" vertical-scroll-proportion="-12.076923" />
@@ -766,31 +737,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/user_courses_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" />
+        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_courses/generate_course_list.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="216" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_courses/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="17" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_courses/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="67" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0" />
+        <state line="6" column="67" selection-start="337" selection-end="337" vertical-scroll-proportion="0.09766022">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/user_courses_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" />
+        <state line="2" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_courses.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="26" selection-start="562" selection-end="562" vertical-scroll-proportion="0.4069176">
+        <state line="35" column="60" selection-start="815" selection-end="815" vertical-scroll-proportion="0.50548357">
           <folding />
         </state>
       </provider>

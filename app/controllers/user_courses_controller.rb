@@ -5,6 +5,7 @@ class UserCoursesController < ApplicationController
     builder = Scheduler.new(current_user.preferences.workdays, current_user.user_courses.collect {|uc| uc.tag })
     builder.find_courses_in_slices
     @courses = builder.get_courses
+    @unavailable_courses = builder.get_unavailable_courses
   end
 
   # GET /user_courses
