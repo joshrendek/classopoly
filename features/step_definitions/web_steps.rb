@@ -183,7 +183,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
     end
   end
 end
- 
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -197,8 +197,8 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')} 
-  
+  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(',') }
+
   if actual_params.respond_to? :should
     actual_params.should == expected_params
   else
@@ -208,4 +208,22 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+Given /^I am not authenticated$/ do
+  rack_test_session_wrapper = Capybara.current_session.driver
+  rack_test_session_wrapper.delete '/users/sign_out' #[capybara](http://github.com/jnicklas/capybara) wrapper which will pass along the current rack env
+  #visit('/users/sign_out', :method => :destroy) # ensure that at least
+end
+
+Given /^I am a new, authenticated user$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  User.new(:email => email, :password => password, :password_confirmation => password).save!
+
+  visit '/users/sign_in'
+  fill_in "user_email", :with=>email
+  fill_in "user_password", :with=>password
+  click_button "Sign in"
+
 end
