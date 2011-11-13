@@ -15,6 +15,10 @@ class Scheduler
     end
   end
 
+  def day_to_abbrev(day)
+    day =~ /thursday/ ? 'R' : day[0].upcase
+  end
+
   def time_to_seconds(time)
     time.hour * 60 * 60 + time.min * 60 
   end
@@ -71,8 +75,9 @@ class Scheduler
         #p "Time hash time: #{time_to_seconds(t[0].localtime)} #{time_to_seconds(t[1].localtime)}" if DEBUG
         p "_"*60 if DEBUG
 
+
         # if the class time isnt a subset of the work time, we can add it to the available courses hash
-        if class_time_range.subset?(work_time_range) == false
+        if class_time_range.subset?(work_time_range) == false || !c.days.include?(day_to_abbrev(k))
           # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
           available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
           

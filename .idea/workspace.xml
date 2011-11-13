@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34d26ad6-a7f5-4e53-8dae-6b24c2d1be19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/scheduler.rb" afterPath="$PROJECT_DIR$/app/models/scheduler.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_courses.html.haml" afterPath="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
     </list>
@@ -72,19 +72,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_courses.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_courses.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/shared/_courses.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="60" selection-start="815" selection-end="815" vertical-scroll-proportion="0.50548357">
+            <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scheduler.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="scheduler.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="216" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+            <state line="79" column="66" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.55832505">
               <folding />
             </state>
           </provider>
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/preferences.js.coffee" />
         <option value="$PROJECT_DIR$/app/views/user_courses/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/user_courses_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/scheduler.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_courses.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/scheduler.rb" />
       </list>
     </option>
   </component>
@@ -749,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="216" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_courses/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
@@ -779,7 +772,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_courses.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="60" selection-start="815" selection-end="815" vertical-scroll-proportion="0.50548357">
+        <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/scheduler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="66" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.55832505">
           <folding />
         </state>
       </provider>
