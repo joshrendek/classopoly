@@ -24,16 +24,6 @@ class Scheduler
   end
 
   def parse_to_time_slices(day, times)
-    date_array = (Date.today.at_beginning_of_month..Date.today.at_beginning_of_month.advance(:weeks => 1))
-    time_hash = {}
-    date_array.each do |d|
-      time_hash.store(d.strftime("%A"), [Time.parse("#{d} #{times[0]}"), Time.parse("#{d} #{times[1]}")]) # store the date objects in a hash with the date as a key
-    end
-    print time_hash.to_yaml if DEBUG
-    @time_hash.store(day, time_hash[day.capitalize])
-  end
-
-  def parse_to_time_slices_optimized(day, times)
     date = Date.parse(day)
     date_at_beginning_of_month = first_weekday_at_beginning_of_month(date)
     times_at_beginning_of_month = times.map do |time_string|
