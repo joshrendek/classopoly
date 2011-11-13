@@ -48,4 +48,3 @@ class Devise::SessionsController < ApplicationController
     { :methods => methods, :only => [:password] }
   end
 end
-
