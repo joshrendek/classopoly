@@ -79,7 +79,7 @@ class Scheduler
         # if the class time isnt a subset of the work time, we can add it to the available courses hash
         if class_time_range.subset?(work_time_range) == false || !c.days.include?(day_to_abbrev(k))
           # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
-          available_courses.store(Digest::MD5.hexdigest(c.to_s), c)
+          available_courses.store(Digest::MD5.hexdigest(c.to_s), c.id) # only story course id
           
           p "Added course: #{c.id}" if DEBUG
           p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
