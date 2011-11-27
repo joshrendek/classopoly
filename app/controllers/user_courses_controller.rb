@@ -1,4 +1,5 @@
 class UserCoursesController < ApplicationController
+  before_filter :require_login!
 
   def generate_course_list
     # u = Scheduler.new("monday,00:01,1:00", ['COP3014', 'COP3252']); u.find_courses_in_slices; u.get_courses

@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_filter :require_login!
   # GET /courses
   # GET /courses.json
   def index
