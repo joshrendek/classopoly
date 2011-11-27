@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.limit(200)
+    @courses = Course.order('course_number ASC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.haml

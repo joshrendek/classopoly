@@ -14,6 +14,7 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph" # DONT CONFUSE THIS WITH fbgraph
 gem 'formtastic'
 gem 'haml'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,7 +25,7 @@ group :assets do
 end
 
 
-group :test do 
+group :test do
   gem "database_cleaner"
   gem 'cucumber'
   gem 'cucumber-rails'

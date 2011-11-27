@@ -1,0 +1,12 @@
+%table.facebook
+  - @friends.each_with_index do |friend, i|
+    - if i % 5 == 0
+      %tr
+    %td=image_tag "https://graph.facebook.com/#{friend.identifier}/picture", :size => "24x24", :style => "float: left;"
+    %td=friend.name
+    - if Authorization.find_by_uid(friend.identifier)
+      %td
+        %span.label.notice Already Joined!
+    - else
+      %td=link_to "Invite", "#", :class => "btn success"
+    %td

@@ -1,5 +1,5 @@
 Classly::Application.routes.draw do
-  
+  get '/friends', :to => "facebook#friends"
 
   get '/preferences', :to => "preferences#index"
   post '/preferences/update', :to => "preferences#update"
