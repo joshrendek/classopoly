@@ -32,9 +32,8 @@ class Preferences
     for day in @work_days
       tmp = new Array()
       tmp[0] = day
-      tmp[1] = $('#work_time_'+day+'_start_4i').val() + ":" + $('#work_time_'+day+'_end_4i').val()
-      tmp[2] = $('#work_time_'+day+'_start_5i').val() + ":" + $('#work_time_'+day+'_end_5i').val()
-      
+      tmp[1] = $('#work_time_'+day+'_start_4i').val() + ":" + $('#work_time_'+day+'_start_5i').val()
+      tmp[2] = $('#work_time_'+day+'_end_4i').val() + ":" + $('#work_time_'+day+'_end_5i').val()
       Array::push.apply @work_times, [tmp.toString()]
     return @work_times.join('|').toString()
 
