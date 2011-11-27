@@ -15,18 +15,18 @@ describe User do
     it "should find 5 courses given I work on wednesday and friday" do
       user_schedule = Scheduler.new(user1["work_times"], user1["course_tags"])
       user_schedule.find_courses_in_slices
-      user_schedule.available_courses.size.should == 5
+      user_schedule.available_courses.size.should == 6
       user_schedule.courses.size.should == 8
     end
     user2 = {"work_times" => "monday,6:00,12:00|friday,6:00,12", "course_tags" => ['BSC2010', 'CHI1120']}
     it "should find 3 courses given I work on monday and friday" do
       user_schedule = Scheduler.new(user2["work_times"], user2["course_tags"])
       user_schedule.find_courses_in_slices
-      user_schedule.available_courses.size.should == 4
+      user_schedule.available_courses.size.should == 5
       user_schedule.courses.size.should == 9
     end
 
-    user3 = {"work_times" => "monday,00:01,23:00|tuesday,00:01,23:00|wednesday,00:01,23:00|thursday,00:01,23:00|friday,00:01,23:00", "course_tags" => ['BSC2010', 'CHI1120']}
+    user3 = {"work_times" => "monday,00:01,23:00|tuesday,00:01,23:00|wednesday,00:01,23:00|thursday,00:01,23:00|friday,00:01,23:00", "course_tags" => Course.limit(3).collect {|c| c.course_number } }
     it "should find no courses given I work everyday from 00:01AM to 11PM" do
       user_schedule = Scheduler.new(user3["work_times"], user3["course_tags"])
       user_schedule.find_courses_in_slices

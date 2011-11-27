@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004201448) do
+ActiveRecord::Schema.define(:version => 20111127024551) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20111004201448) do
     t.datetime "updated_at"
     t.integer  "college_id"
     t.string   "course_college_instructor_hash", :null => false
+    t.string   "semester"
+    t.integer  "year"
   end
 
   add_index "courses", ["course_college_instructor_hash"], :name => "index_courses_on_course_college_instructor_hash", :unique => true
@@ -72,6 +74,12 @@ ActiveRecord::Schema.define(:version => 20111004201448) do
   end
 
   add_index "instructors", ["college_name_hash"], :name => "index_instructors_on_college_name_hash", :unique => true
+
+  create_table "pending_invites", :force => true do |t|
+    t.integer  "uid",        :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "preferences", :force => true do |t|
     t.integer  "user_id"

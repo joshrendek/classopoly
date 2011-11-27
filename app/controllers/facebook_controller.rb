@@ -4,4 +4,9 @@ class FacebookController < ApplicationController
     @friends = FbGraph::User.me(@user.authorizations.first.token).friends
   
   end
+
+  def invite
+    PendingInvite.create(:uid => params[:uid])
+    render :text => "OK", :status => :ok 
+  end
 end

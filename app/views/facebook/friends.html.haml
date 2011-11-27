@@ -7,6 +7,9 @@
     - if Authorization.find_by_uid(friend.identifier)
       %td
         %span.label.notice Already Joined!
+    - elsif PendingInvite.find_by_uid(friend.identifier)
+      %td=link_to "Sent", "#", :class => "btn success disabled"
     - else
-      %td=link_to "Invite", "#", :class => "btn success"
+      %td=link_to "Invite", "#", :class => "btn success", :id => "invite_user_#{friend.identifier}", :facebook_identifier => friend.identifier
     %td
+   

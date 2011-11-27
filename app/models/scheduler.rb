@@ -1,5 +1,5 @@
 class Scheduler
-  DEBUG = true
+  DEBUG = false
   require 'set'
   require 'digest/md5'  
   attr_accessor :time_hash, :course_tags, :available_courses, :courses, :unavailable_courses

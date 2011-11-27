@@ -1,6 +1,6 @@
 Classly::Application.routes.draw do
   get '/friends', :to => "facebook#friends"
-
+  get '/friends/invite/:uid', :to => "facebook#invite", :as => "invite_friend"
   get '/preferences', :to => "preferences#index"
   post '/preferences/update', :to => "preferences#update"
 
