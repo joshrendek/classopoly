@@ -5,8 +5,6 @@ class CreatePendingInvites < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    execute "ALTER TABLE `pending_invites` CHANGE `uid` `uid` BIGINT(50)  NULL  DEFAULT NULL;"
-
+    execute "ALTER TABLE pending_invites ALTER uid TYPE bigint;"
   end
 end

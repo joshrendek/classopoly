@@ -1,6 +1,6 @@
 class AuthorizationsIntToBigInt < ActiveRecord::Migration
   def up
-    execute "ALTER TABLE `authorizations` CHANGE `uid` `uid` BIGINT(50)  NULL  DEFAULT NULL;"
+    execute "ALTER TABLE authorizations ALTER uid TYPE bigint;"
   end
 
   def down
