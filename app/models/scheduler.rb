@@ -8,6 +8,7 @@ class Scheduler
     @time_hash = {}
     @course_tags = tag
     @available_courses = {}
+    @unavailable_courses = {}
     str.split('|').each do |day_string|
       tmp = day_string.split(',')
       day = tmp[0]
@@ -64,8 +65,11 @@ class Scheduler
       time_slice = (c.begin_time.localtime.to_i...c.end_time.localtime.to_i).to_a.to_set
       # loop through each time slice from when they work
       @time_hash.each do |k,t|
-        # might be a conflict if the class is on the same day they work, time to check times
         p "_"*60 if DEBUG
+        p k
+        p @available_courses.size
+        p @unavailable_courses.size
+        # might be a conflict if the class is on the same day they work, time to check times
         # create two time sets for class and work 
         begin_time = DateTime.new(t[0].year, t[0].month, t[0].day, c.begin_time.utc.hour, c.begin_time.utc.min)
         end_time = DateTime.new(t[0].year, t[0].month, t[0].day, c.end_time.utc.hour, c.end_time.utc.min)
@@ -88,23 +92,27 @@ class Scheduler
           # if the class time isnt a subset of the work time, we can add it to the available courses hash
           if class_time_range.subset?(work_time_range) == false || !c.days.include?(day_to_abbrev(k))
             # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
-            available_courses.store(Digest::MD5.hexdigest(c.to_s), c.id) # only story course id
 
+            # if it was unavailable previously its not available here
+            if !@unavailable_courses.has_key?(Digest::MD5.hexdigest(c.to_s))
+              @available_courses.store(Digest::MD5.hexdigest(c.to_s), c.id) # only story course id
+            end
+              
             p "Added course: #{c.id}" if DEBUG
             p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
+
           else
-            unavailable_courses.store(Digest::MD5.hexdigest(c.to_s), c)
+            @unavailable_courses.store(Digest::MD5.hexdigest(c.to_s), c)
             p "Couldn't add course: #{c.id}" if DEBUG
             print "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
 
           end
       end 
-      #p time_slice
+      
+
     end
     p "#{available_courses.size}/#{@courses.size} courses have been found to fit your schedule " if DEBUG
-    @available_courses = available_courses
-    @unavailable_courses = unavailable_courses
-    p "="*60 if DEBUG
+       p "="*60 if DEBUG
   end
 
   def to_s
