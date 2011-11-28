@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20111127024551) do
     t.string   "picture"
   end
 
-  add_index "friends", ["facebook_user_id", "facebook_friend_id"], :name => "uid_fid_key", :unique => true
+  add_index "friends", ["facebook_user_id", "facebook_friend_id"], :name => "facebook_user_id,facebook_friend_id", :unique => true
 
   create_table "instructors", :force => true do |t|
     t.string   "name"

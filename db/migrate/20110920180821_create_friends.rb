@@ -7,12 +7,11 @@ class CreateFriends < ActiveRecord::Migration
 
       t.timestamps
 
-          
-        
+
+
     end
-    execute "ALTER TABLE friends ALTER facebook_user_id TYPE bigint;"
-    execute "ALTER TABLE friends ALTER facebook_friend_id TYPE bigint;"
-    
-     
+    execute "ALTER TABLE `friends` CHANGE `facebook_user_id` `facebook_user_id` BIGINT(50)  NULL  DEFAULT NULL;"  	
+    execute "ALTER TABLE `friends` CHANGE `facebook_friend_id` `facebook_friend_id` BIGINT(50)  NULL  DEFAULT NULL;"	  	
+
   end
 end
