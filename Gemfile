@@ -9,12 +9,13 @@ gem 'mysql2'
 gem 'hpricot'
 gem 'rainbow'
 gem 'devise'
-gem 'pg'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph" # DONT CONFUSE THIS WITH fbgraph
 gem 'formtastic'
 gem 'haml'
 gem 'kaminari'
+gem "unicorn"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,7 +30,8 @@ group :development, :test do
   gem "database_cleaner"
   gem 'cucumber'
   gem 'cucumber-rails'
-  gem 'railroady'
+  gem'railroady'
+  gem 'capistrano'
   gem 'rspec'
   gem 'rspec-rails'
 end
