@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111127024551) do
+ActiveRecord::Schema.define(:version => 20111128214828) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -55,14 +55,13 @@ ActiveRecord::Schema.define(:version => 20111127024551) do
 
   create_table "friends", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "facebook_user_id",   :limit => 8
     t.integer  "facebook_friend_id", :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
   end
 
-  add_index "friends", ["facebook_user_id", "facebook_friend_id"], :name => "facebook_user_id,facebook_friend_id", :unique => true
+  add_index "friends", ["user_id", "facebook_friend_id"], :name => "user_id,facebook_friend_id", :unique => true
 
   create_table "instructors", :force => true do |t|
     t.string   "name"

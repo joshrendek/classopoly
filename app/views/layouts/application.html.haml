@@ -19,7 +19,7 @@
               %li
                 =link_to "My Courses", user_courses_path
               %li
-                =link_to "My Schedule", "/"
+                =link_to "My Schedule", generate_course_list_user_courses_path
               %li
                 =link_to "Course List", courses_path
               %li
@@ -32,4 +32,5 @@
               =link_to (image_tag "fb-login-button.png",  :id =>"facebook"),  user_omniauth_authorize_path(:facebook)
     - flash.each do |name, msg|
       = content_tag :div, raw("<p><center>" + msg + "</center></p>"), :class => "alert-message #{name}"
-    = yield
+    %div.container-fluid
+      = yield
