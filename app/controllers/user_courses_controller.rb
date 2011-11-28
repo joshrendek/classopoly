@@ -12,8 +12,7 @@ class UserCoursesController < ApplicationController
   # GET /user_courses
   # GET /user_courses.json
   def index
-    @user_courses = UserCourse.all
-
+    @user_courses = current_user.user_courses
     respond_to do |format|
       format.html # index.html.haml
       format.json { render json: @user_courses }
