@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :friends
   has_one :preferences
   has_many :user_courses
+  has_many :courses, :through => :user_courses
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id
 

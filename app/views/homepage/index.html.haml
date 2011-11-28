@@ -8,3 +8,18 @@
         =link_to "You need to add some courses to take", user_courses_path
   - else
     %h3 Welcome to Classopoly! You can begin by logging in and adding some courses.
+
+  - if current_user
+    %div.row
+      .span4
+        %h3 Friends using Classopoly
+        - @friends.each do |f|
+          %div
+            =image_tag "https://graph.facebook.com/#{f.facebook_friend_id}/picture", :size => "24x24", :style => "float: left;"
+            =f.name
+            %div
+              %p=f.friend.user_courses.collect{|c|c.tag}.join(', ')
+          .clear
+          %br 
+
+      .span6

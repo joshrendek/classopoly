@@ -2,14 +2,14 @@
   - @friends.each_with_index do |friend, i|
     - if i % 5 == 0
       %tr
-    %td=image_tag "https://graph.facebook.com/#{friend.identifier}/picture", :size => "24x24", :style => "float: left;"
+    %td=image_tag "https://graph.facebook.com/#{friend.facebook_friend_id}/picture", :size => "24x24", :style => "float: left;"
     %td=friend.name
-    - if Authorization.find_by_uid(friend.identifier)
+    - if Authorization.find_by_uid(friend.facebook_friend_id)
       %td
         %span.label.notice Already Joined!
-    - elsif PendingInvite.find_by_uid(friend.identifier)
+    - elsif PendingInvite.find_by_uid(friend.facebook_friend_id)
       %td=link_to "Sent", "#", :class => "btn success disabled"
     - else
-      %td=link_to "Invite", "#", :class => "btn success", :id => "invite_user_#{friend.identifier}", :facebook_identifier => friend.identifier
+      %td=link_to "Invite", "#", :class => "btn success", :id => "invite_user_#{friend.facebook_friend_id}", :facebook_identifier => friend.facebook_friend_id
     %td
    
