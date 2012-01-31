@@ -33,6 +33,8 @@ group :development, :test do
   gem'railroady'
   gem 'capistrano'
   gem 'rspec'
+  gem 'launchy'
+  gem 'pry'
   gem 'rspec-rails'
 end
 

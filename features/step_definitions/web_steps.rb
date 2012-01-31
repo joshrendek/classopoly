@@ -227,3 +227,17 @@ Given /^I am a new, authenticated user$/ do
   click_button "Sign in"
 
 end
+
+Given /^I am a authenticated user with preferences$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  User.new(:email => email, :password => password, :password_confirmation => password).save!
+  Preferences.create(:class_time => Time.now, :lunch_time => Time.now, :workdays => '', :user_id => User.last.id).save
+  visit '/users/sign_in'
+  fill_in "user_email", :with=>email
+  fill_in "user_password", :with=>password
+  click_button "Sign in"
+
+end
+
+
