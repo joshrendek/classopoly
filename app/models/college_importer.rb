@@ -72,7 +72,8 @@ module CollegeImporter
     @departments.each do |d|
 
       print "\n[ Parsing #{d} ]\n".color(:yellow)
-      tmp = "requestType=PUBLIC&courseNumber=&term=20119&department=#{d}&level=&location=0100FSU+Main+Campus&specialProgram=-9999&beginningTime=&endingTime=&searchCriteria=-9999&criteriaDesc="
+      @term = "20126"
+      tmp = "requestType=PUBLIC&courseNumber=&term=#{@term}&department=#{d}&level=&location=0100FSU+Main+Campus&specialProgram=-9999&beginningTime=&endingTime=&searchCriteria=-9999&criteriaDesc="
       tmp_hash = {}
       tmp.split('&').each do |s|
         tmp_x = s.split('=')
@@ -142,7 +143,7 @@ module CollegeImporter
     @college = College.find_by_college_tag('fsu')
     Instructor.load_instructors(@college, @classes)
 
-    Course.load_courses(@college, @classes)
+    Course.load_courses(@college, @classes, @term)
 
     p "[ Found and parsed #{@classes.size} classes ]"
   end

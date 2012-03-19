@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111128220156) do
+ActiveRecord::Schema.define(:version => 20120319013413) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "uid",        :limit => 8
     t.string   "provider"
     t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "books", :force => true do |t|
+    t.integer  "course_id"
+    t.string   "isbn"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20111128220156) do
     t.datetime "updated_at"
     t.integer  "college_id"
     t.string   "course_college_instructor_hash", :null => false
-    t.string   "semester"
     t.integer  "year"
+    t.string   "term"
   end
 
   add_index "courses", ["course_college_instructor_hash"], :name => "index_courses_on_course_college_instructor_hash", :unique => true

@@ -1,7 +1,21 @@
 class Course < ActiveRecord::Base
   belongs_to :instructor
   belongs_to :college
+  has_many :books
   
+  def human_term
+    case term[-1].to_i 
+      when 9
+        return "fall"
+      when 1
+        return "spring"
+      when 6
+        return "summer"
+      else
+        return ""
+    end
+  end
+
   def days_array
     arr = []
     days.split(//).each do |d|
@@ -14,7 +28,7 @@ class Course < ActiveRecord::Base
     arr
   end
 
-  def self.load_courses(college, data)
+  def self.load_courses(college, data, term)
     @college = college
     data.each do |d|
       begin
@@ -23,6 +37,8 @@ class Course < ActiveRecord::Base
           c = Course.new(:course_number => d['course_number'], :section => d['section'],
                         :reference_number => d['course_ref_num'],
                         :title => d['title'],
+                        :term => term,
+                        :year => term[0..3].to_i,
                         :instructor_id => Instructor.find_by_name(d['instructor']).id,
                         :seats => d['seats'].to_i, :seats_left => d['seats_left'].to_i,
                         :building => d['building'], :room => d['room'],

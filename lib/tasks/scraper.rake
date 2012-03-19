@@ -8,4 +8,7 @@ namespace :scrapers do
     CollegeImporter.fsu
   end
 
+  task :fsu_books => :environment do
+    Bookstore.fetch_all_isbn
+  end
 end

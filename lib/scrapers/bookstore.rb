@@ -7,9 +7,9 @@ module Bookstore
     def initialize(opts)
       @year = opts[:year]
       @term = opts[:term]
-      @refNum = opts[:refnum]
-      @origin = opts[:origin]
-      @apppgm = opts[:apppgm]
+      @ref_num = opts[:refnum]
+      @origin = "J"
+      @apppgm = "CL"
       setup
       fetch_isbn
     end
@@ -17,7 +17,7 @@ module Bookstore
     def setup
       @http = Net::HTTP.new('cfprd.oti.fsu.edu',443)
       @http.use_ssl = true
-      @path = '/anr/CourseSectionDetail/index.cfm?year=2012&term=1&srchCourseRefNumber=06526&origin=J&apppgm=CL'
+      @path = "/anr/CourseSectionDetail/index.cfm?year=#{@year}&term=#{@term}&srchCourseRefNumber=#{@ref_num}&origin=#{@origin}&apppgm=#{@apppgm}"
       #/webapp/wcs/stores/servlet/OnlineRegistration?langId=-1&storeId=11003')
 
       @headers = {
@@ -32,18 +32,24 @@ module Bookstore
       @body = @response.body
       @webdoc = Hpricot(body)
       @isbn = ''
-      @webdoc.search('table tr td table tr td').each do |s|
-        match = s.inner_html.match(/[0-9]{8,13}/).to_a.first
+      p @path
+        match = @body.match(/[0-9]{8,13}/).to_a.first
+
         unless match.blank?
           @isbn = match
         end
-      end
+
     end
   end
 
   class << self
     def fetch_all_isbn
-
+      Course.all.each_with_index do |course, index|
+        p "#{index} / #{Course.all.count}"
+        options_hash = {:year => course.year, :term => course.term[-1], :refnum => course.reference_number.to_s} 
+        isbn = Bookstore::Fetch.new(options_hash).isbn
+        course.books.build(:isbn => isbn).save
+      end
     end
   end
 end
