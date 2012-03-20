@@ -4,11 +4,14 @@ require './lib/isbndb'
 require 'hpricot'
 require 'pry'
 
+require 'yaml'
+require './config/initializers/app_config'
+
 describe ISBN::API::Price do
 
   before(:all) do 
     VCR.use_cassette('isbn') do 
-      @book = ISBN::API::Price.new('', '9780470074787')
+      @book = ISBN::API::Price.new('9780470074787')
     end
   end
 

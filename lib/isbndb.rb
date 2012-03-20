@@ -3,8 +3,8 @@ module ISBN
   module API
     class Price
       attr_accessor :price
-      def initialize(access_key, isbn)
-        @access_key = access_key
+      def initialize(isbn)
+        @access_key = APP_CONFIG["isbndb"]["key"]
         @isbn = isbn 
         setup
         fetch
