@@ -32,6 +32,8 @@ group :development, :test do
   gem 'cucumber-rails'
   gem'railroady'
   gem 'capistrano'
+  gem 'vcr'
+  gem 'fakeweb'
   gem 'rspec'
   gem 'launchy'
   gem 'pry'

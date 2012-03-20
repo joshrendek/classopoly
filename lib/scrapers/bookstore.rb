@@ -35,7 +35,7 @@ module Bookstore
       p @path
         match = @body.match(/[0-9]{8,13}/).to_a.first
 
-        unless match.blank?
+        unless match.nil?
           @isbn = match
         end
 
