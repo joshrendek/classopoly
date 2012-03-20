@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319013413) do
+ActiveRecord::Schema.define(:version => 20120320115246) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(:version => 20120319013413) do
   create_table "books", :force => true do |t|
     t.integer  "course_id"
     t.string   "isbn"
-    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "min_price"
+    t.float    "max_price"
+    t.float    "average_price"
   end
 
   create_table "colleges", :force => true do |t|

@@ -2,7 +2,7 @@ require 'net/http'
 module ISBN 
   module API
     class Price
-      attr_accessor :price
+      attr_accessor :prices, :min, :max, :average
       def initialize(isbn)
         @access_key = APP_CONFIG["isbndb"]["key"]
         @isbn = isbn 
@@ -22,8 +22,12 @@ module ISBN
         @response, @data = @http.get(@path)
         @body = @response.body
         @xml = Hpricot.XML(@body)
-        @price = (@xml/:Prices/:Price).collect {|p| p["price"].to_f }
-
+        @prices = (@xml/:Prices/:Price).collect {|p| p["price"].to_f }
+        @max = @prices.max
+        @min = @prices.min
+        sum = 0.0
+        @prices.each {|p| sum += p  }
+        @average = sum/@prices.count.to_f
       end
 
     end

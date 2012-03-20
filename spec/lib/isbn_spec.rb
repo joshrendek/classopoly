@@ -15,9 +15,22 @@ describe ISBN::API::Price do
     end
   end
 
-  context "Get book prices via ISBNdb.com API" do
-    it "should fetch the price for 9780470074787" do
-      p @book.price
+  context "Get book prices via ISBNdb.com API for 9780470074787" do
+    it "should fetch the prices" do
+      @book.prices.count.should > 5
     end
+
+    it "should get the min price" do
+      @book.min.should_not be_nil
+    end
+
+    it "should get the max price" do
+      @book.max.should_not be_nil
+    end
+
+    it "should get the average price" do
+      @book.average.should_not be_nil
+    end
+
   end
 end
