@@ -1,11 +1,16 @@
-require 'spec_helper'
+require 'spec_lite'
+require './app/models/course'
 
 describe Course do
 
-  before(:each) do 
+  before(:all) do 
     @spring = Course.create(:year => 2012, :term => "20121", :course_college_instructor_hash => "123")
     @fall = Course.create(:year => 2012, :term => "20129", :course_college_instructor_hash => "1233")
     @summer = Course.create(:year => 2012, :term => "20126", :course_college_instructor_hash => "13423")
+  end
+
+  after(:all) do
+    Course.destroy_all
   end
 
   context "Getting a courses term" do
