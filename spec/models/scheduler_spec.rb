@@ -8,7 +8,7 @@ if Course.all.size < 6000
 end
 
 
-describe User do
+describe Scheduler do
 
   user1 = {"work_times" => "wednesday,8:30,14:30|friday,6:30,18:45", :lunch_time => "1:30", "course_tags" => ['ACG3341', 'CLT3370']}
   describe "Parsing the work_times" do

@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 20 Mar 2012 00:53:16 GMT
+      - Tue, 20 Mar 2012 01:54:21 GMT
       server:
       - Apache/2.2.11 (Unix) mod_ssl/2.2.11 OpenSSL/0.9.8e-fips-rhel5 DAV/2 JRun/4.0
       set-cookie:
-      - CFID=4068652;expires=Thu, 13-Mar-2042 00:53:17 GMT;path=/
-      - CFTOKEN=67489611;expires=Thu, 13-Mar-2042 00:53:17 GMT;path=/
-      - JSESSIONID=f030cf11b9145c01058d647465c652a34655;path=/
+      - CFID=4069415;expires=Thu, 13-Mar-2042 01:54:21 GMT;path=/
+      - CFTOKEN=57968166;expires=Thu, 13-Mar-2042 01:54:21 GMT;path=/
+      - JSESSIONID=f030a9119a9c72471aa4543f2738357f1613;path=/
       connection:
       - close
       transfer-encoding:
@@ -333,5 +333,5 @@ http_interactions:
         PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IC0tPg0KDQoN
         CjwvQk9EWT4NCjwvSFRNTD4=
     http_version: '1.1'
-  recorded_at: Tue, 20 Mar 2012 00:53:17 GMT
+  recorded_at: Tue, 20 Mar 2012 01:54:21 GMT
 recorded_with: VCR 2.0.0

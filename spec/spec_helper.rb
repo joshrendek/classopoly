@@ -10,10 +10,6 @@ require 'test/unit'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures/cassettes'
-  c.hook_into :fakeweb
-end
 
 RSpec.configure do |config|
   # == Mock Framework
