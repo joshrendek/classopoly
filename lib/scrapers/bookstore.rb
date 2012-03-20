@@ -32,12 +32,11 @@ module Bookstore
       @body = @response.body
       @webdoc = Hpricot(body)
       @isbn = ''
-      p @path
-        match = @body.match(/[0-9]{8,13}/).to_a.first
+      match = @body.match(/[0-9]{8,13}/).to_a.first
 
-        unless match.nil?
-          @isbn = match
-        end
+      unless match.nil?
+        @isbn = match
+      end
 
     end
   end
