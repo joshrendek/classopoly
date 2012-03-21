@@ -35,7 +35,8 @@ describe Scheduler do
     @course_list << @course2
   end
 
-  context "a" do
+  context "should show occupied and course times" do
+
     it "should give me slices of time that are occupied" do 
       s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
       s.occupied_time.first.start == 30600
@@ -52,19 +53,38 @@ describe Scheduler do
 
   end
 
-  context "should show me whether a course time is contained within a occupied time " do 
-
-    it "should show the time as free" do
-      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+  context "should show me whether a course time is contained within occupied time " do 
+    it "should show the time as free if i work on tuesday" do
+      s = Scheduler2.new(["tuesday,8:30,14:30"], @course_list)
       first_course = s.course_times.first
-      s.occupied_times_contains_course_time?(first_course).should be_true
+      s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
 
-    it "should not show the time as free" do
-      s = Scheduler2.new(["wednesday,2:30,22:30"], @course_list)
+    it "should show the time as not free if i work on monday" do
+      s = Scheduler2.new(["monday,8:30,22:30"], @course_list)
       first_course = s.course_times.first
-      s.occupied_times_contains_course_time?(first_course).should be_false
+      s.course_time_exists_in_occupied_time?(first_course).should be_true
     end
+
+    # WIP 
+    it "should show the time as free if i work on tuesday and have class on monday" do
+      s = Scheduler2.new(["tuesday,8:30,22:30"], @course_list)
+      first_course = s.course_times.first
+      s.course_time_exists_in_occupied_time?(first_course).should be_false
+    end
+
+   it "should show the time as not free if I work during class" do
+      s = Scheduler2.new(["monday,2:30,15:50"], @course_list)
+      first_course = s.course_times.first
+      s.course_time_exists_in_occupied_time?(first_course).should be_true
+    end
+
+    it "should show the time as free if i work on monday before class" do
+      s = Scheduler2.new(["monday,2:30,15:05"], @course_list)
+      first_course = s.course_times.first
+      s.course_time_exists_in_occupied_time?(first_course).should be_false
+    end
+
   end
 
 

@@ -15,16 +15,15 @@ class Scheduler2
 
   end
 
-  def occupied_times_contains_course_time?(course_time)
-    p @occupied_time
+  def course_time_exists_in_occupied_time?(course_time)
     @occupied_time.each do |ot|
-      ot_set = Set.new((ot.start..ot.end).to_a)
-      ct_set = Set.new((course_time.start..course_time.end).to_a)
-      if ct_set.subset? ot_set
-        return false
-      end
+      b1 = course_time.end < ot.start
+      b2 = course_time.start > ot.end
+      b3 = course_time.days.include?(ot.day)
+      return false if !b3
+      return true if !b2 && !b1 
     end
-    true
+    false
   end
 
   def parse_work_times_to_array
