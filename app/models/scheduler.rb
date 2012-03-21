@@ -1,3 +1,53 @@
+class Scheduler2
+  require 'set'
+  TimeKeeper = Struct.new(:day, :start, :end)
+  CourseTime = Struct.new(:id, :start, :end, :days)
+  attr_accessor :occupied_time, :course_times
+
+  def initialize(work_times, course_list)
+    @occupied_time = []
+    @work_times = work_times
+    @course_list = course_list
+    @course_times = []
+
+    parse_work_times_to_array
+    build_course_times
+
+  end
+
+  def occupied_times_contains_course_time?(course_time)
+    p @occupied_time
+    @occupied_time.each do |ot|
+      ot_set = Set.new((ot.start..ot.end).to_a)
+      ct_set = Set.new((course_time.start..course_time.end).to_a)
+      if ct_set.subset? ot_set
+        return false
+      end
+    end
+    true
+  end
+
+  def parse_work_times_to_array
+    @work_times.each do |t|
+      time = t.split(",")
+      t_start = time[1].split(':')
+      t_end = time[2].split(':')
+      start_time = t_start[0].to_i*60*60 + t_start[1].to_i*60
+      end_time = t_end[0].to_i*60*60 + t_end[1].to_i*60
+
+      @occupied_time  << TimeKeeper.new(t[0].upcase, start_time, end_time)
+    end
+  end
+
+  def build_course_times
+    @course_list.each do |c|
+      start_time = c.begin_time.hour*60*60 + c.begin_time.min*60
+      end_time = c.end_time.hour*60*60 + c.end_time.min*60
+      @course_times << CourseTime.new(c.id, start_time, end_time, c.days)
+    end
+  end
+
+end
 class Scheduler
   DEBUG = TRUE
   require 'set'
@@ -89,13 +139,8 @@ class Scheduler
         @logger.info "Class time: #{class_time_range.first} -> #{class_time_range.to_a.last}"
         @logger.info "Work time: #{work_time_range.first} -> #{work_time_range.to_a.last}"
 
-          #p "Local time: #{t[0].localtime} #{t[1].localtime}" if DEBUG
-          #p "Work time: #{work_time_range.to_a[0]} #{work_time_range.to_a[-1]}" if DEBUG
-          #p "Time hash time: #{time_to_seconds(t[0].localtime)} #{time_to_seconds(t[1].localtime)}" if DEBUG
-
-
           # if the class time isnt a subset of the work time, we can add it to the available courses hash
-          if class_time_range.subset?(work_time_range) == false && !c.days.include?(day_to_abbrev(k))
+          if (class_time_range.subset?(work_time_range) == false && !c.days.include?(day_to_abbrev(k))) 
             # store the crouse inside the available_courses hash with Course.to_s MD5'd as a key
 
             # if it was unavailable previously its not available here

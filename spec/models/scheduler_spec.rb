@@ -1,6 +1,7 @@
 require 'spec_lite'
 require './app/models/scheduler'
 require './app/models/course'
+require 'pry'
 
 describe Scheduler do
   before(:each) do 
@@ -34,14 +35,59 @@ describe Scheduler do
     @course_list << @course2
   end
 
-  context "A user wants to schedule around a course" do
-    it "should do something" do
-      schedule = Scheduler.new("wednesday,8:30,14:30|friday,6:30,18:45",
-                               @course.course_number, @course_list)
-      schedule.find_courses_in_slices
-      schedule.available_courses.size.should eq(1)
+  context "a" do
+    it "should give me slices of time that are occupied" do 
+      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+      s.occupied_time.first.start == 30600
+      s.occupied_time.first.end == 52200
+      s.occupied_time.first.day == "wednesday"
+    end
+
+    it "should give me slices of time for courses" do
+      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+      s.course_times.first.start == 54600
+      s.course_times.first.end == 57600
+      s.course_times.first.days == "MW"
+    end
+
+  end
+
+  context "should show me whether a course time is contained within a occupied time " do 
+
+    it "should show the time as free" do
+      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+      first_course = s.course_times.first
+      s.occupied_times_contains_course_time?(first_course).should be_true
+    end
+
+    it "should not show the time as free" do
+      s = Scheduler2.new(["wednesday,2:30,22:30"], @course_list)
+      first_course = s.course_times.first
+      s.occupied_times_contains_course_time?(first_course).should be_false
     end
   end
+
+
+  # context "A user wants to schedule around a course" do
+  # it "should give 1 course when working on wed and friday" do
+  # schedule = Scheduler.new("wednesday,8:30,14:30|friday,6:30,18:45",
+  # @course.course_number, @course_list)
+  # schedule.find_courses_in_slices
+  # available_courses = schedule.available_courses
+  # available_courses.size.should eq(1)
+  # p available_courses
+  # end
+  # 
+  # it "should give 2 courses when not working" do
+  # schedule = Scheduler.new("",
+  # @course.course_number, @course_list)
+  # schedule.find_courses_in_slices
+  # available_courses = schedule.available_courses
+  # available_courses.size.should eq(1)
+  # p available_courses
+  # 
+  # end
+  # end
 end
 
 ## 22 seconds to run the below
