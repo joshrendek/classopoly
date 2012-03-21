@@ -70,7 +70,7 @@ class Scheduler
       time_slice = (c.begin_time.localtime.to_i...c.end_time.localtime.to_i).to_a.to_set
       # loop through each time slice from when they work
       @time_hash.each do |k,t|
-        p "_"*60 if DEBUG
+        @logger.info "-"*60 if DEBUG
         @logger.info "K: #{k}" 
         @logger.info @available_courses.size
         @logger.info @unavailable_courses.size
@@ -104,13 +104,13 @@ class Scheduler
               @available_courses.store(Digest::MD5.hexdigest(c.to_s), c.id) # only story course id
             end
               
-            p "Added course: #{c.id}" if DEBUG
-            p k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
+            @logger.info "Added course: #{c.id}" if DEBUG
+            @logger.info k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}" if DEBUG
 
           else
             @unavailable_courses.store(Digest::MD5.hexdigest(c.to_s), c)
-            p "Couldn't add course: #{c.id}" if DEBUG
-            print "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
+            @logger.info "Couldn't add course: #{c.id}" if DEBUG
+            @logger.info "\t" + k + " -> " + c.days_array.join(',') + " [] #{class_time_range.to_a[0]}-#{class_time_range.to_a[-1]} <=> #{work_time_range.to_a[0]}-#{work_time_range.to_a[-1]}\n" if DEBUG
 
           end
       end 

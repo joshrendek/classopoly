@@ -10,7 +10,6 @@ describe Scheduler do
     @course.stub(id: 1, 
     course_number: "ACG2021", 
     section: "01", 
-    title: "INTRO FINANCIAL ACTG", 
     reference_number: "00001", 
     begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
     end_time: Time.parse("2000-01-01 16:00:00 Z"), 
@@ -23,8 +22,7 @@ describe Scheduler do
     @course2.stub(id: 2, 
     course_number: "ACG2021", 
     section: "01", 
-    title: "INTRO FINANCIAL ACTG", 
-    reference_number: "00001", 
+    reference_number: "00002", 
     begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
     end_time: Time.parse("2000-01-01 16:00:00 Z"), 
     days: "TR", 
@@ -41,7 +39,7 @@ describe Scheduler do
       schedule = Scheduler.new("wednesday,8:30,14:30|friday,6:30,18:45",
                                @course.course_number, @course_list)
       schedule.find_courses_in_slices
-      p schedule.available_courses
+      schedule.available_courses.size.should eq(1)
     end
   end
 end
