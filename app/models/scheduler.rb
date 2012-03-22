@@ -13,7 +13,7 @@ class Scheduler2
 
     parse_work_times_to_array
     build_course_times
-    build_available_courses
+    # build_available_courses
 
   end
 
@@ -27,12 +27,15 @@ class Scheduler2
   end
 
   def course_time_exists_in_occupied_time?(course_time)
+
     @occupied_time.each do |ot|
-      b1 = course_time.end < ot.start
-      b2 = course_time.start > ot.end
+binding.pry 
+
+      b1 = course_time.end > ot.start
+      b2 = course_time.start < ot.end
       b3 = course_time.days.include?(ot.day)
-      return false if !b3
-      return true if !b2 && !b1 
+      return false if !b3 
+      return true if b2 && b1 
     end
     false
   end
@@ -45,7 +48,9 @@ class Scheduler2
       start_time = t_start[0].to_i*60*60 + t_start[1].to_i*60
       end_time = t_end[0].to_i*60*60 + t_end[1].to_i*60
 
+
       @occupied_time  << TimeKeeper.new(t[0].upcase, start_time, end_time)
+
     end
   end
 
