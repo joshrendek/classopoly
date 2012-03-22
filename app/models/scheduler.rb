@@ -2,17 +2,28 @@ class Scheduler2
   require 'set'
   TimeKeeper = Struct.new(:day, :start, :end)
   CourseTime = Struct.new(:id, :start, :end, :days)
-  attr_accessor :occupied_time, :course_times
+  attr_accessor :occupied_time, :course_times, :available_courses
 
   def initialize(work_times, course_list)
     @occupied_time = []
     @work_times = work_times
     @course_list = course_list
     @course_times = []
+    @available_courses = []
 
     parse_work_times_to_array
     build_course_times
+    build_available_courses
 
+  end
+
+  def build_available_courses
+    @course_times.each do |c|
+      # course will fit their schedule
+      if !course_time_exists_in_occupied_time?(c)
+        @available_courses << c
+      end
+    end
   end
 
   def course_time_exists_in_occupied_time?(course_time)

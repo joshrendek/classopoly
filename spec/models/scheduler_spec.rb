@@ -10,15 +10,15 @@ describe Scheduler do
 
     @course.stub(id: 1, 
     course_number: "ACG2021", 
-    begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
-    end_time: Time.parse("2000-01-01 16:00:00 Z"), 
+    begin_time: Time.new(2000, 1, 1, 15, 10),
+    end_time: Time.new(2000, 1, 1, 16, 00),
     days: "MW")
 
     @course2 = double('course')
     @course2.stub(id: 2, 
     course_number: "ACG2021", 
-    begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
-    end_time: Time.parse("2000-01-01 16:00:00 Z"), 
+    begin_time: Time.new(2000, 1, 1, 15, 10),
+    end_time: Time.new(2000, 1, 1, 16, 00),
     days: "TR")
 
 
@@ -44,7 +44,21 @@ describe Scheduler do
       s.course_times.first.end == 57600
       s.course_times.first.days == "MW"
     end
+  end
 
+  context "should build a course schedule for acceptable classes" do 
+    it "should give me a course list for 2 classes that I can take" do
+      s = Scheduler2.new(["saturday,2:00,22:00"], @course_list)
+      s.available_courses.first.id.should eq(1)
+      s.available_courses.last.id.should eq(2)
+      s.available_courses.size.should eq(2)
+    end
+
+    it "should give me a course list with 1 course given I work on mondays all day" do
+      s = Scheduler2.new(["monday,2:00,22:00"], @course_list)
+      s.available_courses.first.id.should eq(2)
+      s.available_courses.size.should eq(1)
+    end
   end
 
   context "should show me whether a course time is contained within occupied time " do 
@@ -83,7 +97,6 @@ describe Scheduler do
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
-
 
   end
 
