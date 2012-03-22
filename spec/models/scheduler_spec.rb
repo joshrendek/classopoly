@@ -10,32 +10,23 @@ describe Scheduler do
 
     @course.stub(id: 1, 
     course_number: "ACG2021", 
-    section: "01", 
-    reference_number: "00001", 
     begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
     end_time: Time.parse("2000-01-01 16:00:00 Z"), 
-    days: "MW", 
-    college_id: 1)
-
-    @course.stub(:days_array){ arr = ["monday", "wednesday"] }
+    days: "MW")
 
     @course2 = double('course')
     @course2.stub(id: 2, 
     course_number: "ACG2021", 
-    section: "01", 
-    reference_number: "00002", 
     begin_time: Time.parse("2000-01-01 15:10:00 Z"), 
     end_time: Time.parse("2000-01-01 16:00:00 Z"), 
-    days: "TR", 
-    college_id: 1)
+    days: "TR")
 
-    @course2.stub(:days_array){ arr = ["tuesday", "thursday"] }
 
     @course_list << @course
     @course_list << @course2
   end
 
-  context "should show occupied and course times" do
+  context "should show occupied times" do
 
     it "should give me slices of time that are occupied" do 
       s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
@@ -44,6 +35,9 @@ describe Scheduler do
       s.occupied_time.first.day == "wednesday"
     end
 
+  end
+
+  context "should show course times" do 
     it "should give me slices of time for courses" do
       s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
       s.course_times.first.start == 54600
@@ -66,7 +60,6 @@ describe Scheduler do
       s.course_time_exists_in_occupied_time?(first_course).should be_true
     end
 
-    # WIP 
     it "should show the time as free if i work on tuesday and have class on monday" do
       s = Scheduler2.new(["tuesday,8:30,22:30"], @course_list)
       first_course = s.course_times.first
@@ -84,6 +77,13 @@ describe Scheduler do
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
+
+    it "should show the time as free if i work on monday before class and work on tuesday" do
+      s = Scheduler2.new(["monday,2:30,15:05", "tuesday,2:30,18:00"], @course_list)
+      first_course = s.course_times.first
+      s.course_time_exists_in_occupied_time?(first_course).should be_false
+    end
+
 
   end
 
