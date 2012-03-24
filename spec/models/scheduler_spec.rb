@@ -1,5 +1,5 @@
 require 'spec_lite'
-require './app/models/scheduler'
+require './lib/scheduler'
 require './app/models/course'
 require 'pry'
 
@@ -29,7 +29,7 @@ describe Scheduler do
   context "should show occupied times" do
 
     it "should give me slices of time that are occupied" do 
-      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+      s = Scheduler.new(["wednesday,8:30,14:30"], @course_list)
       s.occupied_time.first.start == 30600
       s.occupied_time.first.end == 52200
       s.occupied_time.first.day == "wednesday"
@@ -39,7 +39,7 @@ describe Scheduler do
 
   context "should show course times" do 
     it "should give me slices of time for courses" do
-      s = Scheduler2.new(["wednesday,8:30,14:30"], @course_list)
+      s = Scheduler.new(["wednesday,8:30,14:30"], @course_list)
       s.course_times.first.start == 54600
       s.course_times.first.end == 57600
       s.course_times.first.days == "MW"
@@ -48,7 +48,7 @@ describe Scheduler do
 
   context "should build a course schedule for acceptable classes" do 
     it "should give me a course list for 2 classes that I can take" do
-      s = Scheduler2.new(["saturday,2:00,22:00"], @course_list)
+      s = Scheduler.new(["saturday,2:00,22:00"], @course_list)
       s.build
       s.available_courses.first.id.should eq(1)
       s.available_courses.last.id.should eq(2)
@@ -56,52 +56,52 @@ describe Scheduler do
     end
 
     it "should give me a course list with 1 course given I work on mondays all day" do
-      s = Scheduler2.new(["monday,2:00,22:00"], @course_list)
+      s = Scheduler.new(["monday,2:00,22:00"], @course_list)
       s.build
       s.available_courses.first.id.should eq(2)
       s.available_courses.size.should eq(1)
     end
     
     it "should give me a course list with 0 course given I work on mondays and tuesdays all day" do
-      s = Scheduler2.new(["monday,2:00,22:00", "tuesday,2:00,22:00"], @course_list)
+      s = Scheduler.new(["monday,2:00,22:00", "tuesday,2:00,22:00"], @course_list)
       s.available_courses.size.should eq(0)
     end
   end
 
   context "should show me whether a course time is contained within occupied time " do 
     it "should show the time as free if i work on tuesday" do
-      s = Scheduler2.new(["tuesday,8:30,14:30"], @course_list)
+      s = Scheduler.new(["tuesday,8:30,14:30"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
 
     it "should show the time as not free if i work on monday" do
-      s = Scheduler2.new(["monday,8:30,22:30"], @course_list)
+      s = Scheduler.new(["monday,8:30,22:30"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_true
     end
 
     it "should show the time as free if i work on tuesday and have class on monday" do
-      s = Scheduler2.new(["tuesday,8:30,22:30"], @course_list)
+      s = Scheduler.new(["tuesday,8:30,22:30"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
 
    it "should show the time as not free if I work during class" do
-      s = Scheduler2.new(["monday,2:30,15:50"], @course_list)
+      s = Scheduler.new(["monday,2:30,15:50"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_true
     end
 
    it "should show the time as not free if I work during both classes" do
-      s = Scheduler2.new(["monday,2:30,22:50", "tuesday,2:30,22:00"], @course_list)
+      s = Scheduler.new(["monday,2:30,22:50", "tuesday,2:30,22:00"], @course_list)
       last_course = s.course_times.last
       s.available_courses.size.should eq(0)
       s.course_time_exists_in_occupied_time?(last_course).should be_true
     end
 
    it "should show the time as free if I work before both classes" do
-      s = Scheduler2.new(["monday,2:30,13:50", "tuesday,2:30,13:00"], @course_list)
+      s = Scheduler.new(["monday,2:30,13:50", "tuesday,2:30,13:00"], @course_list)
       last_course = s.course_times.last
       s.course_time_exists_in_occupied_time?(last_course).should be_false
       s.build
@@ -110,13 +110,13 @@ describe Scheduler do
 
 
     it "should show the time as free if i work on monday before class" do
-      s = Scheduler2.new(["monday,2:30,15:05"], @course_list)
+      s = Scheduler.new(["monday,2:30,15:05"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
 
     it "should show the time as free if i work on monday before class and work on tuesday" do
-      s = Scheduler2.new(["monday,2:30,15:05", "tuesday,2:30,18:00"], @course_list)
+      s = Scheduler.new(["monday,2:30,15:05", "tuesday,2:30,18:00"], @course_list)
       first_course = s.course_times.first
       s.course_time_exists_in_occupied_time?(first_course).should be_false
     end
