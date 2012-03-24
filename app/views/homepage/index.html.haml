@@ -1,41 +1,45 @@
-- if !current_user
-  %center
-    .logo 
-      Classopoly
-      %br
-      %small
-        Social Class Scheduling
-
-  .container
-    .row
-      .span6
-        %h1
-          %center 
-            Get started in 3 easy steps.
-        .span4.welcomebox
-          .row
-            .span1
-              .title Step 1
-            .span3
-              =link_to "Login With Facebook",  user_omniauth_authorize_path(:facebook), :class => "btn btn-primary btn-large span3"
-        .span4.welcomebox
-          .row
-            .span1
-              .title Step 2
-            .span3
-              =link_to "Invite Your Friends", "#", :class => "btn btn-success btn-large span3"
-        .span4.welcomebox
-          .row
-            .span1
-              .title Step 3
-            .span3
-              =link_to "Plan Your Courses", "#", :class => "btn btn-info btn-large span3"
-      .span6
-        %h1 
-          %center 
-            Watch our Getting Started Video
-          .thumbnail
-            %img{:src => "http://placehold.it/460x368"}
+.container
+  .row
+    .span6
+      %h1
+        %center 
+          Get started in 3 easy steps.
+      .span4.welcomebox
+        .row
+          .span1
+            .title 
+              -if current_user
+                %del
+                  Step 1
+              - else 
+                Step 1
+          .span3
+            %center
+              -if current_user
+                =image_tag "https://graph.facebook.com/#{current_user.facebook_user_id}/picture", :size => "24x24"
+                %b 
+                  Invite some friends and start planning!
+              -else 
+                =link_to "Login With Facebook",  user_omniauth_authorize_path(:facebook), :class => "btn btn-primary btn-large span3"
+      .span4.welcomebox
+        .row
+          .span1
+            .title 
+              Step 2
+          .span3
+            =link_to "Invite Your Friends", "#", :class => "btn btn-success btn-large span3"
+      .span4.welcomebox
+        .row
+          .span1
+            .title Step 3
+          .span3
+            =link_to "Plan Your Semester", "#", :class => "btn btn-info btn-large span3"
+    .span6
+      %h1 
+        %center 
+          Watch our Getting Started Video
+        .thumbnail
+          %img{:src => "http://placehold.it/460x368"}
   - if current_user
     - if current_user.user_courses.size > 0
       %h3
