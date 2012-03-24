@@ -13,13 +13,14 @@ class Scheduler2
 
     parse_work_times_to_array
     build_course_times
-    # build_available_courses
+    build_available_courses
 
   end
 
   def build_available_courses
     @course_times.each do |c|
       # course will fit their schedule
+
       if !course_time_exists_in_occupied_time?(c)
         @available_courses << c
       end
@@ -33,12 +34,14 @@ class Scheduler2
       b1 = course_time.end > ot.start
       b2 = course_time.start < ot.end
       b3 = course_time.days.include?(ot.day)
-      if !b3
-        break
-      end
-      if b2 && b1 
+
+      if b2 && b1 && b3
         exists = true
         break
+      end
+
+      if !b3 && b1 && b2
+        # break
       end
       # return false if !b3 
       # return true if b2 && b1 

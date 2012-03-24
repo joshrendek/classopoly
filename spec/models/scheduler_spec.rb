@@ -62,8 +62,7 @@ describe Scheduler do
     
     it "should give me a course list with 0 course given I work on mondays and tuesdays all day" do
       s = Scheduler2.new(["monday,2:00,22:00", "tuesday,2:00,22:00"], @course_list)
-      s.available_courses.first.id.should eq(2)
-      s.available_courses.size.should eq(1)
+      s.available_courses.size.should eq(0)
     end
   end
 
@@ -92,12 +91,18 @@ describe Scheduler do
       s.course_time_exists_in_occupied_time?(first_course).should be_true
     end
 
-   # WIP
    it "should show the time as not free if I work during both classes" do
       s = Scheduler2.new(["monday,2:30,22:50", "tuesday,2:30,22:00"], @course_list)
-      first_course = s.course_times.first
       last_course = s.course_times.last
+      s.available_courses.size.should eq(0)
       s.course_time_exists_in_occupied_time?(last_course).should be_true
+    end
+
+   it "should show the time as free if I work before both classes" do
+      s = Scheduler2.new(["monday,2:30,13:50", "tuesday,2:30,13:00"], @course_list)
+      last_course = s.course_times.last
+      s.available_courses.size.should eq(2)
+      s.course_time_exists_in_occupied_time?(last_course).should be_false
     end
 
 
