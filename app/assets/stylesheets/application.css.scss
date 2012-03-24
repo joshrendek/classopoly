@@ -4,6 +4,7 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree . 
+ *= require bootstrap_and_overrides
 */
 
 .topbar-inner, .topbar .fill {
@@ -32,7 +33,10 @@
   float: right; 
   margin-top: 8px; 
 }
-body { padding-top: 50px !important;  }
+body { 
+  padding-top: 50px !important;  
+  background: #f5f7f9 url('/assets/bg.jpg') repeat-x !important;
+}
 
 table.preferences { 
   width: 520px; 
@@ -121,3 +125,28 @@ table.time_preferences {
 }
 
 .clear { clear: both; } 
+
+.logo { 
+    margin-top: -0.3em;
+    font-size: 6em; 
+    padding-bottom: .8em;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    line-height: .8em;
+    small { 
+        padding-top: 30px;
+        font-size: 30px; 
+    }
+}
+
+.welcomebox { 
+    text-align: center;
+    padding-top: 30px; 
+    line-height: 1.5em;
+}
+
+.title { 
+    font-size: 1.5em;
+    line-height: 2em;
+    color: #999; 
+}

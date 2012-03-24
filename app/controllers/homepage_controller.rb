@@ -4,5 +4,4 @@ class HomepageController < ApplicationController
       @friends = current_user.friends.collect {|f| f unless f.friend.nil? }.compact
     end
   end
-
 end
