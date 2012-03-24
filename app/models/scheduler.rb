@@ -13,16 +13,23 @@ class Scheduler2
 
     parse_work_times_to_array
     build_course_times
-    build_available_courses
 
+  end
+
+  # before calling this you can still use course_time_exists_in_occupied_time?
+  # after calling this the class will now exist in occupied TimeKeeper
+  # and the course_time_exists_in_occupied_time? method will fail
+  def build
+    build_available_courses
   end
 
   def build_available_courses
     @course_times.each do |c|
-      # course will fit their schedule
-
       if !course_time_exists_in_occupied_time?(c)
         @available_courses << c
+        c.days.split(//).each do |day|
+          @occupied_time << TimeKeeper.new(day.upcase, c.start, c.end)
+        end
       end
     end
   end
@@ -43,8 +50,6 @@ class Scheduler2
       if !b3 && b1 && b2
         # break
       end
-      # return false if !b3 
-      # return true if b2 && b1 
     end
     exists
   end

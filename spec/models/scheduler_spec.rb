@@ -49,6 +49,7 @@ describe Scheduler do
   context "should build a course schedule for acceptable classes" do 
     it "should give me a course list for 2 classes that I can take" do
       s = Scheduler2.new(["saturday,2:00,22:00"], @course_list)
+      s.build
       s.available_courses.first.id.should eq(1)
       s.available_courses.last.id.should eq(2)
       s.available_courses.size.should eq(2)
@@ -56,6 +57,7 @@ describe Scheduler do
 
     it "should give me a course list with 1 course given I work on mondays all day" do
       s = Scheduler2.new(["monday,2:00,22:00"], @course_list)
+      s.build
       s.available_courses.first.id.should eq(2)
       s.available_courses.size.should eq(1)
     end
@@ -101,8 +103,9 @@ describe Scheduler do
    it "should show the time as free if I work before both classes" do
       s = Scheduler2.new(["monday,2:30,13:50", "tuesday,2:30,13:00"], @course_list)
       last_course = s.course_times.last
-      s.available_courses.size.should eq(2)
       s.course_time_exists_in_occupied_time?(last_course).should be_false
+      s.build
+      s.available_courses.size.should eq(2)
     end
 
 
