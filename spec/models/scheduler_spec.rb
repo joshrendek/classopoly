@@ -97,7 +97,6 @@ describe Scheduler do
       s = Scheduler2.new(["monday,2:30,22:50", "tuesday,2:30,22:00"], @course_list)
       first_course = s.course_times.first
       last_course = s.course_times.last
-      # s.course_time_exists_in_occupied_time?(first_course).should be_true
       s.course_time_exists_in_occupied_time?(last_course).should be_true
     end
 

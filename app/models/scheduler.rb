@@ -27,17 +27,23 @@ class Scheduler2
   end
 
   def course_time_exists_in_occupied_time?(course_time)
-
+    exists = false
     @occupied_time.each do |ot|
-binding.pry 
 
       b1 = course_time.end > ot.start
       b2 = course_time.start < ot.end
       b3 = course_time.days.include?(ot.day)
-      return false if !b3 
-      return true if b2 && b1 
+      if !b3
+        break
+      end
+      if b2 && b1 
+        exists = true
+        break
+      end
+      # return false if !b3 
+      # return true if b2 && b1 
     end
-    false
+    exists
   end
 
   def parse_work_times_to_array
