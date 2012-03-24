@@ -35,7 +35,7 @@
 }
 body { 
   padding-top: 50px !important;  
-  background: #f5f7f9 url('/assets/bg.jpg') repeat-x !important;
+  background: #f5f7f9 image-url('bg.jpg') repeat-x !important;
 }
 
 table.preferences { 
