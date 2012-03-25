@@ -25,9 +25,16 @@
         .row
           .span1
             .title 
-              Step 2
+              -if current_user
+                -if current_user.pending_invites.count > 0 
+                  %del
+                    Step 2 
+                - else
+                  Step 2
+              - else
+                Step 2 
           .span3
-            =link_to "Invite Your Friends", "#", :class => "btn btn-success btn-large span3"
+            =link_to "Invite Your Friends", friends_path, :class => "btn btn-success btn-large span3"
       .span4.welcomebox
         .row
           .span1

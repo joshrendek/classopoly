@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_one :preferences
   has_many :user_courses
   has_many :courses, :through => :user_courses
+  has_many :pending_invites
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id
 
@@ -24,6 +25,11 @@ class User < ActiveRecord::Base
       end
     end
     nil
+  end
+
+  def facebook 
+    token = self.authorizations.where(:provider => 'facebook').first.token
+    FbGraph::User.me(token)
   end
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)

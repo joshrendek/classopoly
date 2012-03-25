@@ -5,15 +5,15 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    - if current_user
-      .navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            %h3
-              =link_to "Classopoly", "/", :class => :brand
-            %ul.nav
-              %li
-                =link_to "Home", "/"
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %h3
+            =link_to "Classopoly", "/", :class => :brand
+          %ul.nav
+            %li
+              =link_to "Home", "/"
+            -if current_user
               %li
                 =link_to "Friends", friends_path
               %li
@@ -22,12 +22,13 @@
                 =link_to "My Schedule", generate_course_list_user_courses_path
               %li
                 =link_to "Course List", courses_path
+            -if current_user 
               %li
                 =link_to "Settings", preferences_path
-            %div{:id => "auth"}
-              =link_to "Logout", destroy_user_session_path, :method => :delete
-              =image_tag "https://graph.facebook.com/#{current_user.facebook_user_id}/picture", :size => "24x24"
-              -# =link_to (image_tag "fb-login-button.png",  :id =>"facebook"),  user_omniauth_authorize_path(:facebook)
+              %div{:id => "auth"}
+                =link_to "Logout", destroy_user_session_path, :method => :delete
+                =image_tag "https://graph.facebook.com/#{current_user.facebook_user_id}/picture", :size => "24x24"
+            -# =link_to (image_tag "fb-login-button.png",  :id =>"facebook"),  user_omniauth_authorize_path(:facebook)
     - flash.each do |name, msg|
       = content_tag :div, raw("<p><center>" + msg + "</center></p>"), :class => "alert-message #{name}"
     %div.container-fluid
