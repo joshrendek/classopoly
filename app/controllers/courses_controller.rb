@@ -1,13 +1,66 @@
 class CoursesController < ApplicationController
   before_filter :require_login!
+
+  DatatableFields = ["course_number", "section", "title","instructor", 
+                     "seats_left", "seats", "building", "room", "begin_time",
+                     "end_time", "days", "college"]
+
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.order('course_number ASC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.haml
-      format.json { render json: @courses }
+            format.json {
+          page = 1
+
+          page = params[:iDisplayStart].to_i/10+1 if params[:iDisplayStart]
+          e = Course
+          e = e.joins(:instructor, :college)
+
+          total_record_size = 0
+          display_length = 10
+          if params[:iDisplayLength].to_i > 10
+            display_length = params[:iDisplayLength].to_i
+          end
+          if params[:iSortCol_0].to_i != 0
+            sort_column = DatatableFields[params[:iSortCol_0].to_i]
+            sort_direction = params[:sSortDir_0]
+            e = e.order("#{sort_column} #{sort_direction}")
+          end
+
+
+          if params[:sSearch] != "" && !params[:sSearch].nil?
+            
+            search = DatatableFields.collect{|d| "#{d} LIKE '%#{params[:sSearch]}%'" unless ["college","instructor"].include?(d) }.compact.join(' OR ')
+            search2 = " OR instructors.name LIKE '%SUB%' OR colleges.college_tag LIKE '%SUB%' ".gsub('SUB', params[:sSearch])
+            search += search2
+
+            e = e.where(search)
+            total_record_size = e.count
+            e = e.page page
+            #logger.info "EQ: " + e.to_sql
+          else
+            total_record_size = e.count
+            e = e.page page
+          end
+
+
+          json = DatatablesRails::Structify.new(e)
+          json.formatter do |u|
+            course = Course.find(u['id'])
+            u['instructor'] = course.try(:instructor).try(:name)
+            u['college'] = course.college.college_tag.upcase
+            u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
+            u['end_time'] = u['end_time'].strftime("%I:%M %p")
+          end
+          json_struct = json.struct
+          json_struct["iTotalRecords"] = total_record_size
+          json_struct["iTotalDisplayRecords"] = total_record_size
+          json_struct["sEcho"] = params[:sEcho]
+          render :json => json_struct
+
+      }
     end
   end
 

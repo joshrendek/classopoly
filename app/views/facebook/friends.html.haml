@@ -9,7 +9,8 @@
         %td
           %span.label.notice Already Joined!
       - elsif PendingInvite.find_by_uid(friend.facebook_friend_id)
-        %td=link_to "Sent", "#", :class => "btn btn-success disabled"
+        %td=link_to "Resend", "#", :class => "btn btn-success disabled", :id => "invite_user_#{friend.facebook_friend_id}", :facebook_identifier => friend.facebook_friend_id
+
       - else
         %td=link_to "Invite", "#", :class => "btn btn-success", :id => "invite_user_#{friend.facebook_friend_id}", :facebook_identifier => friend.facebook_friend_id
       %td

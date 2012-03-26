@@ -5,7 +5,8 @@ namespace :scrapers do
 
   desc 'Import FSU courses'
   task :fsu => :environment do
-    CollegeImporter.fsu
+    importer = CollegeImporter::FSU::Import.new
+    importer.run
   end
 
   task :fsu_books => :environment do

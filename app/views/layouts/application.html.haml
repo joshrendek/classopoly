@@ -2,9 +2,10 @@
   %head
     %title Classopoly
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "http://connect.facebook.net/en_US/all.js"
     = csrf_meta_tags
   %body
+    #fb-root
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
@@ -33,3 +34,13 @@
       = content_tag :div, raw("<p><center>" + msg + "</center></p>"), :class => "alert-message #{name}"
     %div.container-fluid
       = yield
+    :javascript 
+       FB.init({appId: '158293190926436', xfbml: true, cookie: true});
+       (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=158293190926436";
+        fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+

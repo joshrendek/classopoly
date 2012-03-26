@@ -16,6 +16,7 @@ gem 'haml'
 gem 'kaminari'
 gem "unicorn"
 
+gem "datatables_rails"
 gem "twitter-bootstrap-rails"
 
 # Gems used only for assets and not required
@@ -31,7 +32,8 @@ group :development, :test do
   gem "database_cleaner"
   gem 'cucumber'
   gem 'cucumber-rails'
-  gem'railroady'
+  gem 'railroady'
+  gem 'colored'
   gem 'capistrano'
   gem 'vcr'
   gem 'fakeweb'

@@ -1,0 +1,679 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://apps.oti.fsu.edu/RegistrarCourseLookup/SearchResults
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sun, 25 Mar 2012 21:00:09 GMT
+      server:
+      - Apache/2.2.3 (Red Hat)
+      x-powered-by:
+      - JSP/2.1
+      set-cookie:
+      - JSESSIONID=ba8b6b64b2bba0103d94408bfb12.instance6; Path=/RegistrarCourseLookup
+      content-length:
+      - '50802'
+      connection:
+      - close
+      content-type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! "\r\n\r\n\r\n      \r\n \r\n       \r\n      \r\n           \r\n<!--
+        Page  starts here -->\r\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"
+        \"http://www.w3.org/TR/html4/loose.dtd\"><html>\n\t<head>\n\t<title>Course
+        Lookup Search Form</title>\n\n\t<link rel='stylesheet' type='text/css' href='http://apps.oti.fsu.edu/images2/styles/main_ais.css'
+        title='main'>\n\n\t<meta http-equiv='Content-Type' content='text/html; charset=iso-8851-1'>\n\t<META
+        HTTP-EQUIV=\"refresh\" CONTENT=\"1800;URL=http://www.studentsfirst.fsu.edu/\">\n</head>\n<body
+        bgcolor=\"#ffffff\" topmargin=\"0\" leftmargin=\"0\" rightmargin=\"0\" marginwidth
+        = \"0\" marginheight = \"0\"><table width=\"100%\" border=\"0\" cellspacing=\"0\"
+        cellpadding=\"0\">  <tr>    <td rowspan=\"4\" valign=\"top\"><img src=\"https://apps.oti.fsu.edu/images2/small_color_torches.gif\"
+        width=\"67\" height=\"58\" alt=\"| fsu torches |\" border=\"0\"></td>    <td
+        height=\"19\" width=\"95%\" bgcolor=\"#cccc99\" colspan=\"2\"><img src=\"https://apps.oti.fsu.edu/images2/fsu_title_header.gif\"
+        width=\"238\" height=\"10\" alt=\"| florida state university |\" border=\"0\"></td>
+        \ </tr>  <tr>    <td width=\"95%\" bgcolor=\"#000000\" colspan=\"2\"><img
+        src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\" width=\"1\" height=\"3\"
+        alt=\"\"></td>  </tr>  <tr>    <td bgcolor=\"#660000\" width=\"65%\">&nbsp;&nbsp;
+        \   <span class=\"tcrumbs\">Course Lookup Search Form</span>    </td>     <td
+        bgcolor=\"#660000\" width=\"300\" height=\"19\">&nbsp;</td>  </tr>  <tr>    <td
+        width=\"65%\"><img src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\"
+        width=\"460\" height=\"17\" alt=\"\"></td>    <td valign=\"top\" width=\"300\"></td>
+        \ </tr></table>\r\n\r\n<script language=\"javaScript\" type=\"text/javascript\">\r\n\r\n
+        \ \tvar departments = new Array(130);\ndepartments[0] = [\"\", \"\", \"00000\",
+        \"99999\"];\ndepartments[1] = [\"2101Accounting\", \"Accounting\", \"20009\",
+        \"99999\"];\ndepartments[2] = [\"1103Aerospace Studies\", \"Aerospace Studies\",
+        \"20009\", \"99999\"];\ndepartments[3] = [\"5000African American Studies\",
+        \"African American Studies\", \"20009\", \"20069\"];\ndepartments[4] = [\"3281African
+        American Studies\", \"African American Studies\", \"20069\", \"99999\"];\ndepartments[5]
+        = [\"3265Aging Studies\", \"Aging Studies\", \"20009\", \"99999\"];\ndepartments[6]
+        = [\"1104American and Florida Studies\", \"American and Florida Studies\",
+        \"20009\", \"99999\"];\ndepartments[7] = [\"1105Anthropology\", \"Anthropology\",
+        \"20009\", \"99999\"];\ndepartments[8] = [\"1107Arabic\", \"Arabic\", \"19991\",
+        \"99999\"];\ndepartments[9] = [\"4206Art\", \"Art\", \"20009\", \"99999\"];\ndepartments[10]
+        = [\"4207Art Education\", \"Art Education\", \"20009\", \"99999\"];\ndepartments[11]
+        = [\"4208Art History\", \"Art History\", \"20009\", \"99999\"];\ndepartments[12]
+        = [\"3217Asian Studies\", \"Asian Studies\", \"20009\", \"99999\"];\ndepartments[13]
+        = [\"1111Biological Science\", \"Biological Science\", \"20009\", \"99999\"];\ndepartments[14]
+        = [\"2113Business Administration\", \"Business Administration\", \"20009\",
+        \"99999\"];\ndepartments[15] = [\"5560Chemical and Biomedical Engineering\",
+        \"Chemical and Biomedical Engineering\", \"20009\", \"99999\"];\ndepartments[16]
+        = [\"1178Chemical Physics\", \"Chemical Physics\", \"20009\", \"99999\"];\ndepartments[17]
+        = [\"1116Chemistry\", \"Chemistry\", \"20009\", \"99999\"];\ndepartments[18]
+        = [\"2207Childhood Edu, Reading, and Disability Svcs\", \"Childhood Edu, Reading,
+        and Disability Svcs\", \"20009\", \"99999\"];\ndepartments[19] = [\"1118Chinese
+        Language\", \"Chinese\", \"20009\", \"99999\"];\ndepartments[20] = [\"5550Civil
+        and Environmental Engineering\", \"Civil and Environmental Engineering\",
+        \"20009\", \"99999\"];\ndepartments[21] = [\"1154Classics\", \"Classic\",
+        \"20009\", \"20076\"];\ndepartments[22] = [\"1119Classics\", \"Classics\",
+        \"20009\", \"99999\"];\ndepartments[23] = [\"6200College of Medicine\", \"College
+        of Medicine\", \"19979\", \"19981\"];\ndepartments[24] = [\"4101Communication\",
+        \"Communication\", \"20009\", \"99999\"];\ndepartments[25] = [\"4185Communication
+        Disorders\", \"Communication Disorders\", \"20009\", \"99999\"];\ndepartments[26]
+        = [\"1198Comparative and World Literature\", \"Comparative and World Literature\",
+        \"20009\", \"99999\"];\ndepartments[27] = [\"5010Comparative Policy Studies\",
+        \"Comparative Policy Studies\", \"20009\", \"99999\"];\ndepartments[28] =
+        [\"1139Computational Science\", \"Computational Science\", \"20061\", \"20086\"];\ndepartments[29]
+        = [\"1166Computer Science\", \"Computer Science\", \"20009\", \"99999\"];\ndepartments[30]
+        = [\"3494Criminology & Criminal Justice\", \"Criminology & Criminal Justice\",
+        \"20009\", \"99999\"];\ndepartments[31] = [\"1182Czech\", \"Czech\", \"20009\",
+        \"99999\"];\ndepartments[32] = [\"4228Dance\", \"Dance\", \"20009\", \"99999\"];\ndepartments[33]
+        = [\"2157Dedman School of Hospitality Admin\", \"Dedman School of Hospitality
+        Admin\", \"20009\", \"99999\"];\ndepartments[34] = [\"3289Demography\", \"Demography\",
+        \"20009\", \"99999\"];\ndepartments[35] = [\"1160Department of Earth, Ocean
+        & Atmospheric Science\", \"Earth, Ocean & Atmospheric Science\", \"20106\",
+        \"99999\"];\ndepartments[36] = [\"3222Economics\", \"Economics\", \"20009\",
+        \"99999\"];\ndepartments[37] = [\"2206Educational Leadership And Policy Studies\",
+        \"Educational Leadership And Policy Studies\", \"20009\", \"99999\"];\ndepartments[38]
+        = [\"2208Educational Leadership And Policy Studiess\", \"Educational Leadership
+        And Policy Studiess\", \"20009\", \"20026\"];\ndepartments[39] = [\"2203Educational
+        Psychology and Learning Systems\", \"Educational Psychology and Learning Systems\",
+        \"20009\", \"99999\"];\ndepartments[40] = [\"5510Electrical and Computer Engineering\",
+        \"Electrical and Computer Engineering\", \"20009\", \"19999\"];\ndepartments[41]
+        = [\"5580Electrical and Computer Engineering\", \"Electrical and Computer
+        Engineering\", \"20009\", \"99999\"];\ndepartments[42] = [\"5530Electrical
+        Engineering/Computer Science\", \"Electrical Engineering/Computer Science\",
+        \"20009\", \"20079\"];\ndepartments[43] = [\"5520Electrical Engineering/Electronics\",
+        \"Electrical Engineering/Electronics\", \"20009\", \"99999\"];\ndepartments[44]
+        = [\"2201Elementary and Early Childhood Education\", \"Elementary and Early
+        Childhood Education\", \"20009\", \"20049\"];\ndepartments[45] = [\"5500Engineering\",
+        \"Engineering\", \"20009\", \"99999\"];\ndepartments[46] = [\"1142English\",
+        \"English\", \"20009\", \"99999\"];\ndepartments[47] = [\"2553Family and Child
+        Sciences\", \"Family and Child Sciences\", \"20009\", \"99999\"];\ndepartments[48]
+        = [\"2143Finance\", \"Finance\", \"20009\", \"99999\"];\ndepartments[49] =
+        [\"1145French\", \"French\", \"20009\", \"99999\"];\ndepartments[50] = [\"9201FSU
+        Panama Non-degree\", \"FSU Panama Non-degree\", \"20049\", \"99999\"];\ndepartments[51]
+        = [\"3246Geography\", \"Geography\", \"20009\", \"99999\"];\ndepartments[52]
+        = [\"1147Geological Sciences\", \"Geological Sciences\", \"20009\", \"99999\"];\ndepartments[53]
+        = [\"1175Geophysical Fluid Dynamics\", \"Geophysical Fluid Dynamics\", \"20009\",
+        \"99999\"];\ndepartments[54] = [\"1148German\", \"German\", \"20009\", \"99999\"];\ndepartments[55]
+        = [\"1150Greek\", \"Greek\", \"20009\", \"99999\"];\ndepartments[56] = [\"6201Health
+        Sciences Interdisciplinary\", \"Health Sciences Interdisciplinary\", \"20046\",
+        \"99999\"];\ndepartments[57] = [\"1156Hebrew\", \"Hebrew\", \"20009\", \"99999\"];\ndepartments[58]
+        = [\"1152History\", \"History\", \"20009\", \"99999\"];\ndepartments[59] =
+        [\"1153History And Philosophy Of Science\", \"History And Philosophy Of Science\",
+        \"20051\", \"99999\"];\ndepartments[60] = [\"2556Home Economics Education\",
+        \"Home Economics Education\", \"20009\", \"99999\"];\ndepartments[61] = [\"2205Human
+        Services and Studies\", \"Human Services and Studies\", \"20009\", \"20026\"];\ndepartments[62]
+        = [\"1159Humanities\", \"Humanities\", \"20009\", \"99999\"];\ndepartments[63]
+        = [\"5570Industrial Engineering\", \"Industrial Engineering\", \"20009\",
+        \"99999\"];\ndepartments[64] = [\"2365Information Studies\", \"Information
+        Studies\", \"20009\", \"20096\"];\ndepartments[65] = [\"4165Information Studies\",
+        \"Information Studies\", \"20099\", \"99999\"];\ndepartments[66] = [\"1122Interdisciplinary
+        Arts and Sciences\", \"Interdisciplinary Arts and Sciences\", \"20051\", \"99999\"];\ndepartments[67]
+        = [\"1199Interdisciplinary Computing\", \"Interdisciplinary Computing\", \"20126\",
+        \"99999\"];\ndepartments[68] = [\"3261Interdisciplinary Social/Health Sciences\",
+        \"Interdisciplinary Social/Health Sciences\", \"20009\", \"99999\"];\ndepartments[69]
+        = [\"4226Interior Design\", \"Interior Design\", \"20009\", \"99999\"];\ndepartments[70]
+        = [\"3299International Affairs\", \"International Affairs\", \"20009\", \"99999\"];\ndepartments[71]
+        = [\"1163Italian\", \"Italian\", \"20009\", \"99999\"];\ndepartments[72] =
+        [\"1133Japanese\", \"Japanese\", \"20009\", \"99999\"];\ndepartments[73] =
+        [\"1164Latin\", \"Latin\", \"20009\", \"99999\"];\ndepartments[74] = [\"1180Latin-American
+        and Caribbean Studies\", \"Latin-American and Caribbean Studies\", \"20009\",
+        \"99999\"];\ndepartments[75] = [\"3134Law\", \"Law\", \"20009\", \"99999\"];\ndepartments[76]
+        = [\"2166Management\", \"Management\", \"20009\", \"99999\"];\ndepartments[77]
+        = [\"2164Management Information Systems\", \"Management Information Systems\",
+        \"19969\", \"19979\"];\ndepartments[78] = [\"2165Management Information Systems\",
+        \"Management Information Systems\", \"20009\", \"99999\"];\ndepartments[79]
+        = [\"2167Marketing\", \"Marketing\", \"20009\", \"99999\"];\ndepartments[80]
+        = [\"2511Marriage and the Family, Interdisciplin\", \"Marriage and the Family,
+        Interdisciplin\", \"20009\", \"99999\"];\ndepartments[81] = [\"1168Mathematics\",
+        \"Mathematics\", \"20009\", \"99999\"];\ndepartments[82] = [\"5540Mechanical
+        Engineering\", \"Mechanical Engineering\", \"20009\", \"99999\"];\ndepartments[83]
+        = [\"6212College of Medicine\", \"Medicine\", \"20009\", \"99999\"];\ndepartments[84]
+        = [\"1169Meteorology\", \"Meteorology\", \"20009\", \"99999\"];\ndepartments[85]
+        = [\"2202Middle and Secondary Education\", \"Middle and Secondary Education\",
+        \"20009\", \"99999\"];\ndepartments[86] = [\"1170Military Science\", \"Military
+        Science\", \"20009\", \"99999\"];\ndepartments[87] = [\"1171Modern Languages\",
+        \"Modern Languages\", \"20009\", \"99999\"];\ndepartments[88] = [\"1177Molecular
+        Biophysics\", \"Molecular Biophysics\", \"20009\", \"99999\"];\ndepartments[89]
+        = [\"4001Motion Picture, TV, & Recording Arts\", \"Motion Picture, TV, & Recording
+        Arts\", \"20009\", \"99999\"];\ndepartments[90] = [\"2195Multinational Business
+        Operations\", \"Multinational Business Operations\", \"20009\", \"99999\"];\ndepartments[91]
+        = [\"4472Music\", \"Music\", \"20009\", \"99999\"];\ndepartments[92] = [\"4493Music
+        - Liberal Studies\", \"Music - Liberal Studies\", \"20009\", \"99999\"];\ndepartments[93]
+        = [\"0010Non-FSU Mentors (Honors)\", \"Non-FSU Mentors (Honors)\", \"20046\",
+        \"99999\"];\ndepartments[94] = [\"2473Nursing\", \"Nursing\", \"20009\", \"99999\"];\ndepartments[95]
+        = [\"2544Nutrition, Food, and Exercise Sciences\", \"Nutrition, Food, and
+        Exercise Sciences\", \"20009\", \"99999\"];\ndepartments[96] = [\"1161Oceanography\",
+        \"Oceanography\", \"20009\", \"99999\"];\ndepartments[97] = [\"1176Philosophy\",
+        \"Philosophy\", \"20009\", \"99999\"];\ndepartments[98] = [\"1181Physics\",
+        \"Physics\", \"20009\", \"99999\"];\ndepartments[99] = [\"1000PIMS\", \"PIMS\",
+        \"20009\", \"20026\"];\ndepartments[100] = [\"3249Political Science\", \"Political
+        Science\", \"20009\", \"99999\"];\ndepartments[101] = [\"1183Portuguese\",
+        \"Portuguese\", \"20009\", \"99999\"];\ndepartments[102] = [\"1184Psychology\",
+        \"Psychology\", \"20009\", \"99999\"];\ndepartments[103] = [\"3251Askew School
+        of Public Administration and Policy\", \"Public Administration\", \"20009\",
+        \"99999\"];\ndepartments[104] = [\"4620Public Safety and Security\", \"Public
+        Safety and Security\", \"20119\", \"99999\"];\ndepartments[105] = [\"4610Recreation
+        and Leisure Studies\", \"Recreation and Leisure Studies\", \"20109\", \"99999\"];\ndepartments[106]
+        = [\"1186Religion\", \"Religion\", \"20009\", \"99999\"];\ndepartments[107]
+        = [\"2520Retail Merchandising and Product Development\", \"Retail Merchandising
+        and Product Development\", \"20009\", \"99999\"];\ndepartments[108] = [\"2162Risk
+        Mgt/Insurance, Real Estate, and Legal Studies\", \"Risk Mgt/Insurance,Real
+        Estate,Legal Studies\", \"20009\", \"99999\"];\ndepartments[109] = [\"1187Russian\",
+        \"Russian\", \"20009\", \"99999\"];\ndepartments[110] = [\"3287Russian and
+        East European Studies\", \"Russian and East European Studies\", \"20009\",
+        \"99999\"];\ndepartments[111] = [\"2209School of Teacher Education\", \"School
+        of Teacher Education\", \"20081\", \"99999\"];\ndepartments[112] = [\"4280School
+        of Theatre\", \"School of Theatre\", \"20056\", \"99999\"];\ndepartments[113]
+        = [\"1140Scientific Computing\", \"Scientific Computing\", \"20001\", \"99999\"];\ndepartments[114]
+        = [\"1109Serbo-Croatian\", \"Serbo-Croatian\", \"20009\", \"99999\"];\ndepartments[115]
+        = [\"1112Slavic\", \"Slavic\", \"20009\", \"99999\"];\ndepartments[116] =
+        [\"3288Social Science\", \"Social Science\", \"20009\", \"99999\"];\ndepartments[117]
+        = [\"3389Social Work\", \"Social Work\", \"20009\", \"99999\"];\ndepartments[118]
+        = [\"3290Sociology\", \"Sociology\", \"20009\", \"99999\"];\ndepartments[119]
+        = [\"1191Spanish\", \"Spanish\", \"20009\", \"99999\"];\ndepartments[120]
+        = [\"2344Special Education\", \"Special Education\", \"20009\", \"20046\"];\ndepartments[121]
+        = [\"4192Speech Communication\", \"Speech Communication\", \"20009\", \"99999\"];\ndepartments[122]
+        = [\"2204Sport Management\", \"Sport Management\", \"20009\", \"99999\"];\ndepartments[123]
+        = [\"1193Statistics\", \"Statistics\", \"20009\", \"99999\"];\ndepartments[124]
+        = [\"6800The Graduate School\", \"The Graduate School\", \"20089\", \"99999\"];\ndepartments[125]
+        = [\"4308Theatre\", \"Theatre\", \"20009\", \"20076\"];\ndepartments[126]
+        = [\"9999Unknown Dept-Pre 1980\", \"Unknown Dept-Pre 1980\", \"18519\", \"19896\"];\ndepartments[127]
+        = [\"3297Urban  & Regional Planning\", \"Urban  & Regional Planning\", \"20009\",
+        \"99999\"];\ndepartments[128] = [\"3277Urban and Regional Planning & Public
+        Admin\", \"Urban and Regional Planning & Public Admin\", \"20009\", \"99999\"];\ndepartments[129]
+        = [\"1158Women's Studies\", \"Women's Studies\", \"20056\", \"99999\"];\n\r\n
+        \ \r\n  \t// Sets the departments when the page is first loaded.\r\n  \tfunction
+        onLoadSetDepartments() {\r\n  \t\t\r\n  \t\t\r\n  \t\tvar selectedDept = \"null\";\r\n
+        \   \tvar selectedTerm = \"null\";\r\n    \t\r\n    \tif (selectedTerm ==
+        \"null\") selectedTerm = \"S\";\r\n    \r\n    \t// populate buildings list
+        based on the term supplied\r\n    \tloadDepartments(selectedTerm);\r\n    \r\n
+        \   \t// set selected department\r\n    \tsetSelectedDepartment(selectedDept);\r\n
+        \   \tsetSelectedTerm(selectedTerm);    \t\r\n        \t\r\n  \t}\r\n  \t\r\n
+        \ \tfunction onChangeSetDepartments() {\r\n  \t\t\r\n  \t\tvar selectedDept
+        = document.searchForm.department.options[document.searchForm.department.selectedIndex].value;\r\n
+        \   \tvar selectedTerm = document.searchForm.term.options[document.searchForm.term.selectedIndex].value;\r\n
+        \   \r\n    \t// populate buildings list based on the term supplied\r\n    \tloadDepartments(selectedTerm);\r\n
+        \   \r\n    \t// set selected department\r\n    \tsetSelectedDepartment(selectedDept);
+        \t\r\n  \t\r\n  \t}\r\n  \t\r\n  \tfunction setSelectedDepartment(selectedDept)
+        {\r\n  \t  \t\r\n  \t  \tvar numberOfOptions = document.searchForm.department.options.length;\r\n
+        \      \tfor (var i = 0; i < numberOfOptions; i++) {\r\n        \tvar dept
+        = document.searchForm.department.options[i].value;\r\n        \tif (dept ==
+        selectedDept) { \r\n           \t\tdocument.searchForm.department.options[i].selected
+        = true;\r\n           \t\treturn;\r\n        \t}\r\n    \t} \r\n\t\t// if
+        the selected dept is not found set to the blank option\r\n\t\tdocument.searchForm.department.options[0].selected
+        = true;\t\r\n  \t\r\n  \t}\r\n  \t\r\n  \tfunction setSelectedTerm(selectedTerm)
+        {\r\n  \t  \t \t  \t\r\n      \tvar numberOfOptions = document.searchForm.term.options.length;\r\n
+        \      \tfor (var i = 0; i < numberOfOptions; i++) {\r\n        \tvar term
+        = document.searchForm.term.options[i].value;\r\n        \tif (term == selectedTerm)
+        { \r\n           \t\tdocument.searchForm.term.options[i].selected = true;\r\n
+        \          \t\treturn;\r\n        \t}\r\n    \t} \r\n\t\t// if the selected
+        dept is not found set to first one in list\r\n\t\tdocument.searchForm.term.options[0].selected
+        = true;\t\r\n  \t\r\n  \t}\r\n  \t\r\n  \t\r\n  \r\n\tfunction loadDepartments(selectedTerm)
+        {\r\n  \r\n    \t//remove all departments currently in the departments dropdown\r\n
+        \   \tvar numCurrentDepartmentsInList = document.searchForm.department.options.length;\r\n
+        \   \t\r\n    \tfor(var i = numCurrentDepartmentsInList; i >= 0; i--) {\r\n
+        \  \t    \tdocument.searchForm.department.options[i]=null;\r\n    \t}\r\n
+        \   \t   \r\n    \tvar dropDownIndex = 0; \r\n    \tfor (var \tj = 0; j <
+        departments.length; j++) {\r\n    \t\tvar effective    = departments[j][2];\r\n
+        \   \t\tvar discontinued = departments[j][3]; \r\n    \t\tif ((selectedTerm
+        <= discontinued && selectedTerm >= effective)  || (i==0) ) {\r\n    \t   \t\tdocument.searchForm.department.options[dropDownIndex]=new
+        Option(departments[j][1],departments[j][0]);\r\n        \t\tdropDownIndex++;\r\n
+        \       \t}\r\n        }\r\n        \r\n        // if only the first option
+        is in the box add an option for \r\n        if (dropDownIndex < 2) {\r\n        \tdocument.searchForm.department.options[0]=new
+        Option(\"Please select a term to view valid departments .........\",\" \");
+        \       \r\n        }\r\n        \r\n    }\r\n\r\n\tfunction setCriteriaDesc()
+        {\r\n\t\tvar criteriaList  = document.searchForm.searchCriteria;\r\n\t\tvar
+        selectedValue = criteriaList.options[criteriaList.selectedIndex].text;\r\n\t\tdocument.searchForm.criteriaDesc.value
+        = selectedValue;\r\n\t}\r\n\t\t\r\n\tfunction clearSearchForm() {\r\n\t\t\r\n\t
+        \ document.searchForm.courseNumber.value = \"\";\r\n      document.searchForm.location.options[0].selected
+        = true;\r\n      document.searchForm.specialProgram.options[0].selected =
+        true;\r\n      document.searchForm.searchCriteria.options[0].selected = true;\r\n
+        \     document.searchForm.level.options[0].selected = true;\r\n      document.searchForm.beginningTime.options[0].selected
+        = true;\r\n      document.searchForm.endingTime.options[0].selected = true;\r\n
+        \     document.searchForm.term.options[0].selected = true;\r\n      loadDepartments(\"S\");\r\n
+        \     document.searchForm.department.options[0].selected = true;\r\n      document.searchForm.openSections.checked
+        = true;\r\n    }\r\n\t\t\t\r\n\t// Validates the form\r\n\tfunction checkForm()
+        {\r\n\t\r\n\t\tif (document.searchForm.term.selectedIndex == 0) {\r\n\t\t\talert(\"A
+        term must be selected to perform a search.\");\r\n\t\t\treturn false;\t\r\n\t\t}\r\n\t\t\r\n\t\tvar
+        defaultLocationCode = \"00\";\r\n\t\tvar courseNumber        = document.searchForm.courseNumber.value;\r\n\t\tvar
+        departmentIndex     = document.searchForm.department.selectedIndex;\r\n\t\tvar
+        specialProgramIndex = document.searchForm.specialProgram.selectedIndex; \r\n\t\tvar
+        searchCriteriaIndex = document.searchForm.searchCriteria.selectedIndex;\r\n\t\tvar
+        locationIndex       = document.searchForm.location.selectedIndex;\r\n\t\tvar
+        locationCode        = document.searchForm.location.options[locationIndex].value.substring(2,4);\r\n\t\t\t\t\t\t\r\n\t\t//
+        search by main campus only not allowed (result set to larger)\r\n\t\tif (locationCode
+        == defaultLocationCode &&\r\n\t\t    courseNumber.length == 0            &&\r\n\t\t
+        \   departmentIndex     == 0            &&\r\n\t\t    specialProgramIndex
+        <  2            &&\r\n\t\t    searchCriteriaIndex == 0) {\r\n\t\t\tif (specialProgramIndex
+        == 1) {\r\n\t\t\t\talert(\"A search that omits all special programs for main
+        campus only is not allowed. It will result in a result set to large to be
+        displayed.\");\r\n\t\t\t} else {\r\n\t\t \t\talert(\"A search by main campus
+        only is not allowed.\");\r\n\t\t\t}\r\n\t\t \treturn false;\t\t    \r\n\t\t}\r\n\t\treturn
+        true;\r\n   \t}\r\n\r\n\t// submit form\r\n\tfunction sendForm() {\r\n\t\tif
+        (!checkForm()) return;\r\n\t\tdocument.searchForm.submit();\r\n\t}\r\n\t\r\n</script>\r\n\r\n<style>\r\n
+        \ .alert{ color: red; font-style: italic; font-weight: bold }\r\n  .name{
+        color: #990000; }\r\n</style>\r\n\r\n\r\n<table width=\"95%\" border=\"0\"
+        cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n        \r\n  <tr>\r\n
+        \ \t\r\n  \t<td>\r\n\t   <img src=\"http://apps.oti.fsu.edu/images2/registrar_title.gif\"
+        width=\"242\" height=\"70\" border=\"0\" alt=\"| academics |\"> \r\n\t</td>\r\n\t\r\n
+        \   <td>  \r\n\t    <table width=\"100%\" border=\"0\" cellspacing=\"2\" cellpadding=\"4\">\r\n
+        \              <tr bgcolor=\"#CCCC99\" align=\"center\"> \r\n\t\t\t     <td>
+        \r\n                    <a href=\"/RegistrarCourseLookup/SearchForm\">Search
+        Course Offerings</a>\r\n\t\t\t\t </td>\r\n\t\t\t\t <td>\r\n\t\t\t\t\t<a href=\"https://cfprd.oti.fsu.edu/anr/CourseRequirementsView/index.cfm?ORIGIN=J&app=PUBLIC\">Check
+        Course Requirements</a>\r\n\t\t\t\t </td>\r\n\t\t\t\t\r\n\t\t\t\t <td>\r\n
+        \                   <a href=\"http://www.academic-guide.fsu.edu/\">Academic
+        Guide</a>\r\n\t\t\t\t </td>\r\n\t\t\t\t \r\n\t\t\t  </tr>\r\n\t\t\t  \r\n\t\t\t
+        \ <tr bgcolor=\"#CCCC99\" align=\"center\"> \r\n\t\t\t  \t<td>\r\n\t\t\t\t\t<a
+        href=\"http://registrar.fsu.edu/help_webapps/courselookup.htm\">Help</a>\r\n\t\t\t\t</td>\r\n\t\t\t\t<td>\r\n\t\t\t\t\t<a
+        href=\"/SecureLogin/login?FINALURL=/CourseRegistration/Navigator\">Online
+        Registration</a>\r\n\t\t\t\t</td>\r\n\t\t\t\t<td>\r\n\t\t\t\t \t<a href=\"http://www.fsu.edu/\">FSU
+        Home Page</a>\r\n\t\t\t\t</td>\r\n               </tr>\r\n               \r\n
+        \              <tr bgcolor=\"#CCCC99\" align=\"center\"> \r\n               \t
+        <td>\r\n                    &nbsp;&nbsp;&nbsp;&nbsp;<a href=\"http://www.studentsfirst.fsu.edu/\">FSyou</a>&nbsp;&nbsp;&nbsp;&nbsp;\r\n\t\t\t\t
+        </td>\r\n               \t <td colspan=\"2\" align=\"center\">\r\n                   <a
+        href=\"http://registrar.fsu.edu/programlists/\">Interdisciplinary Programs
+        & Degree Requirements</a>\r\n\t\t\t\t</td>\r\n\t\t\t   </tr>\r\n               \r\n\t\t
+        </table>\r\n\t</td>  \r\n  </tr>\r\n</table>\r\n  \r\n\r\n<h3 align=\"center\">Search
+        the Catalog of Future, Current, and Past Courses</h3>\r\n<table width=\"95%\"
+        align=\"center\">\r\n  <tr>\r\n    <td>\r\n      <hr>\r\n      <span class=\"smallprint\">\r\n
+        \     <ul>\r\n        <li>\r\n          \tChoose a Year -Term (Department
+        list is populated based on the year - term selection).\r\n        </li>\r\n
+        \       <li>\r\n  \t    \tEnter a partial Course Number in the Course Field
+        <strong>AND/OR </strong>\r\n\t    \tchoose a Department Name from the Department
+        Name Field.\r\n\t    </li>\r\n\t    <li>\r\n\t    \tOptional Search Fields:
+        Course Level, Special Program, Additional Search Criteria, Begin and End Times.\r\n\t
+        \   </li>\r\n\t    <li>\r\n\t    \t<strong>Note:</strong>  You may do a full
+        course location\r\n\t    \tlook up for all locations other than main campus.
+        \ To return all the\r\n\t    \tcourses being offered at a particular location,
+        simply select the\r\n\t    \tcourse location without any course number or
+        department. Course and\r\n\t    \tdepartment may be left blank when searching
+        by special program or additional search criteria.\r\n\t    </li>\r\n\t    <li>\r\n\t
+        \   \tTo see the textbooks required for a course, click on the section number
+        for that course. \r\n\t    </li>\r\n      </ul>\r\n      </span>\r\n      <div
+        align=\"center\" class=\"alert\">Please enter your search criteria.</div>\r\n
+        \   </td>\r\n  </tr>\r\n</table>\r\n\r\n<FORM METHOD=\"post\" name=\"searchForm\"
+        ACTION=\"/RegistrarCourseLookup/SearchResults\">\r\n\t\r\n<input type=\"hidden\"
+        name=\"requestType\" value=\"PUBLIC\">\r\n<table bgcolor=\"#cccc99\" width=\"95%\"
+        align=\"center\">\r\n  <tr>\r\n    <td>\r\n      <table border=\"1\" width=\"100%\"
+        align=\"center\">\r\n\t    <tr>  \r\n\t\t    <th>Course</th>\r\n\t\t    <th>Year
+        - Term</th>\r\n\t\t    <th>Department</th>\r\n\t\t    <th>Course Level<BR><span
+        class=\"name\">(Optional)</span></th>\r\n\t    </tr>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t
+        \   <tr align=\"center\">\r\n\t\t    <td>\r\n\t\t       <input name=\"courseNumber\"
+        size=\"7\" maxlength=\"7\" value=\"\">\r\n\t\t    </td>\r\n\t\t    <td>\r\n\t\t
+        \   \t<SELECT name=\"term\" onchange=\"onChangeSetDepartments();\" ><OPTION
+        VALUE=\"S\">Select a Term</OPTION><OPTION VALUE=\"20119\">Fall 2011</OPTION><OPTION
+        VALUE=\"20121\">Spring 2012</OPTION><OPTION VALUE=\"20126\">Summer 2012</OPTION><OPTION
+        VALUE=\"20129\">Fall 2012</OPTION></SELECT>\t\t\t\t\t\t\t\r\n\t\t    \t\t\t\t\t\t\r\n\t\t
+        \   \t\r\n            </td>\r\n            <td>\r\n\t\t\t  <select name=\"department\">\r\n
+        \           \t<option value=\"\">________________</option>\r\n                <option
+        value=\"\">________________</option>\r\n                <option value=\"\">________________</option>\r\n
+        \               <option value=\"\">________________</option>\r\n                <option
+        value=\"\">________________</option>\r\n                <option value=\"\">________________</option>\r\n
+        \               <option value=\"\">________________</option>\r\n                <option
+        value=\"\">________________</option>\r\n              </select>  \r\n\t\t
+        \   </td>\r\n\t\t    <td align=center>\r\n\t\t   \t\t<SELECT name=\"level\"
+        ><OPTION VALUE=\"\" SELECTED></OPTION><OPTION VALUE=\"U\">Undergrad Only</OPTION><OPTION
+        VALUE=\"G\">Graduate Only</OPTION><OPTION VALUE=\"0\">0000</OPTION><OPTION
+        VALUE=\"1\">1000</OPTION><OPTION VALUE=\"2\">2000</OPTION><OPTION VALUE=\"3\">3000</OPTION><OPTION
+        VALUE=\"4\">4000</OPTION><OPTION VALUE=\"5\">5000</OPTION><OPTION VALUE=\"6\">6000</OPTION><OPTION
+        VALUE=\"7\">7000</OPTION><OPTION VALUE=\"8\">8000</OPTION><OPTION VALUE=\"9\">9000</OPTION></SELECT>\t\t\r\n\t\t
+        \   </td>\r\n\t    </tr>\r\n      </table>\r\n      <table border=\"1\" width=\"100%\">\r\n\t
+        \   <tr>\r\n\t\t  <td align=\"center\">\r\n\t\t\t<strong>Course Location</strong>\r\n\t\t\t<br><br>\r\n\t\t\t<!--
+        first digit is used for sorting to build the list  \r\n\t\t\t     position
+        2-3 is the location code\r\n\t\t\t\t position 4-length is the location description
+        -->\r\n\t\t\t<SELECT name=\"location\" ><OPTION VALUE=\"0100FSU Main Campus\">FSU
+        Main Campus</OPTION><OPTION VALUE=\"0288Panama City\">Panama City</OPTION><OPTION
+        VALUE=\"0385Distance Learning\">Distance Learning</OPTION><OPTION VALUE=\"0483Republic
+        of Panama\">Republic of Panama</OPTION><OPTION VALUE=\"0590Florence\">Florence</OPTION><OPTION
+        VALUE=\"0692London\">London</OPTION><OPTION VALUE=\"0786Costa Rica\">Costa
+        Rica</OPTION><OPTION VALUE=\"0884Asolo at Sarasota\">Asolo at Sarasota</OPTION><OPTION
+        VALUE=\"0968Non-Florida-other state/terr\">Non-Florida-other state/terr</OPTION><OPTION
+        VALUE=\"1087Non-USA\">Non-USA</OPTION><OPTION VALUE=\"1195FSU ( FEEDS )\">FSU
+        ( FEEDS )</OPTION><OPTION VALUE=\"1200 FSU MAIN CAMPUS\"></OPTION><OPTION
+        VALUE=\"1300 FSU MAIN CAMPUS\">=================================</OPTION><OPTION
+        VALUE=\"1400 FSU MAIN CAMPUS\">County Search returns courses</OPTION><OPTION
+        VALUE=\"15200 FSU MAIN CAMPUS\">offered in those counties.</OPTION><OPTION
+        VALUE=\"16200 FSU MAIN CAMPUS\">=================================</OPTION><OPTION
+        VALUE=\"1700 FSU MAIN CAMPUS\"></OPTION><OPTION VALUE=\"1801Alachua County\">Alachua
+        County</OPTION><OPTION VALUE=\"1802Baker County\">Baker County</OPTION><OPTION
+        VALUE=\"1803Bay County\">Bay County</OPTION><OPTION VALUE=\"1804Bradford County\">Bradford
+        County</OPTION><OPTION VALUE=\"1805Brevard County\">Brevard County</OPTION><OPTION
+        VALUE=\"1806Broward County\">Broward County</OPTION><OPTION VALUE=\"1807Calhoun
+        County\">Calhoun County</OPTION><OPTION VALUE=\"1808Charlotte County\">Charlotte
+        County</OPTION><OPTION VALUE=\"1809Citrus County\">Citrus County</OPTION><OPTION
+        VALUE=\"1810Clay County\">Clay County</OPTION><OPTION VALUE=\"1811Collier
+        County\">Collier County</OPTION><OPTION VALUE=\"1812Columbia County\">Columbia
+        County</OPTION><OPTION VALUE=\"1813Dade County\">Dade County</OPTION><OPTION
+        VALUE=\"1814DeSoto County\">DeSoto County</OPTION><OPTION VALUE=\"1815Dixie
+        County\">Dixie County</OPTION><OPTION VALUE=\"1816Duval County\">Duval County</OPTION><OPTION
+        VALUE=\"1817Escambia County\">Escambia County</OPTION><OPTION VALUE=\"1818Flagler
+        County\">Flagler County</OPTION><OPTION VALUE=\"1819Franklin County\">Franklin
+        County</OPTION><OPTION VALUE=\"1820Gadsden County\">Gadsden County</OPTION><OPTION
+        VALUE=\"1821Gilchrist County\">Gilchrist County</OPTION><OPTION VALUE=\"1822Glades
+        County\">Glades County</OPTION><OPTION VALUE=\"1823Gulf County\">Gulf County</OPTION><OPTION
+        VALUE=\"1824Hamilton County\">Hamilton County</OPTION><OPTION VALUE=\"1825Hardee
+        County\">Hardee County</OPTION><OPTION VALUE=\"1826Hendry County\">Hendry
+        County</OPTION><OPTION VALUE=\"1827Hernando County\">Hernando County</OPTION><OPTION
+        VALUE=\"1828Highlands County\">Highlands County</OPTION><OPTION VALUE=\"1829Hillsborough
+        County\">Hillsborough County</OPTION><OPTION VALUE=\"1830Holms County\">Holms
+        County</OPTION><OPTION VALUE=\"1831Indian River County\">Indian River County</OPTION><OPTION
+        VALUE=\"1832Jackson County\">Jackson County</OPTION><OPTION VALUE=\"1833Jefferson
+        County\">Jefferson County</OPTION><OPTION VALUE=\"1834Lafayette County\">Lafayette
+        County</OPTION><OPTION VALUE=\"1835Lake County\">Lake County</OPTION><OPTION
+        VALUE=\"1836Lee County\">Lee County</OPTION><OPTION VALUE=\"1837Leon County\">Leon
+        County</OPTION><OPTION VALUE=\"1838Levy County\">Levy County</OPTION><OPTION
+        VALUE=\"1839Liberty County\">Liberty County</OPTION><OPTION VALUE=\"1840Madison
+        County\">Madison County</OPTION><OPTION VALUE=\"1841Manatee County\">Manatee
+        County</OPTION><OPTION VALUE=\"1842Marion County\">Marion County</OPTION><OPTION
+        VALUE=\"1843Martin County\">Martin County</OPTION><OPTION VALUE=\"1844Monroe
+        County\">Monroe County</OPTION><OPTION VALUE=\"1845Nassau County\">Nassau
+        County</OPTION><OPTION VALUE=\"1846Okaloosa County\">Okaloosa County</OPTION><OPTION
+        VALUE=\"1847Okeechobee County\">Okeechobee County</OPTION><OPTION VALUE=\"1848Orange
+        County\">Orange County</OPTION><OPTION VALUE=\"1849Osceola County\">Osceola
+        County</OPTION><OPTION VALUE=\"1850Palm Beach County\">Palm Beach County</OPTION><OPTION
+        VALUE=\"1851Pasco County\">Pasco County</OPTION><OPTION VALUE=\"1852Pinellas
+        County\">Pinellas County</OPTION><OPTION VALUE=\"1853Polk County\">Polk County</OPTION><OPTION
+        VALUE=\"1854Putnam County\">Putnam County</OPTION><OPTION VALUE=\"1855Santa
+        Rosa County\">Santa Rosa County</OPTION><OPTION VALUE=\"1856Sarasota County\">Sarasota
+        County</OPTION><OPTION VALUE=\"1857Seminole County\">Seminole County</OPTION><OPTION
+        VALUE=\"1858Saint Johns County\">Saint Johns County</OPTION><OPTION VALUE=\"1859Saint
+        Lucie County\">Saint Lucie County</OPTION><OPTION VALUE=\"1860Sumter County\">Sumter
+        County</OPTION><OPTION VALUE=\"1861Suwanee County\">Suwanee County</OPTION><OPTION
+        VALUE=\"1862Taylor County\">Taylor County</OPTION><OPTION VALUE=\"1863Union
+        County\">Union County</OPTION><OPTION VALUE=\"1864Volusia County\">Volusia
+        County</OPTION><OPTION VALUE=\"1865Wakulla County\">Wakulla County</OPTION><OPTION
+        VALUE=\"1866Walton County\">Walton County</OPTION><OPTION VALUE=\"1867Washington
+        County\">Washington County</OPTION></SELECT>\t\r\n\t\t  </td>\r\n\t\t  <th
+        align=left>\r\n\t\t\tBelow you may select all the classes that start at a
+        certain time. You may also\r\n\t\t\tselect all the classes that end by a certain
+        time.  When data is present\r\n\t\t\tin both boxes below, you will get the
+        classes that fall within that time\r\n\t\t\trange. <BR>\r\n\t\t  </th>\r\n\t
+        \   </tr> \r\n\t    <tr>\r\n\t\t  <td align=\"center\">  \r\n\t\t    <strong>Special
+        Program<span class=\"name\">(Optional)</span></strong>\r\n\t\t\t<br><br>\r\n\t\t\t<SELECT
+        name=\"specialProgram\" ><OPTION VALUE=\"-9999\"></OPTION><OPTION VALUE=\"
+        Omit All Special Program Classes\">Omit All Special Program Classes</OPTION><OPTION
+        VALUE=\"QAcademic Year Abroad\">Academic Year Abroad</OPTION><OPTION VALUE=\"9All
+        Other IP Programs\">All Other IP Programs</OPTION><OPTION VALUE=\"BApproved
+        for Degree in Three\">Approved for Degree in Three</OPTION><OPTION VALUE=\"GBryan
+        Hall Learning Community\">Bryan Hall Learning Community</OPTION><OPTION VALUE=\"SCare
+        Program\">Care Program</OPTION><OPTION VALUE=\"DDistance Learning (00, 85
+        Loc)\">Distance Learning (00, 85 Loc)</OPTION><OPTION VALUE=\"IFlorence Program\">Florence
+        Program</OPTION><OPTION VALUE=\"1Florence Program - Spring Term\">Florence
+        Program - Spring Term</OPTION><OPTION VALUE=\"2Florence Program - Summer Term\">Florence
+        Program - Summer Term</OPTION><OPTION VALUE=\"ZFreshman Interest Group (FIG)\">Freshman
+        Interest Group (FIG)</OPTION><OPTION VALUE=\"HHonors\">Honors</OPTION><OPTION
+        VALUE=\"MHonors in Major\">Honors in Major</OPTION><OPTION VALUE=\"FHonors
+        Program Completed\">Honors Program Completed</OPTION><OPTION VALUE=\"AInterested
+        in Degree in Three\">Interested in Degree in Three</OPTION><OPTION VALUE=\"PIP-Panama
+        Rep\">IP-Panama Rep</OPTION><OPTION VALUE=\"LLondon Program\">London Program</OPTION><OPTION
+        VALUE=\"3London Program - Spring Term\">London Program - Spring Term</OPTION><OPTION
+        VALUE=\"7London Summer A\">London Summer A</OPTION><OPTION VALUE=\"4London
+        Summer B\">London Summer B</OPTION><OPTION VALUE=\"JMusic Living-Learning
+        Community\">Music Living-Learning Community</OPTION><OPTION VALUE=\"UNursing
+        Learning Community\">Nursing Learning Community</OPTION><OPTION VALUE=\"XOut-Of-Service
+        Area\">Out-Of-Service Area</OPTION><OPTION VALUE=\"YPre-Health Living-Learning
+        Community\">Pre-Health Living-Learning Community</OPTION><OPTION VALUE=\"KSocial
+        Justice Living-Learning Community\">Social Justice Living-Learning Community</OPTION><OPTION
+        VALUE=\"RSocial Science Living-Learning Community\">Social Science Living-Learning
+        Community</OPTION><OPTION VALUE=\"VValencia Program\">Valencia Program</OPTION><OPTION
+        VALUE=\"5Valencia Program - Spring Term\">Valencia Program - Spring Term</OPTION><OPTION
+        VALUE=\"8Valencia Summer A\">Valencia Summer A</OPTION><OPTION VALUE=\"6Valencia
+        Summer B\">Valencia Summer B</OPTION><OPTION VALUE=\"WWomen in Math, Science,
+        and Engineering\">Women in Math, Science, and Engineering</OPTION></SELECT>\t\r\n\t\t
+        \ </td>  \r\n \t\t  <td>\r\n\t        <table>\r\n\t\t      <tr>\r\n\t\t\t
+        \   <td>\r\n\t\t\t      I want to check for classes that begin on/after:\r\n\t\t\t\t</td>\r\n\t\t\t\t<td
+        align=\"left\">\r\n\t\t\t\t\t<SELECT name=\"beginningTime\" ><OPTION VALUE=\"\"
+        SELECTED></OPTION><OPTION VALUE=\"00.00.00\">00:00 AM</OPTION><OPTION VALUE=\"07.00.00\">07:00
+        AM</OPTION><OPTION VALUE=\"07.05.00\">07:05 AM</OPTION><OPTION VALUE=\"07.10.00\">07:10
+        AM</OPTION><OPTION VALUE=\"07.15.00\">07:15 AM</OPTION><OPTION VALUE=\"07.20.00\">07:20
+        AM</OPTION><OPTION VALUE=\"07.25.00\">07:25 AM</OPTION><OPTION VALUE=\"07.30.00\">07:30
+        AM</OPTION><OPTION VALUE=\"07.35.00\">07:35 AM</OPTION><OPTION VALUE=\"07.40.00\">07:40
+        AM</OPTION><OPTION VALUE=\"07.45.00\">07:45 AM</OPTION><OPTION VALUE=\"07.50.00\">07:50
+        AM</OPTION><OPTION VALUE=\"07.55.00\">07:55 AM</OPTION><OPTION VALUE=\"08.00.00\">08:00
+        AM</OPTION><OPTION VALUE=\"08.05.00\">08:05 AM</OPTION><OPTION VALUE=\"08.10.00\">08:10
+        AM</OPTION><OPTION VALUE=\"08.15.00\">08:15 AM</OPTION><OPTION VALUE=\"08.20.00\">08:20
+        AM</OPTION><OPTION VALUE=\"08.25.00\">08:25 AM</OPTION><OPTION VALUE=\"08.30.00\">08:30
+        AM</OPTION><OPTION VALUE=\"08.35.00\">08:35 AM</OPTION><OPTION VALUE=\"08.40.00\">08:40
+        AM</OPTION><OPTION VALUE=\"08.45.00\">08:45 AM</OPTION><OPTION VALUE=\"08.50.00\">08:50
+        AM</OPTION><OPTION VALUE=\"08.55.00\">08:55 AM</OPTION><OPTION VALUE=\"09.00.00\">09:00
+        AM</OPTION><OPTION VALUE=\"09.05.00\">09:05 AM</OPTION><OPTION VALUE=\"09.10.00\">09:10
+        AM</OPTION><OPTION VALUE=\"09.15.00\">09:15 AM</OPTION><OPTION VALUE=\"09.20.00\">09:20
+        AM</OPTION><OPTION VALUE=\"09.25.00\">09:25 AM</OPTION><OPTION VALUE=\"09.30.00\">09:30
+        AM</OPTION><OPTION VALUE=\"09.35.00\">09:35 AM</OPTION><OPTION VALUE=\"09.40.00\">09:40
+        AM</OPTION><OPTION VALUE=\"09.45.00\">09:45 AM</OPTION><OPTION VALUE=\"09.50.00\">09:50
+        AM</OPTION><OPTION VALUE=\"09.55.00\">09:55 AM</OPTION><OPTION VALUE=\"10.00.00\">10:00
+        AM</OPTION><OPTION VALUE=\"10.05.00\">10:05 AM</OPTION><OPTION VALUE=\"10.10.00\">10:10
+        AM</OPTION><OPTION VALUE=\"10.15.00\">10:15 AM</OPTION><OPTION VALUE=\"10.20.00\">10:20
+        AM</OPTION><OPTION VALUE=\"10.25.00\">10:25 AM</OPTION><OPTION VALUE=\"10.30.00\">10:30
+        AM</OPTION><OPTION VALUE=\"10.35.00\">10:35 AM</OPTION><OPTION VALUE=\"10.40.00\">10:40
+        AM</OPTION><OPTION VALUE=\"10.45.00\">10:45 AM</OPTION><OPTION VALUE=\"10.50.00\">10:50
+        AM</OPTION><OPTION VALUE=\"10.55.00\">10:55 AM</OPTION><OPTION VALUE=\"11.00.00\">11:00
+        AM</OPTION><OPTION VALUE=\"11.05.00\">11:05 AM</OPTION><OPTION VALUE=\"11.10.00\">11:10
+        AM</OPTION><OPTION VALUE=\"11.15.00\">11:15 AM</OPTION><OPTION VALUE=\"11.20.00\">11:20
+        AM</OPTION><OPTION VALUE=\"11.25.00\">11:25 AM</OPTION><OPTION VALUE=\"11.30.00\">11:30
+        AM</OPTION><OPTION VALUE=\"11.35.00\">11:35 AM</OPTION><OPTION VALUE=\"11.40.00\">11:40
+        AM</OPTION><OPTION VALUE=\"11.45.00\">11:45 AM</OPTION><OPTION VALUE=\"11.50.00\">11:50
+        AM</OPTION><OPTION VALUE=\"11.55.00\">11:55 AM</OPTION><OPTION VALUE=\"12.00.00\">12:00
+        PM</OPTION><OPTION VALUE=\"12.05.00\">12:05 PM</OPTION><OPTION VALUE=\"12.10.00\">12:10
+        PM</OPTION><OPTION VALUE=\"12.15.00\">12:15 PM</OPTION><OPTION VALUE=\"12.20.00\">12:20
+        PM</OPTION><OPTION VALUE=\"12.25.00\">12:25 PM</OPTION><OPTION VALUE=\"12.30.00\">12:30
+        PM</OPTION><OPTION VALUE=\"12.35.00\">12:35 PM</OPTION><OPTION VALUE=\"12.40.00\">12:40
+        PM</OPTION><OPTION VALUE=\"12.45.00\">12:45 PM</OPTION><OPTION VALUE=\"12.50.00\">12:50
+        PM</OPTION><OPTION VALUE=\"12.55.00\">12:55 PM</OPTION><OPTION VALUE=\"13.00.00\">01:00
+        PM</OPTION><OPTION VALUE=\"13.05.00\">01:05 PM</OPTION><OPTION VALUE=\"13.10.00\">01:10
+        PM</OPTION><OPTION VALUE=\"13.15.00\">01:15 PM</OPTION><OPTION VALUE=\"13.20.00\">01:20
+        PM</OPTION><OPTION VALUE=\"13.25.00\">01:25 PM</OPTION><OPTION VALUE=\"13.30.00\">01:30
+        PM</OPTION><OPTION VALUE=\"13.35.00\">01:35 PM</OPTION><OPTION VALUE=\"13.40.00\">01:40
+        PM</OPTION><OPTION VALUE=\"13.45.00\">01:45 PM</OPTION><OPTION VALUE=\"13.50.00\">01:50
+        PM</OPTION><OPTION VALUE=\"13.55.00\">01:55 PM</OPTION><OPTION VALUE=\"14.00.00\">02:00
+        PM</OPTION><OPTION VALUE=\"14.05.00\">02:05 PM</OPTION><OPTION VALUE=\"14.10.00\">02:10
+        PM</OPTION><OPTION VALUE=\"14.15.00\">02:15 PM</OPTION><OPTION VALUE=\"14.20.00\">02:20
+        PM</OPTION><OPTION VALUE=\"14.25.00\">02:25 PM</OPTION><OPTION VALUE=\"14.30.00\">02:30
+        PM</OPTION><OPTION VALUE=\"14.35.00\">02:35 PM</OPTION><OPTION VALUE=\"14.40.00\">02:40
+        PM</OPTION><OPTION VALUE=\"14.45.00\">02:45 PM</OPTION><OPTION VALUE=\"14.50.00\">02:50
+        PM</OPTION><OPTION VALUE=\"14.55.00\">02:55 PM</OPTION><OPTION VALUE=\"15.00.00\">03:00
+        PM</OPTION><OPTION VALUE=\"15.05.00\">03:05 PM</OPTION><OPTION VALUE=\"15.10.00\">03:10
+        PM</OPTION><OPTION VALUE=\"15.15.00\">03:15 PM</OPTION><OPTION VALUE=\"15.20.00\">03:20
+        PM</OPTION><OPTION VALUE=\"15.25.00\">03:25 PM</OPTION><OPTION VALUE=\"15.30.00\">03:30
+        PM</OPTION><OPTION VALUE=\"15.35.00\">03:35 PM</OPTION><OPTION VALUE=\"15.40.00\">03:40
+        PM</OPTION><OPTION VALUE=\"15.45.00\">03:45 PM</OPTION><OPTION VALUE=\"15.50.00\">03:50
+        PM</OPTION><OPTION VALUE=\"15.55.00\">03:55 PM</OPTION><OPTION VALUE=\"16.00.00\">04:00
+        PM</OPTION><OPTION VALUE=\"16.05.00\">04:05 PM</OPTION><OPTION VALUE=\"16.10.00\">04:10
+        PM</OPTION><OPTION VALUE=\"16.15.00\">04:15 PM</OPTION><OPTION VALUE=\"16.20.00\">04:20
+        PM</OPTION><OPTION VALUE=\"16.25.00\">04:25 PM</OPTION><OPTION VALUE=\"16.30.00\">04:30
+        PM</OPTION><OPTION VALUE=\"16.35.00\">04:35 PM</OPTION><OPTION VALUE=\"16.40.00\">04:40
+        PM</OPTION><OPTION VALUE=\"16.45.00\">04:45 PM</OPTION><OPTION VALUE=\"16.50.00\">04:50
+        PM</OPTION><OPTION VALUE=\"16.55.00\">04:55 PM</OPTION><OPTION VALUE=\"17.00.00\">05:00
+        PM</OPTION><OPTION VALUE=\"17.05.00\">05:05 PM</OPTION><OPTION VALUE=\"17.10.00\">05:10
+        PM</OPTION><OPTION VALUE=\"17.15.00\">05:15 PM</OPTION><OPTION VALUE=\"17.20.00\">05:20
+        PM</OPTION><OPTION VALUE=\"17.25.00\">05:25 PM</OPTION><OPTION VALUE=\"17.30.00\">05:30
+        PM</OPTION><OPTION VALUE=\"17.35.00\">05:35 PM</OPTION><OPTION VALUE=\"17.40.00\">05:40
+        PM</OPTION><OPTION VALUE=\"17.45.00\">05:45 PM</OPTION><OPTION VALUE=\"17.50.00\">05:50
+        PM</OPTION><OPTION VALUE=\"17.55.00\">05:55 PM</OPTION><OPTION VALUE=\"18.00.00\">06:00
+        PM</OPTION><OPTION VALUE=\"18.05.00\">06:05 PM</OPTION><OPTION VALUE=\"18.10.00\">06:10
+        PM</OPTION><OPTION VALUE=\"18.15.00\">06:15 PM</OPTION><OPTION VALUE=\"18.20.00\">06:20
+        PM</OPTION><OPTION VALUE=\"18.25.00\">06:25 PM</OPTION><OPTION VALUE=\"18.30.00\">06:30
+        PM</OPTION><OPTION VALUE=\"18.35.00\">06:35 PM</OPTION><OPTION VALUE=\"18.40.00\">06:40
+        PM</OPTION><OPTION VALUE=\"18.45.00\">06:45 PM</OPTION><OPTION VALUE=\"18.50.00\">06:50
+        PM</OPTION><OPTION VALUE=\"18.55.00\">06:55 PM</OPTION><OPTION VALUE=\"19.00.00\">07:00
+        PM</OPTION><OPTION VALUE=\"19.05.00\">07:05 PM</OPTION><OPTION VALUE=\"19.10.00\">07:10
+        PM</OPTION><OPTION VALUE=\"19.15.00\">07:15 PM</OPTION><OPTION VALUE=\"19.20.00\">07:20
+        PM</OPTION><OPTION VALUE=\"19.25.00\">07:25 PM</OPTION><OPTION VALUE=\"19.30.00\">07:30
+        PM</OPTION><OPTION VALUE=\"19.35.00\">07:35 PM</OPTION><OPTION VALUE=\"19.40.00\">07:40
+        PM</OPTION><OPTION VALUE=\"19.45.00\">07:45 PM</OPTION><OPTION VALUE=\"19.50.00\">07:50
+        PM</OPTION><OPTION VALUE=\"19.55.00\">07:55 PM</OPTION><OPTION VALUE=\"20.00.00\">08:00
+        PM</OPTION><OPTION VALUE=\"20.05.00\">08:05 PM</OPTION><OPTION VALUE=\"20.10.00\">08:10
+        PM</OPTION><OPTION VALUE=\"20.15.00\">08:15 PM</OPTION><OPTION VALUE=\"20.20.00\">08:20
+        PM</OPTION><OPTION VALUE=\"20.25.00\">08:25 PM</OPTION><OPTION VALUE=\"20.30.00\">08:30
+        PM</OPTION><OPTION VALUE=\"20.35.00\">08:35 PM</OPTION><OPTION VALUE=\"20.40.00\">08:40
+        PM</OPTION><OPTION VALUE=\"20.45.00\">08:45 PM</OPTION><OPTION VALUE=\"20.50.00\">08:50
+        PM</OPTION><OPTION VALUE=\"20.55.00\">08:55 PM</OPTION><OPTION VALUE=\"21.00.00\">09:00
+        PM</OPTION></SELECT>\t\r\n\t\t\t\t</td>\r\n\t\t\t    <td>\r\n\t\t\t      <INPUT
+        TYPE=\"CHECKBOX\" name=\"openSections\" value=\"Y\" CHECKED> \r\n\t\t\t      Show
+        Open Sections Only\r\n\t\t\t    </td>\r\n\t\t\t  </tr>\r\n\t\t\t  <tr>\r\n\t\t\t
+        \   <td>  \r\n\t\t\t      I want to check for classes that end by:\r\n\t\t\t
+        \   </td>\r\n\t\t\t    <td align=\"left\">\r\n\t\t\t    \t<SELECT name=\"endingTime\"
+        ><OPTION VALUE=\"\" SELECTED></OPTION><OPTION VALUE=\"00.00.00\">00:00 AM</OPTION><OPTION
+        VALUE=\"07.55.00\">07:55 AM</OPTION><OPTION VALUE=\"08.00.00\">08:00 AM</OPTION><OPTION
+        VALUE=\"08.05.00\">08:05 AM</OPTION><OPTION VALUE=\"08.10.00\">08:10 AM</OPTION><OPTION
+        VALUE=\"08.15.00\">08:15 AM</OPTION><OPTION VALUE=\"08.20.00\">08:20 AM</OPTION><OPTION
+        VALUE=\"08.25.00\">08:25 AM</OPTION><OPTION VALUE=\"08.30.00\">08:30 AM</OPTION><OPTION
+        VALUE=\"08.35.00\">08:35 AM</OPTION><OPTION VALUE=\"08.40.00\">08:40 AM</OPTION><OPTION
+        VALUE=\"08.45.00\">08:45 AM</OPTION><OPTION VALUE=\"08.50.00\">08:50 AM</OPTION><OPTION
+        VALUE=\"08.55.00\">08:55 AM</OPTION><OPTION VALUE=\"09.00.00\">09:00 AM</OPTION><OPTION
+        VALUE=\"09.05.00\">09:05 AM</OPTION><OPTION VALUE=\"09.10.00\">09:10 AM</OPTION><OPTION
+        VALUE=\"09.15.00\">09:15 AM</OPTION><OPTION VALUE=\"09.20.00\">09:20 AM</OPTION><OPTION
+        VALUE=\"09.25.00\">09:25 AM</OPTION><OPTION VALUE=\"09.30.00\">09:30 AM</OPTION><OPTION
+        VALUE=\"09.35.00\">09:35 AM</OPTION><OPTION VALUE=\"09.40.00\">09:40 AM</OPTION><OPTION
+        VALUE=\"09.45.00\">09:45 AM</OPTION><OPTION VALUE=\"09.50.00\">09:50 AM</OPTION><OPTION
+        VALUE=\"09.55.00\">09:55 AM</OPTION><OPTION VALUE=\"10.00.00\">10:00 AM</OPTION><OPTION
+        VALUE=\"10.05.00\">10:05 AM</OPTION><OPTION VALUE=\"10.10.00\">10:10 AM</OPTION><OPTION
+        VALUE=\"10.15.00\">10:15 AM</OPTION><OPTION VALUE=\"10.20.00\">10:20 AM</OPTION><OPTION
+        VALUE=\"10.25.00\">10:25 AM</OPTION><OPTION VALUE=\"10.30.00\">10:30 AM</OPTION><OPTION
+        VALUE=\"10.35.00\">10:35 AM</OPTION><OPTION VALUE=\"10.40.00\">10:40 AM</OPTION><OPTION
+        VALUE=\"10.45.00\">10:45 AM</OPTION><OPTION VALUE=\"10.50.00\">10:50 AM</OPTION><OPTION
+        VALUE=\"10.55.00\">10:55 AM</OPTION><OPTION VALUE=\"11.00.00\">11:00 AM</OPTION><OPTION
+        VALUE=\"11.05.00\">11:05 AM</OPTION><OPTION VALUE=\"11.10.00\">11:10 AM</OPTION><OPTION
+        VALUE=\"11.15.00\">11:15 AM</OPTION><OPTION VALUE=\"11.20.00\">11:20 AM</OPTION><OPTION
+        VALUE=\"11.25.00\">11:25 AM</OPTION><OPTION VALUE=\"11.30.00\">11:30 AM</OPTION><OPTION
+        VALUE=\"11.35.00\">11:35 AM</OPTION><OPTION VALUE=\"11.40.00\">11:40 AM</OPTION><OPTION
+        VALUE=\"11.45.00\">11:45 AM</OPTION><OPTION VALUE=\"11.50.00\">11:50 AM</OPTION><OPTION
+        VALUE=\"11.55.00\">11:55 AM</OPTION><OPTION VALUE=\"12.00.00\">12:00 PM</OPTION><OPTION
+        VALUE=\"12.05.00\">12:05 PM</OPTION><OPTION VALUE=\"12.10.00\">12:10 PM</OPTION><OPTION
+        VALUE=\"12.15.00\">12:15 PM</OPTION><OPTION VALUE=\"12.20.00\">12:20 PM</OPTION><OPTION
+        VALUE=\"12.25.00\">12:25 PM</OPTION><OPTION VALUE=\"12.30.00\">12:30 PM</OPTION><OPTION
+        VALUE=\"12.35.00\">12:35 PM</OPTION><OPTION VALUE=\"12.40.00\">12:40 PM</OPTION><OPTION
+        VALUE=\"12.45.00\">12:45 PM</OPTION><OPTION VALUE=\"12.50.00\">12:50 PM</OPTION><OPTION
+        VALUE=\"12.55.00\">12:55 PM</OPTION><OPTION VALUE=\"13.00.00\">01:00 PM</OPTION><OPTION
+        VALUE=\"13.05.00\">01:05 PM</OPTION><OPTION VALUE=\"13.10.00\">01:10 PM</OPTION><OPTION
+        VALUE=\"13.15.00\">01:15 PM</OPTION><OPTION VALUE=\"13.20.00\">01:20 PM</OPTION><OPTION
+        VALUE=\"13.25.00\">01:25 PM</OPTION><OPTION VALUE=\"13.30.00\">01:30 PM</OPTION><OPTION
+        VALUE=\"13.35.00\">01:35 PM</OPTION><OPTION VALUE=\"13.40.00\">01:40 PM</OPTION><OPTION
+        VALUE=\"13.45.00\">01:45 PM</OPTION><OPTION VALUE=\"13.50.00\">01:50 PM</OPTION><OPTION
+        VALUE=\"13.55.00\">01:55 PM</OPTION><OPTION VALUE=\"14.00.00\">02:00 PM</OPTION><OPTION
+        VALUE=\"14.05.00\">02:05 PM</OPTION><OPTION VALUE=\"14.10.00\">02:10 PM</OPTION><OPTION
+        VALUE=\"14.15.00\">02:15 PM</OPTION><OPTION VALUE=\"14.20.00\">02:20 PM</OPTION><OPTION
+        VALUE=\"14.25.00\">02:25 PM</OPTION><OPTION VALUE=\"14.30.00\">02:30 PM</OPTION><OPTION
+        VALUE=\"14.35.00\">02:35 PM</OPTION><OPTION VALUE=\"14.40.00\">02:40 PM</OPTION><OPTION
+        VALUE=\"14.45.00\">02:45 PM</OPTION><OPTION VALUE=\"14.50.00\">02:50 PM</OPTION><OPTION
+        VALUE=\"14.55.00\">02:55 PM</OPTION><OPTION VALUE=\"15.00.00\">03:00 PM</OPTION><OPTION
+        VALUE=\"15.05.00\">03:05 PM</OPTION><OPTION VALUE=\"15.10.00\">03:10 PM</OPTION><OPTION
+        VALUE=\"15.15.00\">03:15 PM</OPTION><OPTION VALUE=\"15.20.00\">03:20 PM</OPTION><OPTION
+        VALUE=\"15.25.00\">03:25 PM</OPTION><OPTION VALUE=\"15.30.00\">03:30 PM</OPTION><OPTION
+        VALUE=\"15.35.00\">03:35 PM</OPTION><OPTION VALUE=\"15.40.00\">03:40 PM</OPTION><OPTION
+        VALUE=\"15.45.00\">03:45 PM</OPTION><OPTION VALUE=\"15.50.00\">03:50 PM</OPTION><OPTION
+        VALUE=\"15.55.00\">03:55 PM</OPTION><OPTION VALUE=\"16.00.00\">04:00 PM</OPTION><OPTION
+        VALUE=\"16.05.00\">04:05 PM</OPTION><OPTION VALUE=\"16.10.00\">04:10 PM</OPTION><OPTION
+        VALUE=\"16.15.00\">04:15 PM</OPTION><OPTION VALUE=\"16.20.00\">04:20 PM</OPTION><OPTION
+        VALUE=\"16.25.00\">04:25 PM</OPTION><OPTION VALUE=\"16.30.00\">04:30 PM</OPTION><OPTION
+        VALUE=\"16.35.00\">04:35 PM</OPTION><OPTION VALUE=\"16.40.00\">04:40 PM</OPTION><OPTION
+        VALUE=\"16.45.00\">04:45 PM</OPTION><OPTION VALUE=\"16.50.00\">04:50 PM</OPTION><OPTION
+        VALUE=\"16.55.00\">04:55 PM</OPTION><OPTION VALUE=\"17.00.00\">05:00 PM</OPTION><OPTION
+        VALUE=\"17.05.00\">05:05 PM</OPTION><OPTION VALUE=\"17.10.00\">05:10 PM</OPTION><OPTION
+        VALUE=\"17.15.00\">05:15 PM</OPTION><OPTION VALUE=\"17.20.00\">05:20 PM</OPTION><OPTION
+        VALUE=\"17.25.00\">05:25 PM</OPTION><OPTION VALUE=\"17.30.00\">05:30 PM</OPTION><OPTION
+        VALUE=\"17.35.00\">05:35 PM</OPTION><OPTION VALUE=\"17.40.00\">05:40 PM</OPTION><OPTION
+        VALUE=\"17.45.00\">05:45 PM</OPTION><OPTION VALUE=\"17.50.00\">05:50 PM</OPTION><OPTION
+        VALUE=\"17.55.00\">05:55 PM</OPTION><OPTION VALUE=\"18.00.00\">06:00 PM</OPTION><OPTION
+        VALUE=\"18.05.00\">06:05 PM</OPTION><OPTION VALUE=\"18.10.00\">06:10 PM</OPTION><OPTION
+        VALUE=\"18.15.00\">06:15 PM</OPTION><OPTION VALUE=\"18.20.00\">06:20 PM</OPTION><OPTION
+        VALUE=\"18.25.00\">06:25 PM</OPTION><OPTION VALUE=\"18.30.00\">06:30 PM</OPTION><OPTION
+        VALUE=\"18.35.00\">06:35 PM</OPTION><OPTION VALUE=\"18.40.00\">06:40 PM</OPTION><OPTION
+        VALUE=\"18.45.00\">06:45 PM</OPTION><OPTION VALUE=\"18.50.00\">06:50 PM</OPTION><OPTION
+        VALUE=\"18.55.00\">06:55 PM</OPTION><OPTION VALUE=\"19.00.00\">07:00 PM</OPTION><OPTION
+        VALUE=\"19.05.00\">07:05 PM</OPTION><OPTION VALUE=\"19.10.00\">07:10 PM</OPTION><OPTION
+        VALUE=\"19.15.00\">07:15 PM</OPTION><OPTION VALUE=\"19.20.00\">07:20 PM</OPTION><OPTION
+        VALUE=\"19.25.00\">07:25 PM</OPTION><OPTION VALUE=\"19.30.00\">07:30 PM</OPTION><OPTION
+        VALUE=\"19.35.00\">07:35 PM</OPTION><OPTION VALUE=\"19.40.00\">07:40 PM</OPTION><OPTION
+        VALUE=\"19.45.00\">07:45 PM</OPTION><OPTION VALUE=\"19.50.00\">07:50 PM</OPTION><OPTION
+        VALUE=\"19.55.00\">07:55 PM</OPTION><OPTION VALUE=\"20.00.00\">08:00 PM</OPTION><OPTION
+        VALUE=\"20.05.00\">08:05 PM</OPTION><OPTION VALUE=\"20.10.00\">08:10 PM</OPTION><OPTION
+        VALUE=\"20.15.00\">08:15 PM</OPTION><OPTION VALUE=\"20.20.00\">08:20 PM</OPTION><OPTION
+        VALUE=\"20.25.00\">08:25 PM</OPTION><OPTION VALUE=\"20.30.00\">08:30 PM</OPTION><OPTION
+        VALUE=\"20.35.00\">08:35 PM</OPTION><OPTION VALUE=\"20.40.00\">08:40 PM</OPTION><OPTION
+        VALUE=\"20.45.00\">08:45 PM</OPTION><OPTION VALUE=\"20.50.00\">08:50 PM</OPTION><OPTION
+        VALUE=\"20.55.00\">08:55 PM</OPTION><OPTION VALUE=\"21.00.00\">09:00 PM</OPTION><OPTION
+        VALUE=\"21.05.00\">09:05 PM</OPTION><OPTION VALUE=\"21.10.00\">09:10 PM</OPTION><OPTION
+        VALUE=\"21.15.00\">09:15 PM</OPTION><OPTION VALUE=\"21.20.00\">09:20 PM</OPTION><OPTION
+        VALUE=\"21.25.00\">09:25 PM</OPTION><OPTION VALUE=\"21.30.00\">09:30 PM</OPTION><OPTION
+        VALUE=\"21.35.00\">09:35 PM</OPTION><OPTION VALUE=\"21.40.00\">09:40 PM</OPTION><OPTION
+        VALUE=\"21.45.00\">09:45 PM</OPTION><OPTION VALUE=\"21.50.00\">09:50 PM</OPTION><OPTION
+        VALUE=\"21.55.00\">09:55 PM</OPTION><OPTION VALUE=\"22.00.00\">10:00 PM</OPTION><OPTION
+        VALUE=\"22.05.00\">10:05 PM</OPTION><OPTION VALUE=\"22.10.00\">10:10 PM</OPTION><OPTION
+        VALUE=\"22.15.00\">10:15 PM</OPTION><OPTION VALUE=\"22.20.00\">10:20 PM</OPTION><OPTION
+        VALUE=\"22.25.00\">10:25 PM</OPTION><OPTION VALUE=\"22.30.00\">10:30 PM</OPTION><OPTION
+        VALUE=\"22.35.00\">10:35 PM</OPTION><OPTION VALUE=\"22.40.00\">10:40 PM</OPTION><OPTION
+        VALUE=\"22.45.00\">10:45 PM</OPTION><OPTION VALUE=\"22.50.00\">10:50 PM</OPTION><OPTION
+        VALUE=\"22.55.00\">10:55 PM</OPTION><OPTION VALUE=\"23.00.00\">11:00 PM</OPTION><OPTION
+        VALUE=\"23.05.00\">11:05 PM</OPTION><OPTION VALUE=\"23.10.00\">11:10 PM</OPTION></SELECT>\r\n\t\t\t\t</td>\r\n\t\t\t
+        \   <th>\r\n\t\t\t      <div align=\"center\">\r\n            \t \t<span class=\"name\">(These
+        are optional search fields)</span>\r\n            \t  </div>\r\n\t\t\t    </th>\r\n\t\t\t
+        \ </tr>\r\n\t\t    </table>\r\n\t\t  </td>\r\n\t    </tr>\r\n\t    <tr>\r\n\t\t
+        \ <td align=\"center\">\r\n\t\t\t<strong>Additional Search Criteria <span
+        class=\"name\">(Optional)</span></strong>\r\n\t\t\t<br><br>\r\n\t\t\t<SELECT
+        name=\"searchCriteria\" onchange=\"setCriteriaDesc()\" ><OPTION VALUE=\"-9999\"></OPTION><OPTION
+        VALUE=\"5\">Online course: open to all students</OPTION><OPTION VALUE=\"6\">Distance
+        Lrn program students only</OPTION><OPTION VALUE=\"15\">hybrid: part online/part
+        on-campus</OPTION><OPTION VALUE=\"12\">Service Learning</OPTION><OPTION VALUE=\"14\">Women's
+        Studies</OPTION><OPTION VALUE=\"1\">African American Studies</OPTION><OPTION
+        VALUE=\"10\">Marriage & Family</OPTION><OPTION VALUE=\"11\">Russian & East
+        European Studies</OPTION><OPTION VALUE=\"13\">Urban Reg. Pln/Pub Admin</OPTION><OPTION
+        VALUE=\"2\">Aging & Public Policy</OPTION><OPTION VALUE=\"3\">Asian Studies</OPTION><OPTION
+        VALUE=\"4\">Arts Administration</OPTION><OPTION VALUE=\"7\">Economic Policy
+        & Government</OPTION><OPTION VALUE=\"8\">Health Policy & Research</OPTION><OPTION
+        VALUE=\"9\">Interdis. Social Sciences</OPTION></SELECT>\t\r\n\t\t\t<input
+        name=\"criteriaDesc\" type=\"hidden\" value=\"\">\r\n          </td>\r\n\t\t
+        \ <td align=\"center\">\r\n\t\t\t<table cellpadding=\"4\">\r\n\t\t\t  <tr>\r\n\t\t\t
+        \   <td><INPUT TYPE=\"button\" name=\"action\"    value=\"   search   \" onClick=\"sendForm()\"></td>\r\n\t\t\t\t<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n\t\t\t\t<td><INPUT
+        TYPE=\"button\" name=\"clearForm\" value=\"   reset    \" onClick=\"clearSearchForm()\"></td>\r\n\t\t\t
+        \ </tr>\r\n\t\t\t</table>\r\n\t\t </td>\r\n\t   </tr> \r\n      </table>\r\n
+        \   </td>\r\n  </tr>\r\n</table>\r\n</FORM>\r\n\r\n<div align=\"center\">\r\n
+        \  \r\n\r\n</div>\r\n\r\n<SCRIPT LANGUAGE=\"JavaScript\">\r\n    onLoadSetDepartments();\r\n</SCRIPT>\r\n\r\n<br><table
+        width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">  <tr>    <td
+        colspan=\"2\"><img src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\"
+        width=\"1\" height=\"4\" alt=\"\"></td>    <td rowspan=\"5\"><img src=\"https://apps.oti.fsu.edu/images2/fsu_seal_footer_o.gif\"
+        width=\"75\" height=\"52\" alt=\" \" border=\"0\"></td>  </tr>  <tr>    <td
+        bgcolor=\"#660000\" colspan=\"2\"><img src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\"
+        width=\"1\" height=\"8\" alt=\"\"></td>  </tr>  <tr>    <td bgcolor=\"#000000\"
+        colspan=\"2\"><img src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\"
+        width=\"1\" height=\"3\" alt=\"\"></td>  </tr>  <tr>    <td bgcolor=\"#cccc99\"
+        width=\"80%\">      <div align=\"center\" style='background: #cccc99'><a href=\"http://registrar.fsu.edu/help_webapps/courselookup.htm\">Help</a>
+        | <a href=\"http://www.fsu.edu\">FSU Home</a> | <a href=\"mailto:help@fsu.edu\">For
+        Technical Support, call the ITS Service Desk (850)644-HELP (4357)</a> <span
+        style=\"color:#cccc99\"> PRD - instance6</span>      </div>    </td>    <td
+        bgcolor=\"#cccc99\" width=\"123\">      <div align=\"left\"><img src=\"https://apps.oti.fsu.edu/images2/fsu_title_footer.gif\"
+        width=\"116\" height=\"34\" alt=\"| florida state university | \" border=\"0\"></div>
+        \   </td>  </tr>  <tr>    <td colspan=\"2\"><img src=\"https://apps.oti.fsu.edu/images2/trans_shim.gif\"
+        width=\"1\" height=\"3\" alt=\"\"></td>  </tr><tr>  <td width=\"80%\">  <br><p
+        align=\"CENTER\"><font size=\"-1\"><br>&copy;2012 The Florida State University</font></p></td></tr></table>
+        \ </body></html>\r\n\r\n "
+    http_version: '1.1'
+  recorded_at: Sun, 25 Mar 2012 21:00:10 GMT
+recorded_with: VCR 2.0.0
