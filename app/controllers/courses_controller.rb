@@ -1,18 +1,18 @@
 class CoursesController < ApplicationController
   before_filter :require_login!
 
-  DatatableFields = ["course_number", "section", "title","instructor", 
+  DatatableFields = ["add", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
                      "end_time", "days", "college"]
 
-  include ActionView::Helpers::NumberHelper
+
   # GET /courses
   # GET /courses.json
   def index
 
     respond_to do |format|
       format.html # index.html.haml
-            format.json {
+      format.json {
           page = 1
 
           page = params[:iDisplayStart].to_i/10+1 if params[:iDisplayStart]
@@ -64,16 +64,11 @@ class CoursesController < ApplicationController
           
           json.formatter do |u|
             course = Course.find(u['id'])
+            u['add'] = self.class.helpers.link_to "foo", user_courses_path(:course_id => u['id']), :method => :post, :remote => :true
             u['instructor'] = course.try(:instructor).try(:name)
             u['college'] = course.college.college_tag.upcase
-<<<<<<< HEAD
-            u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
-            u['end_time'] = u['end_time'].strftime("%I:%M %p")
-            u['book_cost'] = number_to_currency ( course.books.collect {|b| b.average_price }.sum )
-=======
             u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
             u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
->>>>>>> e18d6df52ffac154a7e505a1d788c07f67af2f4c
           end
           json_struct = json.struct
           json_struct["iTotalRecords"] = total_record_size
