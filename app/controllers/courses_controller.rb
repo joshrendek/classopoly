@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
                      "seats_left", "seats", "building", "room", "begin_time",
                      "end_time", "days", "college"]
 
+  include ActionView::Helpers::NumberHelper
   # GET /courses
   # GET /courses.json
   def index
@@ -53,6 +54,7 @@ class CoursesController < ApplicationController
             u['college'] = course.college.college_tag.upcase
             u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
             u['end_time'] = u['end_time'].strftime("%I:%M %p")
+            u['book_cost'] = number_to_currency ( course.books.collect {|b| b.average_price }.sum )
           end
           json_struct = json.struct
           json_struct["iTotalRecords"] = total_record_size

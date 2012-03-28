@@ -9,6 +9,11 @@ namespace :scrapers do
     importer.run
   end
 
+  desc 'Import prices from ISBNdb'
+  task :isbndb => :environment do
+    Book.fetch_missing
+  end
+
   task :fsu_books => :environment do
     Bookstore.fetch_all_isbn
   end
