@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_preferences
+  # before_filter :set_preferences
   
 
   def set_preferences

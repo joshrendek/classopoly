@@ -21,13 +21,26 @@ class CoursesController < ApplicationController
 
           total_record_size = 0
           display_length = 10
+
           if params[:iDisplayLength].to_i > 10
             display_length = params[:iDisplayLength].to_i
           end
+
           if params[:iSortCol_0].to_i != 0
             sort_column = DatatableFields[params[:iSortCol_0].to_i]
             sort_direction = params[:sSortDir_0]
-            e = e.order("#{sort_column} #{sort_direction}")
+            if ["instructor", "college"].include?(sort_column)
+              sc = ""
+              case sort_column
+              when /instructor/
+                sc = "instructors.name"
+              when /college/
+                sc = "colleges.college_tag"
+              end
+              e = e.order("#{sc} #{sort_direction}")
+            else
+              e = e.order("#{sort_column} #{sort_direction}")
+            end
           end
 
 
@@ -48,13 +61,19 @@ class CoursesController < ApplicationController
 
 
           json = DatatablesRails::Structify.new(e)
+          
           json.formatter do |u|
             course = Course.find(u['id'])
             u['instructor'] = course.try(:instructor).try(:name)
             u['college'] = course.college.college_tag.upcase
+<<<<<<< HEAD
             u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
             u['end_time'] = u['end_time'].strftime("%I:%M %p")
             u['book_cost'] = number_to_currency ( course.books.collect {|b| b.average_price }.sum )
+=======
+            u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
+            u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+>>>>>>> e18d6df52ffac154a7e505a1d788c07f67af2f4c
           end
           json_struct = json.struct
           json_struct["iTotalRecords"] = total_record_size
