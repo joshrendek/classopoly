@@ -49,11 +49,10 @@ class UserCoursesController < ApplicationController
   # POST /user_courses
   # POST /user_courses.json
   def create
-    @user_course = current_user.user_courses.build(params[:user_course])
-
+    @user_course = current_user.user_courses.build(:course_id => params[:course_id])
 
       if @user_course.save
-        redirect_to user_courses_path
+        render :nothing => true
       else
         render action: "new"
       end
