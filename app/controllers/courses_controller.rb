@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   DatatableFields = ["add", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
-                     "end_time", "days", "college"]
+                     "end_time", "days", "college", "friends"]
 
 
   # GET /courses
@@ -73,6 +73,7 @@ class CoursesController < ApplicationController
             u['college'] = course.college.college_tag.upcase
             u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
             u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+            u['friends'] = current_user.find_friends_in_course(u['id']).size
           end
           json_struct = json.struct
           json_struct["iTotalRecords"] = total_record_size

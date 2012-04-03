@@ -19,6 +19,7 @@
       %th End Time
       %th Days
       %th College
+      %th Friends
   %tbody
     -if controller_name == "user_courses"
       = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, user_courses_path(:format => :json), ::UserCoursesController::DatatableFields)
