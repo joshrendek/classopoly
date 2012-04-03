@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def self.friend_ids_to_names(friend_ids)
     friend_ids.collect do |f|
-      Friend.find_by_facebook_friend_id(User.find(f).facebook_user_id).name
+      Friend.find_by_facebook_friend_id(User.find(f).facebook_user_id).try(:name)
     end  
   end
 
