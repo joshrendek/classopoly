@@ -40,19 +40,11 @@
           .span1
             .title Step 3
           .span3
-            =link_to "Plan Your Semester", "#", :class => "btn btn-info btn-large span3"
+            =link_to "Plan Your Semester", courses_path, :class => "btn btn-info btn-large span3"
     .span6
       %h1 
         %center 
           Watch our Getting Started Video
         .thumbnail
           %img{:src => "http://placehold.it/460x368"}
-  - if current_user
-    - if current_user.user_courses.size > 0
-      %h3
-        =link_to "Find courses that I can take", generate_course_list_user_courses_path
-    - else
-      %h3
-        =link_to "You need to add some courses to take", user_courses_path
-
 
