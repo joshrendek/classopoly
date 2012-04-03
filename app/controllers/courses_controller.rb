@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   DatatableFields = ["add", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
-                     "end_time", "days", "college", "friends"]
+                     "end_time", "days", "friends"]
 
 
   # GET /courses

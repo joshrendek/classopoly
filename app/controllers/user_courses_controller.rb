@@ -3,11 +3,11 @@ class UserCoursesController < ApplicationController
 
   DatatableFields = ["remove", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
-                     "end_time", "days", "college", "friends"]
+                     "end_time", "days", "friends"]
 
   GeneratedList = ["course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
-                     "end_time", "days", "college", "friends"]
+                     "end_time", "days", "friends"]
 
   def generate_course_list
     # u = Scheduler.new("monday,00:01,1:00", ['COP3014', 'COP3252']); u.find_courses_in_slices; u.get_courses
@@ -27,7 +27,6 @@ class UserCoursesController < ApplicationController
           u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
           u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
           u['instructor'] = course.try(:instructor).try(:name)
-          u['college'] = course.college.college_tag.upcase
           u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) )
         end
         render :json => json.struct
