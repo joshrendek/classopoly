@@ -1,7 +1,22 @@
-= render 'shared/courses'
+%h1 Courses You Have Available
+%table.table.table-striped{:id => "datatables"}
+  %thead
+    %tr
+      %th Course Number
+      %th Section
+      %th Title
+      %th Instructor
+      %th Seats Left
+      %th Seats
+      %th Building
+      %th Room
+      %th Start Time
+      %th End Time
+      %th Days
+      %th College
+      %th Friends Taking Class
+  %tbody
+    = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true}, generate_course_list_user_courses_path(:format => :json), ::UserCoursesController::GeneratedList)
 
-%h3 Based on your current preferences:
-%h4 Working:
-- current_user.preferences.workdays.split('|').each do |p|
-  - x = p.split(',')
-  %p= "#{x[0].upcase} #{x[1]}-#{x[2]}"
+
+

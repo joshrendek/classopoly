@@ -64,7 +64,11 @@ class CoursesController < ApplicationController
           
           json.formatter do |u|
             course = Course.find(u['id'])
-            u['add'] = self.class.helpers.link_to "foo", user_courses_path(:course_id => u['id']), :method => :post, :remote => :true
+            if current_user.courses.where(:id => u['id']).first.blank?
+              u['add'] = self.class.helpers.link_to "Add", user_courses_path(:course_id => u['id']), :method => :post, :remote => :true, :onclick => "$(this).html('Added')"
+            else
+              u['add'] = "Added"
+            end
             u['instructor'] = course.try(:instructor).try(:name)
             u['college'] = course.college.college_tag.upcase
             u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")

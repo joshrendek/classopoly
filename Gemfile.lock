@@ -244,6 +244,8 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
+    valium (0.5.0)
+      activerecord (>= 3.0.2)
     vcr (2.0.0)
     warden (1.0.6)
       rack (>= 1.0)
@@ -283,4 +285,5 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier
   unicorn
+  valium
   vcr

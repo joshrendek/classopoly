@@ -1,18 +1,3 @@
 %h1 Listing Courses You Want to Take
-= link_to "Add Course", new_user_course_path, :class => "btn success right"
-%table
-  %tr
-    %th Course Number
-    %th Section
-    %th Start time 
-    %th End Time
-    %th
-  - @user_courses.each do |uc|
-    %tr
-      %td= uc.course.course_number
-      %td= uc.course.section
-      %td= uc.course.begin_time.localtime.strftime("%I:%M %p")
-      %td= uc.course.end_time.localtime.strftime("%I:%M %p")
-      %td= link_to 'Destroy', uc, confirm: 'Are you sure?', method: :delete
-
+= link_to "Add Course", courses_path, :class => "btn btn-success right"
 = render 'shared/courses'

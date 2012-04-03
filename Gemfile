@@ -15,6 +15,7 @@ gem 'formtastic'
 gem 'haml'
 gem 'kaminari'
 gem "unicorn"
+gem "valium"
 
 gem "datatables_rails"
 gem "twitter-bootstrap-rails"

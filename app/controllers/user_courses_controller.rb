@@ -4,13 +4,36 @@ class UserCoursesController < ApplicationController
   DatatableFields = ["remove", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
                      "end_time", "days", "college"]
+  GeneratedList = ["course_number", "section", "title","instructor", 
+                     "seats_left", "seats", "building", "room", "begin_time",
+                     "end_time", "days", "college", "friends"]
 
   def generate_course_list
     # u = Scheduler.new("monday,00:01,1:00", ['COP3014', 'COP3252']); u.find_courses_in_slices; u.get_courses
-    builder = Scheduler.new(current_user.preferences.workdays, current_user.user_courses.collect {|uc| uc.tag })
-    builder.find_courses_in_slices
-    @courses = Course.where(:id => builder.get_courses).page params[:page]
-    @unavailable_courses = builder.get_unavailable_courses
+    # builder = Scheduler.new(current_user.preferences.workdays, current_user.user_courses.collect {|uc| uc.tag })
+    # builder.find_courses_in_slices
+    respond_to do |f|
+      f.html
+      f.json { 
+        s = Scheduler.new(current_user.preferences.workdays.split("|"), current_user.courses)
+        s.build
+
+        available_course_ids = s.available_courses.collect {|c| c.id }
+        @courses = Course.where(:id => available_course_ids)
+        json = DatatablesRails::Structify.new(@courses)
+        json.formatter do |u|
+          course = Course.find(u['id'])
+          u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
+          u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+          u['instructor'] = course.try(:instructor).try(:name)
+          u['college'] = course.college.college_tag.upcase
+          u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) )
+        end
+        render :json => json.struct
+      }
+
+    end
+    # @unavailable_courses = builder.get_unavailable_courses
   end
 
   # GET /user_courses
@@ -73,8 +96,9 @@ class UserCoursesController < ApplicationController
 
         json.formatter do |u|
           course = Course.find(u['id'])
-          u['remove'] = self.class.helpers.link_to "Remove", user_courses_path(:course_id => u['id']), 
-                          :method => :destroy 
+          ucourse = current_user.user_courses.where(:course_id => course.id).first
+          u['remove'] = self.class.helpers.link_to "Remove", user_course_path(ucourse), 
+            :method => :delete
           u['instructor'] = course.try(:instructor).try(:name)
           u['college'] = course.college.college_tag.upcase
           u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")

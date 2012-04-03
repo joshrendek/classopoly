@@ -27,6 +27,37 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def self.friend_ids_to_names(friend_ids)
+    friend_ids.collect do |f|
+      Friend.find_by_facebook_friend_id(User.find(f).facebook_user_id).name
+    end  
+  end
+
+  def find_friends_in_course(course_id)
+    fbid = facebook_user_id
+    friends = Friend.where(:facebook_friend_id => fbid).where("user_id != ?", id).collect {|f| f.user } 
+    friend_ids = []
+    friends.each do |f|
+      fc = f.courses.where(:id => course_id)
+      if fc.count == 1
+        friend_ids << f.id
+      end
+    end
+    friend_ids
+  end
+
+  def courses_with_friends
+    friend_courses = find_friends_courses.collect {|c| c.id }
+    my_courses = self.courses.collect {|c| c.id }
+    Course.where(:id => (friend_courses & my_courses))
+  end
+
+  def find_friends_courses
+    fbid = facebook_user_id
+    friends = Friend.where(:facebook_friend_id => fbid).where("user_id != ?", id).collect {|f| f.user } 
+    friends.collect {|f| f.courses }.flatten
+  end
+
   def facebook 
     token = self.authorizations.where(:provider => 'facebook').first.token
     FbGraph::User.me(token)
