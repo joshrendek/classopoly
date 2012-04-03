@@ -215,6 +215,10 @@ GEM
       ffi (= 1.0.9)
       json_pure
       rubyzip
+    simplecov (0.6.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     slop (2.4.3)
     sprockets (2.0.3)
       hike (~> 1.2)
@@ -275,6 +279,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   sass-rails (~> 3.1.0)
+  simplecov
   twitter-bootstrap-rails
   uglifier
   unicorn

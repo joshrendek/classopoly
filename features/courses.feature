@@ -8,7 +8,7 @@ Feature: Courses
     # And I follow "Save Preferences"
     # Then I should see "You need to add some courses to take"
   # 
-  @javascript
+  # @javascript
   Scenario: Choosing a course
     Given I am a authenticated user with preferences
     When I follow "You need to add some courses to take"  

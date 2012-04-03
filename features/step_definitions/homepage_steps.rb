@@ -1,14 +1,8 @@
-Given /^the following homepages:$/ do |homepages|
-  Homepage.create!(homepages.hashes)
+Given /^I visit the home page from a invite link$/ do
+  @pending_invite = PendingInvite.create(:uid => 123, :user_id => 1)
+  visit root_path(:refid => @pending_invite.uid)
 end
 
-When /^I delete the (\d+)(?:st|nd|rd|th) homepage$/ do |pos|
-  visit homepages_path
-  within("table tr:nth-child(#{pos.to_i+1})") do
-    click_link "Destroy"
-  end
-end
-
-Then /^I should see the following homepages:$/ do |expected_homepages_table|
-  expected_homepages_table.diff!(tableish('table tr', 'td,th'))
+Then /^the pending invite should no longer exist$/ do
+  PendingInvite.count.should eq(0)
 end

@@ -2,8 +2,11 @@ Feature: Visit the home page
   
   Scenario: Visiting the homepage
     Given I am on the homepage 
-    Then I should see "Welcome to Classopoly! You can begin by logging in and adding some courses."
+    Then I should see "Get started in 3 easy steps"
 
+  Scenario: I visit the homepage from a referral link
+    Given I visit the home page from a invite link
+    Then the pending invite should no longer exist
 
 
   Scenario Outline: Creating a new account
@@ -13,7 +16,7 @@ Feature: Visit the home page
     And I fill in "user_password" with "<password>"
     And I fill in "user_password_confirmation" with "<password>"
     And I press "Sign up"
-    Then I should see "When do you like to take your classes"
+    Then I should see "Invite Your Friends"
 
     Examples:
       | email           | password   |

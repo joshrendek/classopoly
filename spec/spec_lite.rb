@@ -6,6 +6,9 @@ require 'arel'
 require 'rspec'
 
 
+require 'simplecov'
+SimpleCov.start
+
 raw_config = File.read(File.dirname(__FILE__) + "/../config/database.yml")
 DB_CONFIG = YAML.load(raw_config)
 ActiveRecord::Base.establish_connection(

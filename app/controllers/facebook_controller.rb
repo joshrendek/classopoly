@@ -15,7 +15,7 @@ class FacebookController < ApplicationController
   end
 
   def invite
-    PendingInvite.create(:uid => params[:uid])
+    PendingInvite.create(:uid => params[:uid], :user_id => current_user.id)
     render :text => "OK", :status => :ok 
   end
 end

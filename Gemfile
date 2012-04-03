@@ -33,6 +33,7 @@ group :development, :test do
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'railroady'
+  gem 'simplecov'
   gem 'colored'
   gem 'capistrano'
   gem 'vcr'

@@ -2,7 +2,11 @@
 %table.table.table-striped{:id => "datatables"}
   %thead
     %tr
-      %th Add
+      %th 
+        - if controller_name == "user_courses"
+          Remove
+        - else
+          Add
       %th Course Number
       %th Section
       %th Title
@@ -16,7 +20,10 @@
       %th Days
       %th College
   %tbody
-  = raw  DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, courses_path(:format => :json), ::CoursesController::DatatableFields)
+    -if controller_name == "user_courses"
+      = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, user_courses_path(:format => :json), ::UserCoursesController::DatatableFields)
+    -else 
+      = raw  DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, courses_path(:format => :json), ::CoursesController::DatatableFields)
 
 - if @unavailable_courses
   %h2 Unavailable Courses

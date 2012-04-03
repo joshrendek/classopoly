@@ -14,3 +14,5 @@
       %td= uc.course.begin_time.localtime.strftime("%I:%M %p")
       %td= uc.course.end_time.localtime.strftime("%I:%M %p")
       %td= link_to 'Destroy', uc, confirm: 'Are you sure?', method: :delete
+
+= render 'shared/courses'
