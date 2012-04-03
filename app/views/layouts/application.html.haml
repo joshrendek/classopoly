@@ -23,10 +23,11 @@
                 =link_to "My Schedule", generate_course_list_user_courses_path
               %li
                 =link_to "Course List", courses_path
+          %ul.nav.pull-right
             -if current_user 
               %li
                 =link_to "Settings", preferences_path
-              %div#auth.pull-right
+              %div#auth
                 =link_to "Logout", destroy_user_session_path, :method => :delete
                 =facebook_avatar(current_user.facebook_user_id)
             -# =link_to (image_tag "fb-login-button.png",  :id =>"facebook"),  user_omniauth_authorize_path(:facebook)
