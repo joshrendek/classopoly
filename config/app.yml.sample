@@ -1,2 +1,9 @@
 isbndb: 
   key: YOURKEY
+facebook:
+  development:
+    app_id: 
+    secret: 
+  production:
+    app_id: 
+    secret: 

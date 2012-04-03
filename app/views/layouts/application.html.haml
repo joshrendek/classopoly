@@ -35,7 +35,7 @@
     %div.container-fluid
       = yield
     :javascript 
-       FB.init({appId: '158293190926436', xfbml: true, cookie: true});
+       FB.init({appId: '#{facebook_app_id}', xfbml: true, cookie: true});
        (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;

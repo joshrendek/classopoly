@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
 
           if params[:sSearch] != "" && !params[:sSearch].nil?
             
-            search = DatatableFields.collect{|d| "#{d} LIKE '%#{params[:sSearch]}%'" unless ["college","instructor"].include?(d) }.compact.join(' OR ')
+            search = DatatableFields.collect{|d| "#{d} LIKE '%#{params[:sSearch]}%'" unless ["college","instructor", "add"].include?(d) }.compact.join(' OR ')
             search2 = " OR instructors.name LIKE '%SUB%' OR colleges.college_tag LIKE '%SUB%' ".gsub('SUB', params[:sSearch])
             search += search2
 

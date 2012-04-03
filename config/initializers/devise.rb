@@ -196,11 +196,15 @@ Devise.setup do |config|
 
 
   if Rails.env.development?
-    config.omniauth :facebook, "158293190926436", "47e061745cd76ad3da3b037d5437ccf0", :scope => "publish_stream,user_likes,friends_likes,email,offline_access"
+    config.omniauth :facebook, APP_CONFIG['facebook']['development']['app_id'], 
+      APP_CONFIG['facebook']['development']['secret'],
+      :scope => "publish_stream,user_likes,friends_likes,email,offline_access"
   else
-    config.omniauth :facebook, "296119327071295", "84c55d153401a19df9aabe699fb9f308", :scope => "publish_stream,user_likes,friends_likes,email,offline_access"    
+    config.omniauth :facebook, APP_CONFIG['facebook']['production']['app_id'],
+      APP_CONFIG['facebook']['production']['secret'],
+      :scope => "publish_stream,user_likes,friends_likes,email,offline_access"    
   end
-  
+
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
