@@ -1,36 +1,22 @@
 Classopoly
 ====================================
 
-## Functionality
-- Login
-  * Facebook API 
-- Choose College
-- Enter class names
-- User preferences on class times
-  * Morning
-  * Afternoon
-  * Evening
-- User work schedule
-- Lunch times
-- Parking preferences
-  * How early to get to campus to get parking
-  * ( Parking stats? )
-    
-## Monetization
-- Setup amazon referral system
-- Scrape book ISBN's
-- Set those up next to the courses for students to purchase
+## Getting Started
+
+- Setting up a Facebook developer account
+  * (http://www.youtube.com/watch?v=WT_n4GpIWPw)[http://www.youtube.com/watch?v=WT_n4GpIWPw]
+- Setting up Classopoly
 
 
 ## Technology
 - Ruby on Rails
 - MySQL
+- Debian
+- nginx
+- unicorn
 
 ## Installation
-
-### Setup development facebook app
-- https://developers.facebook.com/apps
-- point to http://127.0.0.1:3000/
+See the setting up video
 
 ### Install gems
 - bundle install 
