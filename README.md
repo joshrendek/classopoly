@@ -4,7 +4,7 @@ Classopoly
 ## Getting Started
 
 - Setting up a Facebook developer account
-  * (http://www.youtube.com/watch?v=WT_n4GpIWPw)[http://www.youtube.com/watch?v=WT_n4GpIWPw]
+  * http://www.youtube.com/watch?v=WT_n4GpIWPw
 - Setting up Classopoly
 
 
