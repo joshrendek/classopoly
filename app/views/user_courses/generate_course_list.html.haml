@@ -13,7 +13,6 @@
       %th Start Time
       %th End Time
       %th Days
-      %th College
       %th Friends Taking Class
   %tbody
     = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true}, generate_course_list_user_courses_path(:format => :json), ::UserCoursesController::GeneratedList)

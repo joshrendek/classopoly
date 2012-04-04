@@ -19,6 +19,7 @@ gem "valium"
 
 gem "datatables_rails"
 gem "twitter-bootstrap-rails"
+gem "airbrake"
 
 # Gems used only for assets and not required
 # in production environments by default.
