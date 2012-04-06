@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
   before_filter :require_login!
 
+  layout :choose_layout
+
   DatatableFields = ["add", "course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
                      "end_time", "days", "friends"]
-
 
   # GET /courses
   # GET /courses.json
@@ -97,63 +98,14 @@ class CoursesController < ApplicationController
     end
   end
 
-  # GET /courses/new
-  # GET /courses/new.json
-  def new
-    @course = Course.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @course }
+  private
+  def choose_layout 
+    if ['show'].include? action_name
+      'courses'
+    else
+      'application'
     end
   end
 
-  # GET /courses/1/edit
-  def edit
-    @course = Course.find(params[:id])
-  end
 
-  # POST /courses
-  # POST /courses.json
-  def create
-    @course = Course.new(params[:course])
-
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render json: @course, status: :created, location: @course }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /courses/1
-  # PUT /courses/1.json
-  def update
-    @course = Course.find(params[:id])
-
-    respond_to do |format|
-      if @course.update_attributes(params[:course])
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /courses/1
-  # DELETE /courses/1.json
-  def destroy
-    @course = Course.find(params[:id])
-    @course.destroy
-
-    respond_to do |format|
-      format.html { redirect_to courses_url }
-      format.json { head :ok }
-    end
-  end
 end

@@ -1,0 +1,19 @@
+%html
+  %head
+    %title Classopoly
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", "http://connect.facebook.net/en_US/all.js"
+    = csrf_meta_tags
+  %body
+    #fb-root
+    = render 'shared/navigation'
+    - flash.each do |name, msg|
+      = content_tag :div, raw("<p><center>" + msg + "</center></p>"), :class => "alert-message #{name}"
+    %div.container-fluid
+      .row-fluid 
+        .span2.sidebar
+          = yield :sidebar
+        .span10
+          = yield
+
+  = render 'shared/footer'

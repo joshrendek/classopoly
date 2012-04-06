@@ -1,20 +1,31 @@
-%h3
-  = @course.course_number 
-  = @course.section 
-  = @course.title 
+- content_for :sidebar do 
+  %h3
+    = @course.course_number 
+    = @course.title 
+  %h4 
+    Instructor: 
+    = link_to @course.instructor.name, @course.instructor
 
-= @course.instructor.name
+  %br
 
-= @course.seats 
+  %p 
+    Section: 
+    = @course.section 
 
-= @course.building 
-
-= @course.room 
-
-= @course.begin_time 
-
-= @course.end_time 
+  %p 
+    Building: 
+    = @course.building 
 
 
-= @course.days 
+  = @course.seats 
+
+
+  = @course.room 
+
+  = @course.begin_time 
+
+  = @course.end_time 
+
+
+  = @course.days 
 

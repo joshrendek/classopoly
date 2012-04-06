@@ -12,6 +12,8 @@ Classly::Application.routes.draw do
     end
   end
 
+  resources :instructors
+
   resources :courses
 
   root :to => "homepage#index"
