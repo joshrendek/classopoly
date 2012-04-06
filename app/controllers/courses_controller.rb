@@ -103,7 +103,7 @@ class CoursesController < ApplicationController
   private
   def choose_layout 
     if ['show'].include? action_name
-      'courses'
+      'sidebar_layout'
     else
       'application'
     end

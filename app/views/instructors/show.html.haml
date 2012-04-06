@@ -1,0 +1,19 @@
+- content_for :sidebar do 
+  %h3
+    = @instructor.name
+
+.container
+  .span8
+    #message_board 
+  .span2
+    = render 'wall_messages/form'
+
+:javascript
+  $(document).ready(function() { 
+    $('#message_board').load('#{instructor_wall_messages_path(@instructor.id)}');
+    $('#new_wall_message').bind("ajax:success", function(evt, data, status, xhr){ 
+      $('#message_board').load('#{instructor_wall_messages_path(@instructor.id)}');
+      $('#wall_message_content').val("");
+    });
+  });
+

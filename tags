@@ -15,10 +15,12 @@ AddCollegeTagToColleges	db/migrate/20110908134616_add_college_tag_to_colleges.rb
 AddCourseCollegeInstructorHashToCourses	db/migrate/20110908163959_add_course_college_instructor_hash_to_courses.rb	/^class AddCourseCollegeInstructorHashToCourses < ActiveRecord::Migration$/;"	c
 AddCourseIdToUserCourses	db/migrate/20120328144655_add_course_id_to_user_courses.rb	/^class AddCourseIdToUserCourses < ActiveRecord::Migration$/;"	c
 AddDetailsToCourses	db/migrate/20111111000612_add_details_to_courses.rb	/^class AddDetailsToCourses < ActiveRecord::Migration$/;"	c
+AddExtrasToUsers	db/migrate/20120406023902_add_extras_to_users.rb	/^class AddExtrasToUsers < ActiveRecord::Migration$/;"	c
 AddFacebookUserIdToUsers	db/migrate/20110920180908_add_facebook_user_id_to_users.rb	/^class AddFacebookUserIdToUsers < ActiveRecord::Migration$/;"	c
 AddLastNameToInstructors	db/migrate/20110908135912_add_last_name_to_instructors.rb	/^class AddLastNameToInstructors < ActiveRecord::Migration$/;"	c
 AddMinMaxAverageToBooks	db/migrate/20120320115246_add_min_max_average_to_books.rb	/^class AddMinMaxAverageToBooks < ActiveRecord::Migration$/;"	c
 AddNameToFriends	db/migrate/20111128220156_add_name_to_friends.rb	/^class AddNameToFriends < ActiveRecord::Migration$/;"	c
+AddNameToUsers	db/migrate/20120406023630_add_name_to_users.rb	/^class AddNameToUsers < ActiveRecord::Migration$/;"	c
 AddPictureToFriends	db/migrate/20110920185304_add_picture_to_friends.rb	/^class AddPictureToFriends < ActiveRecord::Migration$/;"	c
 AddPkToFriends	db/migrate/20110920182054_add_pk_to_friends.rb	/^class AddPkToFriends < ActiveRecord::Migration$/;"	c
 AddTermToCourses	db/migrate/20120319011521_add_term_to_courses.rb	/^class AddTermToCourses < ActiveRecord::Migration$/;"	c
@@ -53,6 +55,7 @@ CreateInstructors	db/migrate/20110908133518_create_instructors.rb	/^class Create
 CreatePendingInvites	db/migrate/20111127024551_create_pending_invites.rb	/^class CreatePendingInvites < ActiveRecord::Migration$/;"	c
 CreatePreferences	db/migrate/20110927162556_create_preferences.rb	/^class CreatePreferences < ActiveRecord::Migration$/;"	c
 CreateUserCourses	db/migrate/20111004201448_create_user_courses.rb	/^class CreateUserCourses < ActiveRecord::Migration$/;"	c
+CreateWallMessages	db/migrate/20120406032048_create_wall_messages.rb	/^class CreateWallMessages < ActiveRecord::Migration$/;"	c
 Devise	app/controllers/devise/confirmations_controller.rb	/^class Devise::ConfirmationsController < ApplicationController$/;"	c
 Devise	app/controllers/devise/omniauth_callbacks_controller.rb	/^class Devise::OmniauthCallbacksController < ApplicationController$/;"	c
 Devise	app/controllers/devise/passwords_controller.rb	/^class Devise::PasswordsController < ApplicationController$/;"	c
@@ -82,6 +85,7 @@ ISBN	lib/isbndb.rb	/^module ISBN $/;"	m
 Import	lib/college_importer.rb	/^    class Import$/;"	c	class:CollegeImporter.FSU
 Instructor	app/models/instructor.rb	/^class Instructor < ActiveRecord::Base$/;"	c
 InstructorTest	test/unit/instructor_test.rb	/^class InstructorTest < ActiveSupport::TestCase$/;"	c
+InstructorsController	app/controllers/instructors_controller.rb	/^class InstructorsController < ApplicationController$/;"	c
 K.W	app/assets/javascripts/jquery.dataTables.min.js	/^c)return d;return-1}function W(a,b,c){for(var d=[],f=0,h=a.aoColumns.length;f<h;f++)d.push(w(a,b,f,c));return d}function w(a,b,c,d){var f=a.aoColumns[c];if((c=f.fnGetData(a.aoData[b]._aData,d))===l){if(a.iDrawError!=a.iDraw&&null===f.sDefaultContent)F(a,0,"Requested unknown parameter '"+f.mDataProp+"' from the data source for row "+b),a.iDrawError=a.iDraw;return f.sDefaultContent}if(null===c&&null!==f.sDefaultContent)c=f.sDefaultContent;else if("function"===typeof c)return c();return"display"==d&&$/;"	f
 K.da	app/assets/javascripts/jquery.dataTables.min.js	/^l.innerHTML=n,m.bUseRendered&&J(a,b,f,n);o&&(l.className+=" "+m.sClass);r?d._anHidden[f]=null:(d._anHidden[f]=l,l.parentNode.removeChild(l));m.fnCreatedCell&&m.fnCreatedCell.call(a.oInstance,l,w(a,b,f,"display"),d._aData,b,f)}}if(0!==a.aoRowCreatedCallback.length)for(b=0,c=a.aoData.length;b<c;b++)d=a.aoData[b],C(a,"aoRowCreatedCallback",null,[d.nTr,d._aData,b])}function K(a,b){return b._DT_RowIndex!==l?b._DT_RowIndex:null}function da(a,b,c){for(var b=L(a,b),d=0,a=a.aoColumns.length;d<a;d++)if(b[d]===$/;"	f
 K.w	app/assets/javascripts/jquery.dataTables.min.js	/^c)return d;return-1}function W(a,b,c){for(var d=[],f=0,h=a.aoColumns.length;f<h;f++)d.push(w(a,b,f,c));return d}function w(a,b,c,d){var f=a.aoColumns[c];if((c=f.fnGetData(a.aoData[b]._aData,d))===l){if(a.iDrawError!=a.iDraw&&null===f.sDefaultContent)F(a,0,"Requested unknown parameter '"+f.mDataProp+"' from the data source for row "+b),a.iDrawError=a.iDraw;return f.sDefaultContent}if(null===c&&null!==f.sDefaultContent)c=f.sDefaultContent;else if("function"===typeof c)return c();return"display"==d&&$/;"	f
@@ -119,6 +123,9 @@ Users	app/controllers/users/omniauth_callbacks_controller.rb	/^class Users::Omni
 Users	app/helpers/users/omniauth_callbacks_helper.rb	/^module Users::OmniauthCallbacksHelper$/;"	m
 Users	test/functional/users/omniauth_callbacks_controller_test.rb	/^class Users::OmniauthCallbacksControllerTest < ActionController::TestCase$/;"	c
 Users	test/unit/helpers/users/omniauth_callbacks_helper_test.rb	/^class Users::OmniauthCallbacksHelperTest < ActionView::TestCase$/;"	c
+WallMessage	app/models/wall_message.rb	/^class WallMessage < ActiveRecord::Base$/;"	c
+WallMessagesController	app/controllers/wall_messages_controller.rb	/^class WallMessagesController < ApplicationController$/;"	c
+WallMessagesHelper	app/helpers/wall_messages_helper.rb	/^module WallMessagesHelper$/;"	m
 WithinHelpers	features/step_definitions/web_steps.rb	/^module WithinHelpers$/;"	m
 X	app/assets/javascripts/jquery.dataTables.min.js	/^typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a,d){for(var f=0,h=b.length-1;f<h;f++)a=a[b[f]];a[b[b.length-1]]=d}}return function(b,d){b[a]=d}}function X(a){for(var b=[],c=a.aoData.length,d=0;d<c;d++)b.push(a.aoData[d]._aData);return b}function ea(a){a.aoData.splice(0,a.aoData.length);a.aiDisplayMaster.splice(0,a.aiDisplayMaster.length);a.aiDisplay.splice(0,a.aiDisplay.length);z(a)}function fa(a,b){for(var c=-1,d=0,f=a.length;d<f;d++)a[d]==b?c=d:a[d]>b&&a[d]--; -1!=c&&a.splice(c,$/;"	f
 Z	app/assets/javascripts/jquery.dataTables.min.js	/^f=k.createDocumentFragment();b=k.createDocumentFragment();if(a.nTBody){h=a.nTBody.parentNode;b.appendChild(a.nTBody);if(!a.oScroll.bInfinite||!a._bInitComplete||a.bSorted||a.bFiltered)for(;b=a.nTBody.firstChild;)a.nTBody.removeChild(b);for(b=0,c=d.length;b<c;b++)f.appendChild(d[b]);a.nTBody.appendChild(f);null!==h&&h.appendChild(a.nTBody)}C(a,"aoDrawCallback","draw",[a]);a.bSorted=!1;a.bFiltered=!1;a.bDrawing=!1;a.oFeatures.bServerSide&&(H(a,!1),a._bInitComplete||Y(a))}}function Z(a){a.oFeatures.bSort?$/;"	f
@@ -160,20 +167,24 @@ change	db/migrate/20120319013413_create_books.rb	/^  def change$/;"	f	class:Crea
 change	db/migrate/20120320115246_add_min_max_average_to_books.rb	/^  def change$/;"	f	class:AddMinMaxAverageToBooks
 change	db/migrate/20120325013808_add_user_id_to_pending_invites.rb	/^  def change$/;"	f	class:AddUserIdToPendingInvites
 change	db/migrate/20120328144655_add_course_id_to_user_courses.rb	/^  def change$/;"	f	class:AddCourseIdToUserCourses
+change	db/migrate/20120406023630_add_name_to_users.rb	/^  def change$/;"	f	class:AddNameToUsers
+change	db/migrate/20120406023902_add_extras_to_users.rb	/^  def change$/;"	f	class:AddExtrasToUsers
+change	db/migrate/20120406032048_create_wall_messages.rb	/^  def change$/;"	f	class:CreateWallMessages
+choose_layout	app/controllers/courses_controller.rb	/^  def choose_layout $/;"	f	class:CoursesController
 course_time_exists_in_occupied_time?	lib/scheduler.rb	/^  def course_time_exists_in_occupied_time?(course_time)$/;"	f	class:Scheduler
 courses_with_friends	app/models/user.rb	/^  def courses_with_friends$/;"	f	class:User
-create	app/controllers/courses_controller.rb	/^  def create$/;"	f	class:CoursesController
 create	app/controllers/devise/confirmations_controller.rb	/^  def create$/;"	f	class:Devise
 create	app/controllers/devise/passwords_controller.rb	/^  def create$/;"	f	class:Devise
 create	app/controllers/devise/registrations_controller.rb	/^  def create$/;"	f	class:Devise
 create	app/controllers/devise/sessions_controller.rb	/^  def create$/;"	f	class:Devise
 create	app/controllers/devise/unlocks_controller.rb	/^  def create$/;"	f	class:Devise
 create	app/controllers/user_courses_controller.rb	/^  def create$/;"	f	class:UserCoursesController
+create	app/controllers/wall_messages_controller.rb	/^  def create$/;"	f	class:WallMessagesController
 days_array	app/models/course.rb	/^  def days_array$/;"	f	class:Course
-destroy	app/controllers/courses_controller.rb	/^  def destroy$/;"	f	class:CoursesController
 destroy	app/controllers/devise/registrations_controller.rb	/^  def destroy$/;"	f	class:Devise
 destroy	app/controllers/devise/sessions_controller.rb	/^  def destroy$/;"	f	class:Devise
 destroy	app/controllers/user_courses_controller.rb	/^  def destroy$/;"	f	class:UserCoursesController
+destroy	app/controllers/wall_messages_controller.rb	/^  def destroy$/;"	f	class:WallMessagesController
 down	db/migrate/20110920154538_devise_create_users.rb	/^  def self.down$/;"	F	class:DeviseCreateUsers
 down	db/migrate/20110920175736_authorizations_int_to_big_int.rb	/^  def down$/;"	f	class:AuthorizationsIntToBigInt
 down	db/migrate/20110920182054_add_pk_to_friends.rb	/^  def down$/;"	f	class:AddPkToFriends
@@ -182,10 +193,10 @@ down	db/migrate/20111128214604_remove_facebook_user_id_from_friends.rb	/^  def d
 down	db/migrate/20111128214828_fix_pk_on_friends.rb	/^  def down$/;"	f	class:FixPkOnFriends
 down	db/migrate/20111128220109_remove_picture_from_friends.rb	/^  def down$/;"	f	class:RemovePictureFromFriends
 ea	app/assets/javascripts/jquery.dataTables.min.js	/^typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a,d){for(var f=0,h=b.length-1;f<h;f++)a=a[b[f]];a[b[b.length-1]]=d}}return function(b,d){b[a]=d}}function X(a){for(var b=[],c=a.aoData.length,d=0;d<c;d++)b.push(a.aoData[d]._aData);return b}function ea(a){a.aoData.splice(0,a.aoData.length);a.aiDisplayMaster.splice(0,a.aiDisplayMaster.length);a.aiDisplay.splice(0,a.aiDisplay.length);z(a)}function fa(a,b){for(var c=-1,d=0,f=a.length;d<f;d++)a[d]==b?c=d:a[d]>b&&a[d]--; -1!=c&&a.splice(c,$/;"	f
-edit	app/controllers/courses_controller.rb	/^  def edit$/;"	f	class:CoursesController
 edit	app/controllers/devise/passwords_controller.rb	/^  def edit$/;"	f	class:Devise
 edit	app/controllers/devise/registrations_controller.rb	/^  def edit$/;"	f	class:Devise
 edit	app/controllers/user_courses_controller.rb	/^  def edit$/;"	f	class:UserCoursesController
+edit	app/controllers/wall_messages_controller.rb	/^  def edit$/;"	f	class:WallMessagesController
 fa	app/assets/javascripts/jquery.dataTables.min.js	/^typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a,d){for(var f=0,h=b.length-1;f<h;f++)a=a[b[f]];a[b[b.length-1]]=d}}return function(b,d){b[a]=d}}function X(a){for(var b=[],c=a.aoData.length,d=0;d<c;d++)b.push(a.aoData[d]._aData);return b}function ea(a){a.aoData.splice(0,a.aoData.length);a.aiDisplayMaster.splice(0,a.aiDisplayMaster.length);a.aiDisplay.splice(0,a.aiDisplay.length);z(a)}function fa(a,b){for(var c=-1,d=0,f=a.length;d<f;d++)a[d]==b?c=d:a[d]>b&&a[d]--; -1!=c&&a.splice(c,$/;"	f
 fa.R	app/assets/javascripts/jquery.dataTables.min.js	/^1)}function R(a,b,c){var d=a.aoColumns[c];return d.fnRender({iDataRow:b,iDataColumn:c,oSettings:a,aData:a.aoData[b]._aData,mDataProp:d.mDataProp},w(a,b,c,"display"))}function ca(a,b){var c=a.aoData[b],d;if(null===c.nTr){c.nTr=k.createElement("tr");c.nTr._DT_RowIndex=b;if(c._aData.DT_RowId)c.nTr.id=c._aData.DT_RowId;c._aData.DT_RowClass&&i(c.nTr).addClass(c._aData.DT_RowClass);for(var f=0,h=a.aoColumns.length;f<h;f++){var g=a.aoColumns[f];d=k.createElement("td");d.innerHTML="function"===typeof g.fnRender&&$/;"	f
 fa.ca	app/assets/javascripts/jquery.dataTables.min.js	/^1)}function R(a,b,c){var d=a.aoColumns[c];return d.fnRender({iDataRow:b,iDataColumn:c,oSettings:a,aData:a.aoData[b]._aData,mDataProp:d.mDataProp},w(a,b,c,"display"))}function ca(a,b){var c=a.aoData[b],d;if(null===c.nTr){c.nTr=k.createElement("tr");c.nTr._DT_RowIndex=b;if(c._aData.DT_RowId)c.nTr.id=c._aData.DT_RowId;c._aData.DT_RowClass&&i(c.nTr).addClass(c._aData.DT_RowClass);for(var f=0,h=a.aoColumns.length;f<h;f++){var g=a.aoColumns[f];d=k.createElement("td");d.innerHTML="function"===typeof g.fnRender&&$/;"	f
@@ -241,6 +252,7 @@ index	app/controllers/courses_controller.rb	/^  def index$/;"	f	class:CoursesCon
 index	app/controllers/homepage_controller.rb	/^  def index$/;"	f	class:HomepageController
 index	app/controllers/preferences_controller.rb	/^  def index$/;"	f	class:PreferencesController
 index	app/controllers/user_courses_controller.rb	/^  def index$/;"	f	class:UserCoursesController
+index	app/controllers/wall_messages_controller.rb	/^  def index$/;"	f	class:WallMessagesController
 initialize	lib/college_importer.rb	/^      def initialize(term = "20126")$/;"	f	class:CollegeImporter.FSU.Import
 initialize	lib/isbndb.rb	/^      def initialize(isbn)$/;"	f	class:ISBN.API.Price
 initialize	lib/scheduler.rb	/^  def initialize(work_times, course_list)$/;"	f	class:Scheduler
@@ -273,13 +285,13 @@ n.C	app/assets/javascripts/jquery.dataTables.min.js	/^function C(a,b,c,d){for(va
 n.Pa	app/assets/javascripts/jquery.dataTables.min.js	/^j.ext.sErrMode)alert(a);else throw a;else console!==l&&console.log&&console.log(a)}function n(a,b,c,d){d===l&&(d=c);b[c]!==l&&(a[d]=b[c])}function Sa(a,b){for(var c in a)a.hasOwnProperty(c)&&b[c]!==l&&("object"===typeof e[c]&&!1===i.isArray(b[c])?i.extend(!0,a[c],b[c]):a[c]=b[c]);return a}function Pa(a,b,c){i(a).bind("click.DT",b,function(b){c(b);a.blur()}).bind("keypress.DT",b,function(a){13===a.which&&c(a)}).bind("selectstart.DT",function(){return!1})}function A(a,b,c,d){c&&a[b].push({fn:c,sName:d})}$/;"	f
 n.Sa	app/assets/javascripts/jquery.dataTables.min.js	/^j.ext.sErrMode)alert(a);else throw a;else console!==l&&console.log&&console.log(a)}function n(a,b,c,d){d===l&&(d=c);b[c]!==l&&(a[d]=b[c])}function Sa(a,b){for(var c in a)a.hasOwnProperty(c)&&b[c]!==l&&("object"===typeof e[c]&&!1===i.isArray(b[c])?i.extend(!0,a[c],b[c]):a[c]=b[c]);return a}function Pa(a,b,c){i(a).bind("click.DT",b,function(b){c(b);a.blur()}).bind("keypress.DT",b,function(a){13===a.which&&c(a)}).bind("selectstart.DT",function(){return!1})}function A(a,b,c,d){c&&a[b].push({fn:c,sName:d})}$/;"	f
 n.Ta	app/assets/javascripts/jquery.dataTables.min.js	/^function C(a,b,c,d){for(var b=a[b],f=[],h=b.length-1;0<=h;h--)f.push(b[h].fn.apply(a.oInstance,d));null!==c&&i(a.oInstance).trigger(c,d);return f}function Ta(a){return function(){var b=[u(this[j.ext.iApiIndex])].concat(Array.prototype.slice.call(arguments));return j.ext.oApi[a].apply(this,b)}}var Ua=aa.JSON?JSON.stringify:function(a){var b=typeof a;if("object"!==b||null===a)return"string"===b&&(a='"'+a+'"'),a+"";var c,d,f=[],h=i.isArray(a);for(c in a)d=a[c],b=typeof d,"string"===b?d='"'+d+'"':"object"===$/;"	f
-new	app/controllers/courses_controller.rb	/^  def new$/;"	f	class:CoursesController
 new	app/controllers/devise/confirmations_controller.rb	/^  def new$/;"	f	class:Devise
 new	app/controllers/devise/passwords_controller.rb	/^  def new$/;"	f	class:Devise
 new	app/controllers/devise/registrations_controller.rb	/^  def new$/;"	f	class:Devise
 new	app/controllers/devise/sessions_controller.rb	/^  def new$/;"	f	class:Devise
 new	app/controllers/devise/unlocks_controller.rb	/^  def new$/;"	f	class:Devise
 new	app/controllers/user_courses_controller.rb	/^  def new$/;"	f	class:UserCoursesController
+new	app/controllers/wall_messages_controller.rb	/^  def new$/;"	f	class:WallMessagesController
 o	app/assets/javascripts/jquery.dataTables.min.js	/^(function(i,aa,k,l){var j=function(e){function o(a,b){var c=j.defaults.columns,d=a.aoColumns.length,c=i.extend({},j.models.oColumn,c,{sSortingClass:a.oClasses.sSortable,sSortingClassJUI:a.oClasses.sSortJUI,nTh:b?b:k.createElement("th"),sTitle:c.sTitle?c.sTitle:b?b.innerHTML:"",aDataSort:c.aDataSort?c.aDataSort:[d],mDataProp:c.mDataProp?c.oDefaults:d});a.aoColumns.push(c);if(a.aoPreSearchCols[d]===l||null===a.aoPreSearchCols[d])a.aoPreSearchCols[d]=i.extend({},j.models.oSearch);else{c=a.aoPreSearchCols[d];$/;"	f
 parse_departments	lib/college_importer.rb	/^      def parse_departments$/;"	f	class:CollegeImporter.FSU.Import
 parse_dept_html	lib/college_importer.rb	/^      def parse_dept_html(response)$/;"	f	class:CollegeImporter.FSU.Import
@@ -303,14 +315,18 @@ require_login!	app/controllers/application_controller.rb	/^  def require_login!$
 run	lib/college_importer.rb	/^      def run$/;"	f	class:CollegeImporter.FSU.Import
 run_rake	config/deploy.rb	/^def run_rake(cmd)$/;"	f
 sa	app/assets/javascripts/jquery.dataTables.min.js	/^null===c?"":c}function J(a,b,c,d){a.aoColumns[c].fnSetData(a.aoData[b]._aData,d)}function V(a){if(null===a)return function(){return null};if("function"===typeof a)return function(b,d){return a(b,d)};if("string"===typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a){for(var d=0,f=b.length;d<f;d++)if(a=a[b[d]],a===l)return l;return a}}return function(b){return b[a]}}function sa(a){if(null===a)return function(){};if("function"===typeof a)return function(b,d){a(b,"set",d)};if("string"===$/;"	f
+safe_name	app/models/user.rb	/^  def safe_name$/;"	f	class:User
 selector_for	features/support/selectors.rb	/^  def selector_for(locator)$/;"	f	class:HtmlSelectorsHelpers
+set_obj_type	app/controllers/wall_messages_controller.rb	/^  def set_obj_type$/;"	f	class:WallMessagesController
 set_preferences	app/controllers/application_controller.rb	/^  def set_preferences$/;"	f	class:ApplicationController
 setup	lib/isbndb.rb	/^      def setup $/;"	f	class:ISBN.API.Price
 setup	lib/scrapers/bookstore.rb	/^    def setup$/;"	f	class:Bookstore.Fetch
 show	app/controllers/courses_controller.rb	/^  def show$/;"	f	class:CoursesController
 show	app/controllers/devise/confirmations_controller.rb	/^  def show$/;"	f	class:Devise
 show	app/controllers/devise/unlocks_controller.rb	/^  def show$/;"	f	class:Devise
+show	app/controllers/instructors_controller.rb	/^  def show$/;"	f	class:InstructorsController
 show	app/controllers/user_courses_controller.rb	/^  def show$/;"	f	class:UserCoursesController
+show	app/controllers/wall_messages_controller.rb	/^  def show$/;"	f	class:WallMessagesController
 show_worktime	app/assets/javascripts/application.js	/^function show_worktime(obj){$/;"	f
 stub_options	app/controllers/devise/sessions_controller.rb	/^  def stub_options(resource)$/;"	f	class:Devise
 test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
@@ -404,11 +420,12 @@ up	db/migrate/20111004135455_change_class_time_on_preferences.rb	/^  def up$/;"	
 up	db/migrate/20111128214604_remove_facebook_user_id_from_friends.rb	/^  def up$/;"	f	class:RemoveFacebookUserIdFromFriends
 up	db/migrate/20111128214828_fix_pk_on_friends.rb	/^  def up$/;"	f	class:FixPkOnFriends
 up	db/migrate/20111128220109_remove_picture_from_friends.rb	/^  def up$/;"	f	class:RemovePictureFromFriends
-update	app/controllers/courses_controller.rb	/^  def update$/;"	f	class:CoursesController
 update	app/controllers/devise/passwords_controller.rb	/^  def update$/;"	f	class:Devise
 update	app/controllers/devise/registrations_controller.rb	/^  def update$/;"	f	class:Devise
 update	app/controllers/preferences_controller.rb	/^  def update$/;"	f	class:PreferencesController
 update	app/controllers/user_courses_controller.rb	/^  def update$/;"	f	class:UserCoursesController
+update	app/controllers/wall_messages_controller.rb	/^  def update$/;"	f	class:WallMessagesController
+valid_attributes	spec/controllers/wall_messages_controller_spec.rb	/^  def valid_attributes$/;"	f
 var.d.iCreate	app/assets/javascripts/jquery.dataTables.min.js	/^"2"))for(c=0,a=d.length\/g;c<a;c++)d[g*c+b].className=i.trim(d[g*c+b].className.replace(h+"2",""));else if(-1!=d[b].className.indexOf(h+"3"))for(c=0,a=d.length\/g;c<a;c++)d[g*c+b].className=i.trim(d[g*c+b].className.replace(" "+h+"3",""));var e=1,j;for(b=0;b<f.length;b++){j=parseInt(f[b][0],10);for(c=0,a=d.length\/g;c<a;c++)d[g*c+j].className+=" "+h+e;3>e&&e++}}}function pa(a){if(a.oFeatures.bStateSave&&!a.bDestroying){var b,c;b=a.oScroll.bInfinite;var d={iCreate:(new Date).getTime(),iStart:b?0:a._iDisplayStart,$/;"	p
 w.J	app/assets/javascripts/jquery.dataTables.min.js	/^null===c?"":c}function J(a,b,c,d){a.aoColumns[c].fnSetData(a.aoData[b]._aData,d)}function V(a){if(null===a)return function(){return null};if("function"===typeof a)return function(b,d){return a(b,d)};if("string"===typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a){for(var d=0,f=b.length;d<f;d++)if(a=a[b[d]],a===l)return l;return a}}return function(b){return b[a]}}function sa(a){if(null===a)return function(){};if("function"===typeof a)return function(b,d){a(b,"set",d)};if("string"===$/;"	f
 w.V	app/assets/javascripts/jquery.dataTables.min.js	/^null===c?"":c}function J(a,b,c,d){a.aoColumns[c].fnSetData(a.aoData[b]._aData,d)}function V(a){if(null===a)return function(){return null};if("function"===typeof a)return function(b,d){return a(b,d)};if("string"===typeof a&&-1!=a.indexOf(".")){var b=a.split(".");return function(a){for(var d=0,f=b.length;d<f;d++)if(a=a[b[d]],a===l)return l;return a}}return function(b){return b[a]}}function sa(a){if(null===a)return function(){};if("function"===typeof a)return function(b,d){a(b,"set",d)};if("string"===$/;"	f
