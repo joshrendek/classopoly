@@ -1,12 +1,12 @@
-%h1 Listing wall_messages
+- @wall_messages.each do |w|
+  .alert.alert-info
+    .pull-left
+      =w.content
+    .pull-right
+      =w.created_at.localtime.strftime("%m/%d/%Y %I:%m %p")
+    .clear
+    .pull-right
+      %b=w.try(:user).try(:safe_name)
+        
 
-%table
-  %tr
-    %th User
-    %th Content
-
-  - @wall_messages.each do |wall_message|
-    %tr
-      %td= wall_message.user_id
-      %td= wall_message.content
 

@@ -16,14 +16,25 @@ describe User do
     end_time: Time.new(2000, 1, 1, 16, 00),
     days: "MW")
 
-    # @user.stub(:find_friends_courses => [@course])
+    @user.stub(:find_friends_courses => [@course])
 
     @user.stub(:courses => [@course])
     @friend.stub(:courses => [@course])
 
   end
 
-  context "Should find a friends courses" do 
-    @user.find_friends_courses.should == [@course]
+  context "find friends courses" do 
+    it "should find courses that friends are in" do 
+      @user.find_friends_courses.should == [@course]
+    end
   end
+
+  context "displaying user information" do
+    it "shouldn't show a users full name" do
+      @user = User.new(:name => "Test User")
+      @user.safe_name.should == "Test U."
+    end
+  end
+
+
 end

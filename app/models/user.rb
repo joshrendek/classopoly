@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :name, :link, :gender
 
+  def safe_name
+    tmp = name.split(" ")
+    [tmp[0], tmp[1][0]].join(" " ) + "."
+  end
+
   def get_friends
     auth = authorizations.find_by_provider('facebook')
     user = FbGraph::User.me(auth.token)

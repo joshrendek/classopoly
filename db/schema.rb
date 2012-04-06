@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(:version => 20120406032048) do
 
   create_table "wall_messages", :force => true do |t|
     t.integer  "user_id"
-    t.string   "messageable_type"
-    t.integer  "messagable_id"
+    t.string   "messagee_type"
+    t.integer  "message_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"

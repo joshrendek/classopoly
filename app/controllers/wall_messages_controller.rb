@@ -3,7 +3,7 @@ class WallMessagesController < ApplicationController
   before_filter :set_obj_type
 
   def index
-    @wall_messages = @type.wall_messages
+    @wall_messages = @type.wall_messages.order("id desc").limit(50)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -35,6 +35,7 @@ class WallMessagesController < ApplicationController
 
   def create
     @wall_message = WallMessage.new(params[:wall_message])
+    @wall_message.user = current_user
 
 
     @wall_message.message = @type
