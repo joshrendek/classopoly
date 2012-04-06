@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :courses, :through => :user_courses
   has_many :pending_invites
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :name, :link, :gender
 
   def get_friends
     auth = authorizations.find_by_provider('facebook')
@@ -69,8 +69,12 @@ class User < ActiveRecord::Base
       user
     else # Create a user with a stub password. 
       #logger.info access_token.to_yaml
+# binding.pry
+
       user = User.create(:email => data["email"], :password => Devise.friendly_token[0,20], 
-                  :facebook_user_id => access_token['extra']['user_hash']['id'].to_i) 
+                  :facebook_user_id => access_token['extra']['user_hash']['id'].to_i,
+                  :name => access_token['extra']['user_hash']['name'], :link => access_token['extra']['user_hash']['link'],
+                  :gender => access_token['extra']['user_hash']['gender']) 
 
       return user
     end
