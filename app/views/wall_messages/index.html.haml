@@ -3,23 +3,10 @@
 %table
   %tr
     %th User
-    %th Messageable type
-    %th Messagable
     %th Content
-    %th
-    %th
-    %th
 
   - @wall_messages.each do |wall_message|
     %tr
       %td= wall_message.user_id
-      %td= wall_message.messageable_type
-      %td= wall_message.messagable_id
       %td= wall_message.content
-      %td= link_to 'Show', wall_message
-      %td= link_to 'Edit', edit_wall_message_path(wall_message)
-      %td= link_to 'Destroy', wall_message, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-= link_to 'New Wall message', new_wall_message_path

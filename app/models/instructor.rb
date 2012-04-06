@@ -1,6 +1,6 @@
 class Instructor < ActiveRecord::Base
   has_many :courses
-  has_many :wall_messages, :as => :messagable
+  has_many :wall_messages, :as => :message
 
   def self.load_instructors(college, data)
     require 'digest/md5'    

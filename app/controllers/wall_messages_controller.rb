@@ -1,6 +1,9 @@
 class WallMessagesController < ApplicationController
+  layout nil
+  before_filter :set_obj_type
+
   def index
-    @wall_messages = WallMessage.all
+    @wall_messages = @type.wall_messages
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,14 +36,8 @@ class WallMessagesController < ApplicationController
   def create
     @wall_message = WallMessage.new(params[:wall_message])
 
-    if params[:course_id]
-      @type = Course.find(params[:course_id])
-    elsif params[:instructor_id]
-      @type = Instructor.find(params[:instructor_id])
-    end
 
-    @wall_message.messagable_id = @type.id
-    @wall_message.messageable_type = @type.class.name
+    @wall_message.message = @type
 
     respond_to do |format|
       if @wall_message.save
@@ -74,6 +71,15 @@ class WallMessagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to wall_messages_url }
       format.json { head :ok }
+    end
+  end
+
+  private
+  def set_obj_type
+    if params[:course_id]
+      @type = Course.find(params[:course_id])
+    elsif params[:instructor_id]
+      @type = Instructor.find(params[:instructor_id])
     end
   end
 end

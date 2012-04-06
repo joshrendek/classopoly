@@ -1,4 +1,4 @@
 class WallMessage < ActiveRecord::Base
   belongs_to :user 
-  belongs_to :messagable, :polymorphic => true
+  belongs_to :message, :polymorphic => true
 end

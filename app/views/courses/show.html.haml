@@ -29,4 +29,14 @@
 
   = @course.days 
 
+#message_board 
 = render 'wall_messages/form'
+
+:javascript
+  $(document).ready(function() { 
+    $('#message_board').load('#{course_wall_messages_path(@course.id)}');
+    $('#new_wall_message').bind("ajax:success", function(evt, data, status, xhr){ 
+      $('#message_board').load('#{course_wall_messages_path(@course.id)}');
+    });
+  });
+
