@@ -13,6 +13,10 @@ class UserCoursesController < ApplicationController
     # u = Scheduler.new("monday,00:01,1:00", ['COP3014', 'COP3252']); u.find_courses_in_slices; u.get_courses
     # builder = Scheduler.new(current_user.preferences.workdays, current_user.user_courses.collect {|uc| uc.tag })
     # builder.find_courses_in_slices
+    if current_user.courses.count == 0 
+      flash[:alert] = "You must add a course first before you can generate a schedule."
+      redirect_to courses_path  and return
+    end
     respond_to do |f|
       f.html
       f.json { 
