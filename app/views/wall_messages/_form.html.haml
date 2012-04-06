@@ -1,0 +1,13 @@
+= form_for [@type, @wall_message] do |f|
+  -if @wall_message.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@wall_message.errors.count, "error")} prohibited this wall_message from being saved:"
+      %ul
+        - @wall_message.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions
+    = f.submit 'Save'

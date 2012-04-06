@@ -2,6 +2,7 @@ class Course < ActiveRecord::Base
   belongs_to :instructor
   belongs_to :college
   has_many :books
+  has_many :wall_messages, :as => :messagable
   
   def human_term
     case term[-1].to_i 

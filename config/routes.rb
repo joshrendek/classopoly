@@ -1,4 +1,6 @@
 Classly::Application.routes.draw do
+  resources :wall_messages
+
   get '/friends', :to => "facebook#friends"
   get '/friends/invite/:uid', :to => "facebook#invite", :as => "invite_friend"
   get '/preferences', :to => "preferences#index"
@@ -12,9 +14,13 @@ Classly::Application.routes.draw do
     end
   end
 
-  resources :instructors
+  resources :instructors do 
+    resources :wall_messages
+  end
 
-  resources :courses
+  resources :courses do 
+    resources :wall_messages
+  end
 
   root :to => "homepage#index"
 

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @wall_message.user_id
+%p
+  %b Messageable type:
+  = @wall_message.messageable_type
+%p
+  %b Messagable:
+  = @wall_message.messagable_id
+%p
+  %b Content:
+  = @wall_message.content
+
+= link_to 'Edit', edit_wall_message_path(@wall_message)
+\|
+= link_to 'Back', wall_messages_path

@@ -13,6 +13,7 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph" # DONT CONFUSE THIS WITH fbgraph
 gem 'formtastic'
 gem 'haml'
+gem 'haml-rails'
 gem 'kaminari'
 gem "unicorn"
 gem "valium"
@@ -34,7 +35,7 @@ group :development, :test do
   gem "database_cleaner"
   gem 'cucumber'
   gem 'cucumber-rails'
-  gem 'railroady'
+  # gem 'railroady' # causes some issues with generating scaffolds
   gem 'simplecov'
   gem 'colored'
   gem 'capistrano'
