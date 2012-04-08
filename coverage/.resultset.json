@@ -1,0 +1,53 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/joshrendek/apps/classopoly/app/models/instructor.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        3,
+        3,
+        null,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        null,
+        null,
+        null,
+        3,
+        2,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/joshrendek/apps/classopoly/app/models/college.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1333856919
+  }
+}

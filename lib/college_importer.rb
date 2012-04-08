@@ -72,7 +72,7 @@ module CollegeImporter
           end
         end
 
-        p "[ Found #{@departments.size} departments ]"
+        # p "[ Found #{@departments.size} departments ]"
 
 
       end

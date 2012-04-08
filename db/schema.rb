@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406032048) do
+ActiveRecord::Schema.define(:version => 20120408034659) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -79,10 +79,7 @@ ActiveRecord::Schema.define(:version => 20120406032048) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "last_name"
-    t.string   "college_name_hash", :null => false
   end
-
-  add_index "instructors", ["college_name_hash"], :name => "index_instructors_on_college_name_hash", :unique => true
 
   create_table "pending_invites", :force => true do |t|
     t.integer  "uid",        :limit => 8
@@ -131,7 +128,7 @@ ActiveRecord::Schema.define(:version => 20120406032048) do
 
   create_table "wall_messages", :force => true do |t|
     t.integer  "user_id"
-    t.string   "message_type"
+    t.string   "messagee_type"
     t.integer  "message_id"
     t.text     "content"
     t.datetime "created_at"
