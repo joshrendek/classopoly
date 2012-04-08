@@ -13,10 +13,8 @@ class Instructor < ActiveRecord::Base
     @college = college
 
     data.each do |d|
-      begin
         if d['instructor'] != "STAFF"
           x = d['instructor' ].split(',')
-          cn_hash = Digest::MD5.hexdigest(@college.name + d['instructor'])
           i = Instructor.new(:name => d['instructor'],
                              :college_id => college, 
                              :last_name => x[0])
@@ -29,9 +27,6 @@ class Instructor < ActiveRecord::Base
           end
 
         end
-      rescue Exception => e
-        print "\n Error: #{e} on #{d}"
-      end
     end
 
   end

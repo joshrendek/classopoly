@@ -1,4 +1,11 @@
-require 'spec_helper'
+require 'spec_lite'
+require 'devise'
+require './config/initializers/app_config'
+require './config/initializers/devise'
+require './app/models/friend'
+require './app/models/user'
+require 'pry'
+
 
 describe User do
   before(:each) do 
