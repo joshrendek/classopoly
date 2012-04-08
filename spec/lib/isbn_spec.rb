@@ -4,6 +4,7 @@ require './lib/isbndb'
 require 'hpricot'
 require 'pry'
 
+require 'spec_coverage'
 require 'yaml'
 require './config/initializers/app_config'
 

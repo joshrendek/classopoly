@@ -1,4 +1,5 @@
 require 'spec_helper' 
+require 'spec_coverage'
 
 describe ApplicationHelper do 
   include ActionView::Helpers::AssetTagHelper

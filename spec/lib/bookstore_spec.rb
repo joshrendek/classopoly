@@ -5,6 +5,8 @@ require './lib/scrapers/bookstore'
 require 'hpricot'
 require 'pry'
 
+require 'spec_coverage'
+
 describe Bookstore do
 
   before(:all) do 

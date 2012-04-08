@@ -6,6 +6,7 @@ require './app/models/college'
 require './app/models/course'
 require 'hpricot'
 require 'pry'
+require 'spec_coverage'
 
 describe CollegeImporter do
   before(:each) do 
