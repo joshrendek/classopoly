@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   def find_friends_in_course(course_id)
     fbid = facebook_user_id
-    friends = Friend.where(:facebook_friend_id => fbid).where("user_id != ?", id).collect {|f| f.user } 
+    friends = Friend.where(:facebook_friend_id => fbid).where("user_id != ?", id).collect {|f| f.user }.compact
     friend_ids = []
     friends.each do |f|
       fc = f.courses.where(:id => course_id)
