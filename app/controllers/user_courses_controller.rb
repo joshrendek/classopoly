@@ -103,6 +103,7 @@ class UserCoursesController < ApplicationController
           ucourse = current_user.user_courses.where(:course_id => course.id).first
           u['remove'] = self.class.helpers.link_to "Remove", user_course_path(ucourse), 
             :method => :delete
+          u['course_number'] = self.class.helpers.link_to u['course_number'], course_path(course.id)
           u['instructor'] = course.try(:instructor).try(:name)
           u['college'] = course.college.college_tag.upcase
           u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
