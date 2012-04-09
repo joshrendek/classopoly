@@ -37,7 +37,7 @@ class UserCoursesController < ApplicationController
           u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
           u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
           u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
-          u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) )
+          u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) ).join("<br />")
           u['books'] = number_to_currency ( course.books.collect { |c| c.average_price }.sum )
         end
         render :json => json.struct
