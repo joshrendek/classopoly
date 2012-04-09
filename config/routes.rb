@@ -1,4 +1,8 @@
 Classly::Application.routes.draw do
+  get "/faq", :to => "static_page#faq"
+
+  get "/about", :to => "static_page#about"
+
   get "instructor_vote/create"
 
   resources :wall_messages

@@ -3,7 +3,8 @@
     - @friends.each_with_index do |friend, i|
       - if i % 5 == 0
         %tr
-      %td=image_tag "https://graph.facebook.com/#{friend.facebook_friend_id}/picture", :size => "24x24", :style => "float: left;"
+      %td
+        %iframe{:src => "https://graph.facebook.com/#{friend.facebook_friend_id}/picture", :width => "24", :height => "24", :frameborder => 0, :scrolling => "no", :style => "float: left"}
       %td=friend.name
       - if Authorization.find_by_uid(friend.facebook_friend_id)
         %td
