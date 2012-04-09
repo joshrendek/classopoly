@@ -37,6 +37,5 @@ describe Instructor do
       Instructor.load_instructors(@college, @classes)
       Instructor.all.count.should eq(1)
     end
-
   end
 end

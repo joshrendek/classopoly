@@ -9,6 +9,10 @@ class Instructor < ActiveRecord::Base
 
 
 
+  def rating 
+    self.instructor_votes.values_of(:rating).sum.to_f/self.instructor_votes.count.to_f
+  end
+
   def self.load_instructors(college, data)
     require 'digest/md5'    
     @college = college
