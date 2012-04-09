@@ -1,4 +1,5 @@
 class UserCoursesController < ApplicationController
+  include ActionView::Helpers::NumberHelper
   before_filter :require_login!
 
   DatatableFields = ["remove", "course_number", "section", "title","instructor", 
@@ -7,7 +8,7 @@ class UserCoursesController < ApplicationController
 
   GeneratedList = ["course_number", "section", "title","instructor", 
                      "seats_left", "seats", "building", "room", "begin_time",
-                     "end_time", "days", "friends"]
+                     "end_time", "days", "friends", "books"]
 
   def generate_course_list
     # u = Scheduler.new("monday,00:01,1:00", ['COP3014', 'COP3252']); u.find_courses_in_slices; u.get_courses
@@ -32,6 +33,7 @@ class UserCoursesController < ApplicationController
           u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
           u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
           u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) )
+          u['books'] = number_to_currency ( course.books.collect { |c| c.average_price }.sum )
         end
         render :json => json.struct
       }
