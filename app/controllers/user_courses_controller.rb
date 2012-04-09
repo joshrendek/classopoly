@@ -21,7 +21,12 @@ class UserCoursesController < ApplicationController
     respond_to do |f|
       f.html
       f.json { 
-        s = Scheduler.new(current_user.preferences.workdays.split("|"), current_user.courses)
+        begin 
+          workdays = current_user.preferences.workdays.split("|")
+        rescue
+          workdays = []
+        end 
+        s = Scheduler.new(workdays, current_user.courses)
         s.build
 
         available_course_ids = s.available_courses.collect {|c| c.id }
@@ -90,11 +95,11 @@ class UserCoursesController < ApplicationController
 
           e = e.where(search)
           total_record_size = e.count
-          e = e.page page
+          e = e.page(page).per(display_length)
           #logger.info "EQ: " + e.to_sql
         else
           total_record_size = e.count
-          e = e.page page
+          e = e.page(page).per(display_length)
         end
 
 

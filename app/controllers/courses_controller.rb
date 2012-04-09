@@ -53,11 +53,11 @@ class CoursesController < ApplicationController
 
             e = e.where(search)
             total_record_size = e.count
-            e = e.page page
+            e = e.page(page).per(display_length)
             #logger.info "EQ: " + e.to_sql
           else
             total_record_size = e.count
-            e = e.page page
+            e = e.page(page).per(display_length)
           end
 
 
