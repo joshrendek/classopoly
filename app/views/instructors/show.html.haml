@@ -32,6 +32,9 @@
     });
 
     $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
+    $('#instructor_vote').bind("click", function() { 
+      $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
+    });
     $('#new_instructor_vote').bind("ajax:success", function(evt, data, status, xhr){ 
       $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
       $('#new_instructor_vote').fadeOut();

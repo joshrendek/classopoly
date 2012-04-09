@@ -1,3 +1,3 @@
 = form_for [@instructor, @instructor_vote], :remote => true do |f|
  = f.select(:rating, (1..10).to_a,  {}, :style => "width: 50px !important;")
- = f.submit 'Vote', :class => "btn btn-primary"
+ = f.submit 'Vote', :class => "btn btn-primary", :id => "instructor_vote"
