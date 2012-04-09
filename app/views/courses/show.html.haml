@@ -37,6 +37,12 @@
 
   = render 'wall_messages/form'
 
+  %hr
+
+  %h4 Friends in Class
+  =raw User.friend_ids_to_names( current_user.find_friends_in_course(@course.id) ).join("<br />")
+
+
 .container-fluid
   .row-fluid
     .span10
