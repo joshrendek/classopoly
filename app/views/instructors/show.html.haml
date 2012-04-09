@@ -14,7 +14,8 @@
   %hr
   %h3 Courses Being Taught
   - @instructor.courses.each do |course|
-    = link_to course.course_number, course
+    %p 
+      = link_to course.course_number, course
 
 
 .container-fluid
