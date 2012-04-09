@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_user_id, :name, :link, :gender
 
+  def voted_for_instructor?(instructor)
+    v = InstructorVote.where(:user_id => id, :instructor_id => instructor.id)
+
+    v.count > 0 ? true : false
+  end
+
   def safe_name
     tmp = name.split(" ")
     [tmp[0], tmp[1][0]].join(" " ) + "."

@@ -6,7 +6,10 @@
       Rating:
     %span#rating
 
-  = render 'instructor_vote/form'
+  %p#after_voting
+
+  
+  = render 'instructor_vote/form' unless current_user.voted_for_instructor?(@instructor)
 
   %hr
   = render 'wall_messages/form'
@@ -34,9 +37,11 @@
     $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
     $('#instructor_vote').bind("click", function() { 
       $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
+      $('#new_instructor_vote').slideUp();
+      $('#after_voting').html('<span class="alert alert-info">Thanks for voting! Why don\'t you leave a message too?</span>')
+
     });
     $('#new_instructor_vote').bind("ajax:success", function(evt, data, status, xhr){ 
-      $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
       $('#new_instructor_vote').fadeOut();
     });
 
