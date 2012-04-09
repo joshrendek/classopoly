@@ -1,4 +1,6 @@
 Classly::Application.routes.draw do
+  get "instructor_vote/create"
+
   resources :wall_messages
 
   get '/friends', :to => "facebook#friends"
@@ -15,6 +17,7 @@ Classly::Application.routes.draw do
   end
 
   resources :instructors do 
+    resources :instructor_votes
     resources :wall_messages
   end
 

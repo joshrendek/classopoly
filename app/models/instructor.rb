@@ -1,6 +1,7 @@
 class Instructor < ActiveRecord::Base
   has_many :courses
   has_many :wall_messages, :as => :message
+  has_many :instructor_votes
 
   validates_uniqueness_of :name, :college_id,
                           :scope => 
@@ -20,10 +21,10 @@ class Instructor < ActiveRecord::Base
                              :last_name => x[0])
                              
           if i.save 
-            print "\nInstructor created: #{@college.name}: #{d['instructor']}"
+            #print "\nInstructor created: #{@college.name}: #{d['instructor']}"
           else
 
-            print "\n Instructor already found: #{d['instructor']}"
+            #print "\n Instructor already found: #{d['instructor']}"
           end
 
         end

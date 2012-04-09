@@ -2,11 +2,26 @@
   %h3
     = @instructor.name
 
-.container
-  .span8
-    #message_board 
-  .span2
-    = render 'wall_messages/form'
+  %p 
+    %b
+      Rating:
+    %span#rating
+
+  = render 'instructor_vote/form'
+
+  %hr
+  = render 'wall_messages/form'
+
+  %hr
+  %h3 Courses Being Taught
+  - @instructor.courses.each do |course|
+    = link_to course.course_number, course
+
+
+.container-fluid
+  .row-fluid
+    .span12
+      #message_board 
 
 :javascript
   $(document).ready(function() { 
@@ -15,5 +30,12 @@
       $('#message_board').load('#{instructor_wall_messages_path(@instructor.id)}');
       $('#wall_message_content').val("");
     });
+
+    $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
+    $('#new_instructor_vote').bind("ajax:success", function(evt, data, status, xhr){ 
+      $('#rating').load('#{instructor_instructor_votes_path(@instructor.id)}');
+      $('#new_instructor_vote').fadeOut();
+    });
+
   });
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408034659) do
+ActiveRecord::Schema.define(:version => 20120409023512) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20120408034659) do
 
   add_index "friends", ["user_id", "facebook_friend_id"], :name => "user_id,facebook_friend_id", :unique => true
 
+  create_table "instructor_votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "instructor_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "instructors", :force => true do |t|
     t.string   "name"
     t.integer  "college_id"
@@ -128,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20120408034659) do
 
   create_table "wall_messages", :force => true do |t|
     t.integer  "user_id"
-    t.string   "messagee_type"
+    t.string   "message_type"
     t.integer  "message_id"
     t.text     "content"
     t.datetime "created_at"

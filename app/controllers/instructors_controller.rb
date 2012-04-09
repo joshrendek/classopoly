@@ -4,8 +4,7 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.find(params[:id])
     @wall_message = WallMessage.new
     @type = @instructor
-
-
+    @instructor_vote = InstructorVote.new
   end
 end 
 

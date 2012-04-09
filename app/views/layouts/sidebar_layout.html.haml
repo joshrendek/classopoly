@@ -11,9 +11,9 @@
       = content_tag :div, raw("<p><center>" + msg + "</center></p>"), :class => "alert-message #{name}"
     %div.container-fluid
       .row-fluid 
-        .span2.sidebar
+        .span3.sidebar
           = yield :sidebar
-        .span10
+        .span9
           = yield
 
   = render 'shared/footer'

@@ -71,7 +71,7 @@ class CoursesController < ApplicationController
               u['add'] = "Added"
             end
             u['course_number'] = self.class.helpers.link_to u['course_number'], course_path(:id => u['id'])
-            u['instructor'] = course.try(:instructor).try(:name)
+            u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
             u['college'] = course.college.college_tag.upcase
             u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
             u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")

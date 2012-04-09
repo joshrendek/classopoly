@@ -16,24 +16,31 @@
     Building: 
     = @course.building 
 
+  %p
+    Seats Left:
+    = @course.seats_left
 
-  = @course.seats 
+  %p 
+    Room:
+    = @course.room 
 
-
-  = @course.room 
-
-  = @course.begin_time 
-
-  = @course.end_time 
+  %p 
+    Course Time:
+    = @course.begin_time.localtime.strftime("%H:%I %p")
+    \- 
+    = @course.end_time.localtime.strftime("%H:%I %p")
 
 
   = @course.days 
 
-.container
-  .span8
-    #message_board 
-  .span2
-    = render 'wall_messages/form'
+  %hr
+
+  = render 'wall_messages/form'
+
+.container-fluid
+  .row-fluid
+    .span10
+      #message_board 
 
 :javascript
   $(document).ready(function() { 

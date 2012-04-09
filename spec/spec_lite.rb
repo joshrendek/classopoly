@@ -4,8 +4,6 @@ require 'active_support'
 require 'active_model'
 require 'arel'
 require 'rspec'
-
-
 require 'spec_coverage'
 
 raw_config = File.read(File.dirname(__FILE__) + "/../config/database.yml")
