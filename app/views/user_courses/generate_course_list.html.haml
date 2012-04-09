@@ -16,7 +16,7 @@
       %th Friends Taking Class
       %th Book Cost
   %tbody
-    = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true}, generate_course_list_user_courses_path(:format => :json), ::UserCoursesController::GeneratedList)
+    = raw DatatablesRails::Out.javascript("datatables", {:process => true, :paginate => true}, generate_course_list_user_courses_path(:format => :json), ::UserCoursesController::GeneratedList)
 
 
 

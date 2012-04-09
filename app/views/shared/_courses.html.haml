@@ -21,9 +21,14 @@
       %th Friends
   %tbody
     -if controller_name == "user_courses"
-      = raw DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, user_courses_path(:format => :json), ::UserCoursesController::DatatableFields)
+      = raw DatatablesRails::Out.javascript("datatables", {:process => true, 
+        :paginate => true, :server_side => true}, 
+        user_courses_path(:format => :json), ::UserCoursesController::DatatableFields)
     -else 
-      = raw  DatatablesRails::Out.javascript("datatables", {:process => true, :jqueryui => true, :paginate => true, :server_side => true}, courses_path(:format => :json), ::CoursesController::DatatableFields)
+      = raw  DatatablesRails::Out.javascript("datatables", 
+        {:process => true, :paginate => true, 
+        :server_side => true}, courses_path(:format => :json), 
+        ::CoursesController::DatatableFields)
 
 - if @unavailable_courses
   %h2 Unavailable Courses
