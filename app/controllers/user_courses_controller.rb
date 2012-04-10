@@ -34,9 +34,9 @@ class UserCoursesController < ApplicationController
         json = DatatablesRails::Structify.new(@courses)
         json.formatter do |u|
           course = Course.find(u['id'])
-          u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
+          u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
           u['course_number'] = self.class.helpers.link_to u['course_number'], course_path(course.id)
-          u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+          u['end_time'] = u['end_time'].strftime("%I:%M %p")
           u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
 
           u['friends'] = User.friend_ids_to_names( current_user.find_friends_in_course(u['id']) ).join("<br />")
@@ -115,8 +115,8 @@ class UserCoursesController < ApplicationController
           u['course_number'] = self.class.helpers.link_to u['course_number'], course_path(course.id)
           u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
           u['college'] = course.college.college_tag.upcase
-          u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
-          u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+          u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
+          u['end_time'] = u['end_time'].strftime("%I:%M %p")
           u['friends'] = current_user.find_friends_in_course(u['id']).size
         end
         json_struct = json.struct

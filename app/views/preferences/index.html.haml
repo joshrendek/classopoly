@@ -1,4 +1,19 @@
 %center
+  .alert.alert-info
+    %b Your Current Settings:
+    %p 
+      %b Class Time: 
+      = current_user.preferences.class_time.humanize
+    %p 
+      %b Lunch Time:
+      = current_user.preferences.lunch_time.localtime.strftime("%I:%M %P")
+    %p 
+      %b Work Times
+      - current_user.preferences.workdays.split("|").each do |t|
+        %p 
+          - t.split(",").each do |d|
+            = d.humanize
+    
   #step1
     %h1 When do you like to take your classes?
     %p 

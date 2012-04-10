@@ -73,8 +73,8 @@ class CoursesController < ApplicationController
             u['course_number'] = self.class.helpers.link_to u['course_number'], course_path(:id => u['id'])
             u['instructor'] = self.class.helpers.link_to course.try(:instructor).try(:name), instructor_path(:id => course.try(:instructor_id))
             u['college'] = course.college.college_tag.upcase
-            u['begin_time'] = u['begin_time'].localtime.strftime("%I:%M %p")
-            u['end_time'] = u['end_time'].localtime.strftime("%I:%M %p")
+            u['begin_time'] = u['begin_time'].strftime("%I:%M %p")
+            u['end_time'] = u['end_time'].strftime("%I:%M %p")
             u['friends'] = current_user.find_friends_in_course(u['id']).size
           end
           json_struct = json.struct
