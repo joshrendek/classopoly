@@ -5,7 +5,7 @@ Classopoly
 
 - Setting up a Facebook developer account
   * http://www.youtube.com/watch?v=WT_n4GpIWPw
-- Setting up Classopoly
+- Setting up Classopoly - https://github.com/bluescripts/classopoly/wiki/Setting-up-Classopoly
 
 
 ## Technology
@@ -16,7 +16,7 @@ Classopoly
 - unicorn
 
 ## Installation
-See the setting up video
+https://github.com/bluescripts/classopoly/wiki/Setting-up-Classopoly
 
 ### Install gems
 - bundle install 
